@@ -1,1 +1,1 @@
-# android-devstarter-2022
+# android-starter-2022
