@@ -1,3 +1,5 @@
+include(":app")
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -12,5 +14,3 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Android Starter"
-include ':app'
