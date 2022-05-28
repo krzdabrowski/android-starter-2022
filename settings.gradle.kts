@@ -1,4 +1,6 @@
 include(":app")
+include(":basic-feature")
+include(":core")
 
 pluginManagement {
     repositories {

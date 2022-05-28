@@ -1,9 +1,12 @@
 plugins {
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.detekt)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.junit)
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kotlinKapt)
+    alias(libs.plugins.kotlinParcelize)
+    alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.ktLint)
 }
 
@@ -11,11 +14,8 @@ android {
     compileSdk = 32
 
     defaultConfig {
-        applicationId = "eu.krzdabrowski.starter"
         minSdk = 24
         targetSdk = 32
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -26,12 +26,8 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = true
-            isShrinkResources = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android.txt"),
-                "proguard-rules.pro"
-            )
+            isMinifyEnabled = false
+            consumerProguardFiles("proguard-rules.pro")
         }
     }
 
@@ -47,16 +43,11 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
-
-    packagingOptions {
-        resources.excludes.add("/META-INF/{AL2.0,LGPL2.1}")
-    }
 }
 
 dependencies {
     implementation(project(":core"))
 
-    implementation(libs.composeActivity)
     implementation(libs.composeMaterial)
     implementation(libs.hilt)
     implementation(libs.timber)
