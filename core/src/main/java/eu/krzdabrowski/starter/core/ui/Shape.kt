@@ -1,4 +1,4 @@
-package eu.krzdabrowski.starter.core.ui.theme
+package eu.krzdabrowski.starter.core.ui
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

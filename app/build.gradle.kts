@@ -60,9 +60,9 @@ dependencies {
     implementation(libs.composeActivity)
     implementation(libs.composeMaterial)
     implementation(libs.composeNavigation)
+    implementation(libs.hilt)
     implementation(libs.kotlinCoroutines)
     implementation(libs.lifecycleRuntime)
-    implementation(libs.hilt)
     implementation(libs.timber)
 
     kapt(libs.hiltCompiler)

@@ -8,7 +8,7 @@ ktLint                              = "10.3.0"
 
 # production libraries
 coil                                = "2.1.0"
-compose                             = "1.2.0-beta02"
+compose                             = "1.2.0-beta03"
 composeActivity                     = "1.4.0"
 composeNavigation                   = "2.4.2"
 composeNavigationHilt               = "1.0.0"

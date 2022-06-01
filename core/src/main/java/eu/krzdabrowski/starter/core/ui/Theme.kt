@@ -1,4 +1,4 @@
-package eu.krzdabrowski.starter.core.ui.theme
+package eu.krzdabrowski.starter.core.ui
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

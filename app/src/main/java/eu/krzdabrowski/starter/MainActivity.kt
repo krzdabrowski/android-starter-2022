@@ -10,7 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import eu.krzdabrowski.starter.core.navigation.NavigationFactory
 import eu.krzdabrowski.starter.core.navigation.NavigationManager
-import eu.krzdabrowski.starter.core.ui.theme.AndroidStarterTheme
+import eu.krzdabrowski.starter.core.ui.AndroidStarterTheme
 import eu.krzdabrowski.starter.navigation.NavigationHost
 import javax.inject.Inject
 
