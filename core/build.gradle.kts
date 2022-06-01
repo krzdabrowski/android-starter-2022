@@ -45,7 +45,11 @@ android {
 
 dependencies {
     implementation(libs.composeMaterial)
+    implementation(libs.composeNavigation)
     implementation(libs.hilt)
+    implementation(libs.kotlinCoroutines)
+    implementation(libs.lifecycleRuntime)
+    implementation(libs.lifecycleViewModel)
     implementation(libs.room)
     implementation(libs.roomKtx)
     implementation(libs.timber)

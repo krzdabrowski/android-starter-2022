@@ -49,6 +49,8 @@ dependencies {
     implementation(project(":core"))
 
     implementation(libs.composeMaterial)
+    implementation(libs.composeNavigation)
+    implementation(libs.composeNavigationHilt)
     implementation(libs.hilt)
     implementation(libs.timber)
 

@@ -55,9 +55,13 @@ android {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":basic-feature"))
 
     implementation(libs.composeActivity)
     implementation(libs.composeMaterial)
+    implementation(libs.composeNavigation)
+    implementation(libs.kotlinCoroutines)
+    implementation(libs.lifecycleRuntime)
     implementation(libs.hilt)
     implementation(libs.timber)
 
