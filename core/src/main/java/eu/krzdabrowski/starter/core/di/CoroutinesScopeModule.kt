@@ -14,7 +14,7 @@ import javax.inject.Singleton
 
 @Retention
 @Qualifier
-annotation class MainScope // UI-related
+annotation class MainImmediateScope // UI-related
 
 @Retention
 @Qualifier
@@ -35,13 +35,13 @@ object CoroutinesScopeModule {
             Timber.e(throwable)
         }
 
-    @MainScope
+    @MainImmediateScope
     @Singleton
     @Provides
-    fun provideMainScope(
-        @MainDispatcher mainDispatcher: CoroutineDispatcher,
+    fun provideMainImmediateScope(
+        @MainImmediateDispatcher mainImmediateDispatcher: CoroutineDispatcher,
         exceptionHandler: CoroutineExceptionHandler
-    ): CoroutineScope = CoroutineScope(SupervisorJob() + mainDispatcher + exceptionHandler)
+    ): CoroutineScope = CoroutineScope(SupervisorJob() + mainImmediateDispatcher + exceptionHandler)
 
     @IoScope
     @Singleton

@@ -11,7 +11,7 @@ import javax.inject.Singleton
 
 @Retention
 @Qualifier
-annotation class MainDispatcher // UI-related
+annotation class MainImmediateDispatcher // UI-related
 
 @Retention
 @Qualifier
@@ -25,10 +25,10 @@ annotation class DefaultDispatcher // CPU-related
 @InstallIn(SingletonComponent::class)
 object CoroutinesDispatcherModule {
 
-    @MainDispatcher
+    @MainImmediateDispatcher
     @Singleton
     @Provides
-    fun provideMainDispatcher(): CoroutineDispatcher = Dispatchers.Main
+    fun provideMainImmediateDispatcher(): CoroutineDispatcher = Dispatchers.Main.immediate
 
     @IoDispatcher
     @Singleton

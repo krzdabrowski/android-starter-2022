@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import eu.krzdabrowski.starter.core.di.MainScope
+import eu.krzdabrowski.starter.core.di.MainImmediateScope
 import eu.krzdabrowski.starter.core.navigation.NavigationManager
 import kotlinx.coroutines.CoroutineScope
 import javax.inject.Singleton
@@ -20,7 +20,7 @@ abstract class NavigationModule {
     companion object {
         @Singleton
         @Provides
-        fun provideNavigationManager(@MainScope externalMainScope: CoroutineScope): NavigationManagerImpl =
-            NavigationManagerImpl(externalMainScope)
+        fun provideNavigationManager(@MainImmediateScope externalMainImmediateScope: CoroutineScope): NavigationManagerImpl =
+            NavigationManagerImpl(externalMainImmediateScope)
     }
 }
