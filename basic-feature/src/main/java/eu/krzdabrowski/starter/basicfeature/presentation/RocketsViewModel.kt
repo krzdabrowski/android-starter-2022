@@ -13,7 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class RocketsViewModel @Inject constructor(
     rocketsInitialState: RocketsUiState
-) : BaseViewModel<RocketsUiState, RocketsUiEvent, PartialState, RocketsIntent>(rocketsInitialState) {
+) : BaseViewModel<RocketsUiState, PartialState, RocketsEvent, RocketsIntent>(rocketsInitialState) {
 
     override fun mapIntents(intent: RocketsIntent): Flow<PartialState> = when (intent) {
         is GetRockets -> emptyFlow()

@@ -15,16 +15,16 @@ import kotlinx.coroutines.flow.scan
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-abstract class BaseViewModel<UI_STATE : Parcelable, UI_EVENT, PARTIAL_UI_STATE, INTENT>(
-    val initialState: UI_STATE
+abstract class BaseViewModel<UI_STATE : Parcelable, PARTIAL_UI_STATE, EVENT, INTENT>(
+    initialState: UI_STATE
 ) : ViewModel() {
     private val intentFlow = MutableSharedFlow<INTENT>()
 
     private val uiStateFlow = MutableStateFlow(initialState)
     val uiState = uiStateFlow.asStateFlow()
 
-    private val uiEventChannel = Channel<UI_EVENT>(Channel.BUFFERED)
-    val uiEvent = uiEventChannel.receiveAsFlow()
+    private val eventChannel = Channel<EVENT>(Channel.BUFFERED)
+    val event = eventChannel.receiveAsFlow()
 
     init {
         viewModelScope.launch {
@@ -41,9 +41,9 @@ abstract class BaseViewModel<UI_STATE : Parcelable, UI_EVENT, PARTIAL_UI_STATE, 
             intentFlow.emit(intent)
         }
 
-    protected fun publishEvent(event: UI_EVENT) {
+    protected fun publishEvent(event: EVENT) {
         viewModelScope.launch {
-            uiEventChannel.send(event)
+            eventChannel.send(event)
         }
     }
 
