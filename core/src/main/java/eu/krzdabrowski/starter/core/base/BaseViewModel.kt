@@ -1,6 +1,7 @@
 package eu.krzdabrowski.starter.core.base
 
 import android.os.Parcelable
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.channels.Channel
@@ -15,12 +16,18 @@ import kotlinx.coroutines.flow.scan
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
+private const val SAVED_UI_STATE_KEY = "savedUiStateKey"
+
 abstract class BaseViewModel<UI_STATE : Parcelable, PARTIAL_UI_STATE, EVENT, INTENT>(
+    savedStateHandle: SavedStateHandle,
     initialState: UI_STATE
 ) : ViewModel() {
     private val intentFlow = MutableSharedFlow<INTENT>()
 
-    private val uiStateFlow = MutableStateFlow(initialState)
+    private val processDeathSafeInitialState by lazy {
+        savedStateHandle[SAVED_UI_STATE_KEY] ?: initialState
+    }
+    private val uiStateFlow = MutableStateFlow(processDeathSafeInitialState)
     val uiState = uiStateFlow.asStateFlow()
 
     private val eventChannel = Channel<EVENT>(Channel.BUFFERED)
@@ -30,9 +37,12 @@ abstract class BaseViewModel<UI_STATE : Parcelable, PARTIAL_UI_STATE, EVENT, INT
         viewModelScope.launch {
             intentFlow
                 .flatMapMerge { mapIntents(it) }
-                .scan(initialState, ::reduceUiState)
+                .scan(processDeathSafeInitialState, ::reduceUiState)
                 .catch { Timber.e(it) }
-                .collect { state -> uiStateFlow.emit(state) }
+                .collect { state ->
+                    uiStateFlow.emit(state)
+                    savedStateHandle[SAVED_UI_STATE_KEY] = state
+                }
         }
     }
 

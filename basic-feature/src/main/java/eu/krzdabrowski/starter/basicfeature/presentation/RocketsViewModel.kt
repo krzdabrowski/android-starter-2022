@@ -1,5 +1,6 @@
 package eu.krzdabrowski.starter.basicfeature.presentation
 
+import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent.GetRockets
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent.NavigateToRocketDetails
@@ -12,8 +13,12 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RocketsViewModel @Inject constructor(
+    savedStateHandle: SavedStateHandle,
     rocketsInitialState: RocketsUiState
-) : BaseViewModel<RocketsUiState, PartialState, RocketsEvent, RocketsIntent>(rocketsInitialState) {
+) : BaseViewModel<RocketsUiState, PartialState, RocketsEvent, RocketsIntent>(
+    savedStateHandle,
+    rocketsInitialState
+) {
 
     override fun mapIntents(intent: RocketsIntent): Flow<PartialState> = when (intent) {
         is GetRockets -> emptyFlow()
