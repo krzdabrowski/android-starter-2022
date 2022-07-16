@@ -13,11 +13,15 @@ composeActivity                     = "1.5.0"
 composeCompiler                     = "1.2.0"
 composeNavigation                   = "2.5.0"
 composeNavigationHilt               = "1.0.0"
+desugar                             = "1.1.5"
 hilt                                = "2.42"
 kotlin                              = "1.7.0"
 kotlinCoroutines                    = "1.6.4"
+kotlinSerialization                 = "1.3.3"
 kotlinSerializationConverter        = "0.8.0"
 lifecycle                           = "2.5.0"
+material                            = "1.6.1"
+okHttpLoggingInterceptor            = "4.10.0"
 retrofit                            = "2.9.0"
 room                                = "2.4.2"
 timber                              = "5.0.1"
@@ -48,18 +52,22 @@ ktLint                              = { id = "org.jlleitschuh.gradle.ktlint", ve
 
 [libraries]
 # production libraries
-coil                                = { module = "io.coil-kt:coil", version.ref = "coil" }
+coil                                = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 composeActivity                     = { module = "androidx.activity:activity-compose", version.ref = "composeActivity" }
 composeMaterial                     = { module = "androidx.compose.material:material", version.ref = "compose" }
 composeNavigation                   = { module = "androidx.navigation:navigation-compose", version.ref = "composeNavigation" }
 composeNavigationHilt               = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "composeNavigationHilt" }
 composeTooling                      = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+desugar                             = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar" }
 hilt                                = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hiltCompiler                        = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
 kotlinCoroutines                    = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinCoroutines" }
+kotlinSerialization                 = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinSerialization" }
 kotlinSerializationConverter        = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "kotlinSerializationConverter" }
 lifecycleRuntime                    = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
 lifecycleViewModel                  = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+material                            = { module = "com.google.android.material:material", version.ref = "material" }
+okHttpLoggingInterceptor            = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okHttpLoggingInterceptor" }
 retrofit                            = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 room                                = { module = "androidx.room:room-runtime", version.ref = "room" }
 roomCompiler                        = { module = "androidx.room:room-compiler", version.ref = "room" }

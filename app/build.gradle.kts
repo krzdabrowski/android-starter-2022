@@ -62,6 +62,7 @@ dependencies {
     implementation(libs.composeNavigation)
     implementation(libs.hilt)
     implementation(libs.kotlinCoroutines)
+    implementation(libs.material)
     implementation(libs.timber)
 
     kapt(libs.hiltCompiler)

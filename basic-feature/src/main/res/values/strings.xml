@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="rocket_cost_per_launch">Cost per launch: $%dm</string>
+    <string name="rocket_first_flight">First flight: %s</string>
+    <string name="rocket_height">Height: %dm</string>
+    <string name="rocket_weight">Weight: %dt</string>
+
+    <string name="rockets_error_fetching">Sorry, something went wrong when fetching rockets</string>
+
+    <string name="rocket_image_content_description">Rocket image</string>
+</resources>

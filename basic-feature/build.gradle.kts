@@ -32,6 +32,8 @@ android {
     }
 
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
+
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
@@ -48,13 +50,18 @@ android {
 dependencies {
     implementation(project(":core"))
 
+    implementation(libs.coil)
     implementation(libs.composeMaterial)
     implementation(libs.composeNavigation)
     implementation(libs.composeNavigationHilt)
     implementation(libs.hilt)
     implementation(libs.kotlinCoroutines)
+    implementation(libs.kotlinSerialization)
     implementation(libs.lifecycleViewModel)
+    implementation(libs.retrofit)
     implementation(libs.timber)
 
     kapt(libs.hiltCompiler)
+
+    coreLibraryDesugaring(libs.desugar)
 }

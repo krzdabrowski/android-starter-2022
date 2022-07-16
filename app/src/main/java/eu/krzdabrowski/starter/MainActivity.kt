@@ -3,6 +3,12 @@ package eu.krzdabrowski.starter
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import eu.krzdabrowski.starter.core.extensions.collectWithLifecycle
@@ -27,10 +33,22 @@ class MainActivity : ComponentActivity() {
             AndroidStarterTheme {
                 val navController = rememberNavController()
 
-                NavigationHost(
-                    navController = navController,
-                    factories = navigationFactories
-                )
+                Scaffold(
+                    topBar = {
+                        TopAppBar(
+                            title = {
+                                Text(text = stringResource(id = R.string.app_name))
+                            }
+                        )
+                    }
+                ) {
+                    NavigationHost(
+                        modifier = Modifier
+                            .padding(it),
+                        navController = navController,
+                        factories = navigationFactories
+                    )
+                }
 
                 navigationManager
                     .navigationEvent
