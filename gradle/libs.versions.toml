@@ -9,6 +9,7 @@ ktLint                              = "10.3.0"
 # production libraries
 coil                                = "2.1.0"
 compose                             = "1.2.0-rc03"
+composeAccompanist                  = "0.24.13-rc"
 composeActivity                     = "1.5.0"
 composeCompiler                     = "1.2.0"
 composeNavigation                   = "2.5.0"
@@ -53,6 +54,7 @@ ktLint                              = { id = "org.jlleitschuh.gradle.ktlint", ve
 [libraries]
 # production libraries
 coil                                = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+composeAccompanistSwipeRefresh      = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "composeAccompanist" }
 composeActivity                     = { module = "androidx.activity:activity-compose", version.ref = "composeActivity" }
 composeMaterial                     = { module = "androidx.compose.material:material", version.ref = "compose" }
 composeNavigation                   = { module = "androidx.navigation:navigation-compose", version.ref = "composeNavigation" }

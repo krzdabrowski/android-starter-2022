@@ -4,8 +4,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsEvent
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsEvent.OpenWebBrowserWithDetails
+import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent.GetRockets
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent.RocketClicked
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsViewModel
 import eu.krzdabrowski.starter.core.extensions.collectAsStateWithLifecycle
@@ -20,17 +23,24 @@ fun RocketsScreen(
 
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-    when {
-        uiState.isLoading -> RocketsLoadingContent()
+    SwipeRefresh(
+        state = rememberSwipeRefreshState(uiState.isLoading),
+        onRefresh = {
+            viewModel.acceptIntent(GetRockets)
+        }
+    ) {
+        when {
+            uiState.isLoading && uiState.rockets.isEmpty() -> RocketsLoadingPlaceholder()
 
-        uiState.isError -> RocketsErrorContent()
+            uiState.rockets.isNotEmpty() -> RocketsListContent(
+                rocketList = uiState.rockets,
+                onRocketClick = {
+                    viewModel.acceptIntent(RocketClicked(it))
+                }
+            )
 
-        uiState.rockets.isNotEmpty() -> RocketsListContent(
-            rocketList = uiState.rockets,
-            onRocketClick = {
-                viewModel.acceptIntent(RocketClicked(it))
-            }
-        )
+            uiState.isError -> RocketsErrorContent()
+        }
     }
 }
 

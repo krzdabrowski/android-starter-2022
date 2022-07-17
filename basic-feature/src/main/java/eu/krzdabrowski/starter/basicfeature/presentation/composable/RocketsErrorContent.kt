@@ -2,6 +2,8 @@ package eu.krzdabrowski.starter.basicfeature.presentation.composable
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -16,7 +18,8 @@ import eu.krzdabrowski.starter.basicfeature.R
 fun RocketsErrorContent() {
     Box(
         modifier = Modifier
-            .fillMaxSize(),
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState()), // for swipe-to-refresh
         contentAlignment = Alignment.Center
     ) {
         Text(

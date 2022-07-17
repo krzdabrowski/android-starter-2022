@@ -43,9 +43,7 @@ class RocketsViewModel @Inject constructor(
         partialState: PartialState
     ): RocketsUiState = when (partialState) {
         is Loading -> previousState.copy(
-            isLoading = true,
-            rockets = emptyList(),
-            isError = false
+            isLoading = true
         )
         is Fetched -> previousState.copy(
             isLoading = false,

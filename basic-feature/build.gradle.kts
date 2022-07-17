@@ -51,6 +51,7 @@ dependencies {
     implementation(project(":core"))
 
     implementation(libs.coil)
+    implementation(libs.composeAccompanistSwipeRefresh)
     implementation(libs.composeMaterial)
     implementation(libs.composeNavigation)
     implementation(libs.composeNavigationHilt)
