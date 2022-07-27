@@ -3,6 +3,7 @@ package eu.krzdabrowski.starter.basicfeature.domain.model
 import java.time.LocalDate
 
 data class Rocket(
+    val id: String,
     val name: String,
     val costPerLaunch: Int,
     val firstFlight: LocalDate,

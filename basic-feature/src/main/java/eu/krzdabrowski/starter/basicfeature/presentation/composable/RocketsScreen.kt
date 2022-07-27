@@ -8,7 +8,7 @@ import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsEvent
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsEvent.OpenWebBrowserWithDetails
-import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent.GetRockets
+import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent.RefreshRockets
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent.RocketClicked
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsViewModel
 import eu.krzdabrowski.starter.core.extensions.collectAsStateWithLifecycle
@@ -26,7 +26,7 @@ fun RocketsScreen(
     SwipeRefresh(
         state = rememberSwipeRefreshState(uiState.isLoading),
         onRefresh = {
-            viewModel.acceptIntent(GetRockets)
+            viewModel.acceptIntent(RefreshRockets)
         }
     ) {
         when {

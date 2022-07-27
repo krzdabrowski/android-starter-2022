@@ -1,14 +1,18 @@
 package eu.krzdabrowski.starter.basicfeature.domain.usecase
 
 import eu.krzdabrowski.starter.basicfeature.domain.model.Rocket
-import eu.krzdabrowski.starter.basicfeature.domain.repository.RocketsRepository
+import eu.krzdabrowski.starter.basicfeature.domain.repository.RocketRepository
 import eu.krzdabrowski.starter.core.extensions.resultOf
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 typealias GetRocketsUseCase =
-    @JvmSuppressWildcards suspend () -> Result<List<Rocket>>
+    @JvmSuppressWildcards suspend () -> Flow<Result<List<Rocket>>>
 
-suspend inline fun getRockets(
-    rocketsRepository: RocketsRepository
-): Result<List<Rocket>> = resultOf {
-    rocketsRepository.getRockets()
-}
+fun getRockets(
+    rocketRepository: RocketRepository
+): Flow<Result<List<Rocket>>> = rocketRepository
+    .getRockets()
+    .map {
+        resultOf { it }
+    }

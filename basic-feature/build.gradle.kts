@@ -60,6 +60,7 @@ dependencies {
     implementation(libs.kotlinSerialization)
     implementation(libs.lifecycleViewModel)
     implementation(libs.retrofit)
+    implementation(libs.room)
     implementation(libs.timber)
 
     kapt(libs.hiltCompiler)

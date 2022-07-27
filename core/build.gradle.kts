@@ -5,7 +5,6 @@ plugins {
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kotlinKapt)
     alias(libs.plugins.kotlinSerialization)
-    alias(libs.plugins.ksp)
     alias(libs.plugins.ktLint)
 }
 
@@ -57,10 +56,7 @@ dependencies {
     implementation(libs.lifecycleViewModel)
     implementation(libs.okHttpLoggingInterceptor)
     implementation(libs.retrofit)
-    implementation(libs.room)
-    implementation(libs.roomKtx)
     implementation(libs.timber)
 
     kapt(libs.hiltCompiler)
-    ksp(libs.roomCompiler)
 }

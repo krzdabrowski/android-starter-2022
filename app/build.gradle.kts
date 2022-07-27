@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kotlinKapt)
+    alias(libs.plugins.ksp)
     alias(libs.plugins.ktLint)
 }
 
@@ -63,7 +64,14 @@ dependencies {
     implementation(libs.hilt)
     implementation(libs.kotlinCoroutines)
     implementation(libs.material)
+    implementation(libs.room)
+    implementation(libs.roomKtx)
     implementation(libs.timber)
 
     kapt(libs.hiltCompiler)
+    ksp(libs.roomCompiler)
+}
+
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
 }

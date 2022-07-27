@@ -1,8 +1,8 @@
 package eu.krzdabrowski.starter.basicfeature.presentation.model
 
 import android.os.Parcelable
-import java.util.UUID
 import kotlinx.parcelize.Parcelize
+import java.util.UUID
 
 @Parcelize
 data class RocketDisplayable(
