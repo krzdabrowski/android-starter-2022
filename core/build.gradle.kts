@@ -1,10 +1,8 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.detekt)
-    alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kotlinKapt)
-    alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.ktLint)
 }
 
@@ -52,7 +50,6 @@ dependencies {
     implementation(libs.kotlinCoroutines)
     implementation(libs.kotlinSerialization)
     implementation(libs.kotlinSerializationConverter)
-    implementation(libs.lifecycleRuntime)
     implementation(libs.lifecycleViewModel)
     implementation(libs.okHttpLoggingInterceptor)
     implementation(libs.retrofit)

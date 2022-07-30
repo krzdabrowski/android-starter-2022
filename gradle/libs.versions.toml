@@ -10,11 +10,9 @@ ktLint                              = "10.3.0"
 coil                                = "2.1.0"
 compose                             = "1.2.0"
 composeAccompanist                  = "0.25.0"
-composeActivity                     = "1.5.1"
 composeCompiler                     = "1.2.0"
 composeNavigation                   = "2.5.1"
 composeNavigationHilt               = "1.0.0"
-desugar                             = "1.1.5"
 hilt                                = "2.43.1"
 kotlin                              = "1.7.0"
 kotlinCoroutines                    = "1.6.4"
@@ -55,18 +53,14 @@ ktLint                              = { id = "org.jlleitschuh.gradle.ktlint", ve
 # production libraries
 coil                                = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 composeAccompanistSwipeRefresh      = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "composeAccompanist" }
-composeActivity                     = { module = "androidx.activity:activity-compose", version.ref = "composeActivity" }
 composeMaterial                     = { module = "androidx.compose.material:material", version.ref = "compose" }
 composeNavigation                   = { module = "androidx.navigation:navigation-compose", version.ref = "composeNavigation" }
 composeNavigationHilt               = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "composeNavigationHilt" }
-composeTooling                      = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
-desugar                             = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar" }
 hilt                                = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hiltCompiler                        = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
 kotlinCoroutines                    = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinCoroutines" }
 kotlinSerialization                 = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinSerialization" }
 kotlinSerializationConverter        = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "kotlinSerializationConverter" }
-lifecycleRuntime                    = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
 lifecycleViewModel                  = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 material                            = { module = "com.google.android.material:material", version.ref = "material" }
 okHttpLoggingInterceptor            = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okHttpLoggingInterceptor" }

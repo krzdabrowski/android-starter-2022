@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.detekt)
-    alias(libs.plugins.hilt)
     alias(libs.plugins.junit)
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kotlinKapt)
@@ -32,8 +31,6 @@ android {
     }
 
     compileOptions {
-        isCoreLibraryDesugaringEnabled = true
-
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
@@ -58,12 +55,9 @@ dependencies {
     implementation(libs.hilt)
     implementation(libs.kotlinCoroutines)
     implementation(libs.kotlinSerialization)
-    implementation(libs.lifecycleViewModel)
     implementation(libs.retrofit)
     implementation(libs.room)
     implementation(libs.timber)
 
     kapt(libs.hiltCompiler)
-
-    coreLibraryDesugaring(libs.desugar)
 }
