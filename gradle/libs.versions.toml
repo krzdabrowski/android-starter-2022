@@ -91,4 +91,10 @@ debugComposeManifest                = { module = "androidx.compose.ui:ui-test-ma
 
 
 [bundles]
-# TODO: bundle dependencies on real-life module usage, not my arbitrary 'classic' partition
+common = [
+    "composeMaterial",
+    "composeNavigation",
+    "hilt",
+    "kotlinCoroutines",
+    "timber"
+]

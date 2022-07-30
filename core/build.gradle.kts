@@ -44,16 +44,12 @@ android {
 }
 
 dependencies {
-    implementation(libs.composeMaterial)
-    implementation(libs.composeNavigation)
-    implementation(libs.hilt)
-    implementation(libs.kotlinCoroutines)
+    implementation(libs.bundles.common)
     implementation(libs.kotlinSerialization)
     implementation(libs.kotlinSerializationConverter)
     implementation(libs.lifecycleViewModel)
     implementation(libs.okHttpLoggingInterceptor)
     implementation(libs.retrofit)
-    implementation(libs.timber)
 
     kapt(libs.hiltCompiler)
 }

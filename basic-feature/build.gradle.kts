@@ -47,17 +47,13 @@ android {
 dependencies {
     implementation(project(":core"))
 
+    implementation(libs.bundles.common)
     implementation(libs.coil)
     implementation(libs.composeAccompanistSwipeRefresh)
-    implementation(libs.composeMaterial)
-    implementation(libs.composeNavigation)
     implementation(libs.composeNavigationHilt)
-    implementation(libs.hilt)
-    implementation(libs.kotlinCoroutines)
     implementation(libs.kotlinSerialization)
     implementation(libs.retrofit)
     implementation(libs.room)
-    implementation(libs.timber)
 
     kapt(libs.hiltCompiler)
 }

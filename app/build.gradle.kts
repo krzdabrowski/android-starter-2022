@@ -58,13 +58,9 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":basic-feature"))
 
-    implementation(libs.composeMaterial)
-    implementation(libs.composeNavigation)
-    implementation(libs.hilt)
-    implementation(libs.kotlinCoroutines)
+    implementation(libs.bundles.common)
     implementation(libs.material)
     implementation(libs.roomKtx)
-    implementation(libs.timber)
 
     kapt(libs.hiltCompiler)
     ksp(libs.roomCompiler)
