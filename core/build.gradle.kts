@@ -39,6 +39,10 @@ android {
     }
 
     kotlinOptions {
+        freeCompilerArgs = listOf(
+            "-Xopt-in=kotlinx.coroutines.FlowPreview",
+            "-Xopt-in=kotlinx.serialization.ExperimentalSerializationApi"
+        )
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
 }
