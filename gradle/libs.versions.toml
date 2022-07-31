@@ -13,6 +13,7 @@ composeAccompanist                  = "0.25.0"
 composeCompiler                     = "1.2.0"
 composeNavigation                   = "2.5.1"
 composeNavigationHilt               = "1.0.0"
+desugar                             = "1.1.6"
 hilt                                = "2.43.1"
 kotlin                              = "1.7.0"
 kotlinCoroutines                    = "1.6.4"
@@ -56,6 +57,7 @@ composeAccompanistSwipeRefresh      = { module = "com.google.accompanist:accompa
 composeMaterial                     = { module = "androidx.compose.material:material", version.ref = "compose" }
 composeNavigation                   = { module = "androidx.navigation:navigation-compose", version.ref = "composeNavigation" }
 composeNavigationHilt               = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "composeNavigationHilt" }
+desugar                             = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar" }
 hilt                                = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hiltCompiler                        = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
 kotlinCoroutines                    = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinCoroutines" }
