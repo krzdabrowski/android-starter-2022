@@ -20,7 +20,8 @@ Supports light/dark mode theming automatically.
 
 ### **Libraries/concepts used**
 
-* MVI architecture
+* Gradle multi-module project
+* The Clean Architecture with MVI pattern in presentation layer
 * Jetpack Compose - for UI layer
 * Kotlin Coroutines & Kotlin Flow - for concurrency & reactive approach
 * Kotlin Serialization converter - for JSON parsing
