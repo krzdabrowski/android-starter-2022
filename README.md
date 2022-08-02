@@ -1,5 +1,7 @@
 # **Android Kotlin starter project - 2022 edition**
 
+For comparison, 2019 edition available [here](https://github.com/krzdabrowski/android-starter-2019).
+
 ### **Purpose**
 To show good practices using Kotlin features and latest Android libraries from Jetpack.
 
