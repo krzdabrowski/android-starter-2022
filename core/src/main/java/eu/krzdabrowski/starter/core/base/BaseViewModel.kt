@@ -7,8 +7,6 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flatMapMerge
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -24,11 +22,7 @@ abstract class BaseViewModel<UI_STATE : Parcelable, PARTIAL_UI_STATE, EVENT, INT
 ) : ViewModel() {
     private val intentFlow = MutableSharedFlow<INTENT>()
 
-    private val processDeathSafeInitialState by lazy {
-        savedStateHandle[SAVED_UI_STATE_KEY] ?: initialState
-    }
-    private val uiStateFlow = MutableStateFlow(processDeathSafeInitialState)
-    val uiState = uiStateFlow.asStateFlow()
+    val uiState = savedStateHandle.getStateFlow(SAVED_UI_STATE_KEY, initialState)
 
     private val eventChannel = Channel<EVENT>(Channel.BUFFERED)
     val event = eventChannel.receiveAsFlow()
@@ -37,11 +31,10 @@ abstract class BaseViewModel<UI_STATE : Parcelable, PARTIAL_UI_STATE, EVENT, INT
         viewModelScope.launch {
             intentFlow
                 .flatMapMerge { mapIntents(it) }
-                .scan(processDeathSafeInitialState, ::reduceUiState)
+                .scan(uiState.value, ::reduceUiState)
                 .catch { Timber.e(it) }
-                .collect { state ->
-                    uiStateFlow.emit(state)
-                    savedStateHandle[SAVED_UI_STATE_KEY] = state
+                .collect {
+                    savedStateHandle[SAVED_UI_STATE_KEY] = it
                 }
         }
     }
