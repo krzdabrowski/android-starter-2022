@@ -1,10 +1,13 @@
 # **Android Kotlin starter project - 2022 edition**
 
-For comparison, 2019 edition available [here](https://github.com/krzdabrowski/android-starter-2019).
+![Android Weekly #532 badge](https://androidweekly.net/issues/issue-532/badge)
+
+Android starter project, described precisely [in this article](https://proandroiddev.com/clean-android-multi-module-offline-first-scalable-app-in-2022-including-jetpack-compose-mvi-987ebecbecae).
 
 ### **Purpose**
-To show good practices using Kotlin features and latest Android libraries from Jetpack.
+To show good practices using Kotlin features and latest Android libraries from Jetpack in 2022.
 
+For comparison, 2019 edition code available [here](https://github.com/krzdabrowski/android-starter-2019).
 
 ### **Description**
 Application connects to SpaceX API to download its rocket fleet.
