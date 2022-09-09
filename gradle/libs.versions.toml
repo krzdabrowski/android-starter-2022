@@ -73,9 +73,7 @@ roomKtx                             = { module = "androidx.room:room-ktx", versi
 timber                              = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 
 # test libraries
-testJunitApi                        = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "testJunit" }
-testJunitEngine                     = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "testJunit" }
-testJunitParams                     = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "testJunit" }
+testJunit                           = { module = "org.junit.jupiter:junit-jupiter", version.ref = "testJunit" }
 testKotlin                          = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 testKotlinCoroutines                = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinCoroutines" }
 testMockk                           = { module = "io.mockk:mockk", version.ref = "testMockk" }
@@ -99,4 +97,12 @@ common = [
     "hilt",
     "kotlinCoroutines",
     "timber"
+]
+
+commonTest = [
+    "testJunit",
+    "testKotlin",
+    "testKotlinCoroutines",
+    "testMockk",
+    "testTurbine"
 ]

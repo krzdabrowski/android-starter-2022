@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.detekt)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.junit)
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kotlinKapt)
     alias(libs.plugins.ksp)
@@ -48,6 +49,9 @@ android {
     }
 
     kotlinOptions {
+        freeCompilerArgs = listOf(
+            "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+        )
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
@@ -67,6 +71,8 @@ dependencies {
     kapt(libs.hiltCompiler)
     ksp(libs.roomCompiler)
     coreLibraryDesugaring(libs.desugar)
+
+    testImplementation(libs.bundles.commonTest)
 }
 
 ksp {
