@@ -6,8 +6,7 @@ import eu.krzdabrowski.starter.core.extensions.resultOf
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-typealias GetRocketsUseCase =
-    @JvmSuppressWildcards suspend () -> Flow<Result<List<Rocket>>>
+fun interface GetRocketsUseCase : () -> Flow<Result<List<Rocket>>>
 
 fun getRockets(
     rocketRepository: RocketRepository

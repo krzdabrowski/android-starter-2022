@@ -31,7 +31,7 @@ object RocketModule {
     fun provideGetRocketsUseCase(
         rocketRepository: RocketRepository
     ): GetRocketsUseCase {
-        return {
+        return GetRocketsUseCase {
             getRockets(rocketRepository)
         }
     }
@@ -40,7 +40,7 @@ object RocketModule {
     fun provideRefreshRocketsUseCase(
         rocketRepository: RocketRepository
     ): RefreshRocketsUseCase {
-        return {
+        return RefreshRocketsUseCase {
             refreshRockets(rocketRepository)
         }
     }
