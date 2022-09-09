@@ -40,6 +40,9 @@ android {
     }
 
     kotlinOptions {
+        freeCompilerArgs = listOf(
+            "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+        )
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
 }
@@ -56,4 +59,6 @@ dependencies {
     implementation(libs.room)
 
     kapt(libs.hiltCompiler)
+
+    testImplementation(libs.bundles.commonTest)
 }
