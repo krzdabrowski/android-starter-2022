@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.detekt)
+    alias(libs.plugins.junit)
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kotlinKapt)
     alias(libs.plugins.ktLint)
@@ -56,4 +57,6 @@ dependencies {
     implementation(libs.retrofit)
 
     kapt(libs.hiltCompiler)
+
+    testImplementation(libs.bundles.commonTest)
 }
