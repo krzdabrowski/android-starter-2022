@@ -42,6 +42,7 @@ android {
     kotlinOptions {
         freeCompilerArgs = listOf(
             "-opt-in=kotlinx.coroutines.FlowPreview",
+            "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
             "-opt-in=kotlinx.serialization.ExperimentalSerializationApi"
         )
         jvmTarget = JavaVersion.VERSION_11.toString()

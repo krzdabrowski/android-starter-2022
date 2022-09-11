@@ -45,6 +45,12 @@ android {
         )
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
+
+    sourceSets {
+        getByName("test") {
+            java.srcDir(project(":core").file("src/test/java"))
+        }
+    }
 }
 
 dependencies {
