@@ -9,6 +9,7 @@ plugins {
 
 android {
     compileSdk = 32
+    namespace = "eu.krzdabrowski.starter.core"
 
     defaultConfig {
         minSdk = 24

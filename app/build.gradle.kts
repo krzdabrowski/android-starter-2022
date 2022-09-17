@@ -11,6 +11,7 @@ plugins {
 
 android {
     compileSdk = 32
+    namespace = "eu.krzdabrowski.starter"
 
     defaultConfig {
         applicationId = "eu.krzdabrowski.starter"
