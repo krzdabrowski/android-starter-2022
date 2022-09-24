@@ -1,4 +1,4 @@
-package eu.krzdabrowski.starter.core.extensions
+package eu.krzdabrowski.starter.core.utils
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.test.TestDispatcher

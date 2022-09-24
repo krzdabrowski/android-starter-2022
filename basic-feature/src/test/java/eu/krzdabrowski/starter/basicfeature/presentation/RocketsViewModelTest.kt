@@ -9,7 +9,7 @@ import eu.krzdabrowski.starter.basicfeature.presentation.RocketsEvent.OpenWebBro
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent.RefreshRockets
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent.RocketClicked
 import eu.krzdabrowski.starter.basicfeature.presentation.mapper.toPresentationModel
-import eu.krzdabrowski.starter.core.extensions.MainDispatcherExtension
+import eu.krzdabrowski.starter.core.utils.MainDispatcherExtension
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.RelaxedMockK
