@@ -6,9 +6,12 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.dimensionResource
 import eu.krzdabrowski.starter.basicfeature.R
 import eu.krzdabrowski.starter.basicfeature.presentation.model.RocketDisplayable
+
+const val ROCKET_DIVIDER_TEST_TAG = "rocketDividerTestTag"
 
 @Composable
 fun RocketsListContent(
@@ -31,7 +34,9 @@ fun RocketsListContent(
             )
 
             if (index < rocketList.lastIndex) {
-                Divider()
+                Divider(
+                    modifier = Modifier.testTag(ROCKET_DIVIDER_TEST_TAG)
+                )
             }
         }
     }
