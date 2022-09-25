@@ -64,8 +64,9 @@ dependencies {
     implementation(libs.kotlinSerialization)
     implementation(libs.retrofit)
     implementation(libs.room)
+    testImplementation(libs.bundles.commonTest)
+    androidTestImplementation(libs.testAndroidCompose)
+    debugImplementation(libs.debugComposeManifest)
 
     kapt(libs.hiltCompiler)
-
-    testImplementation(libs.bundles.commonTest)
 }

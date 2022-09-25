@@ -20,7 +20,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "eu.krzdabrowski.starter.HiltTestRunner"
     }
 
     buildFeatures {
@@ -68,12 +68,17 @@ dependencies {
     implementation(libs.bundles.common)
     implementation(libs.material)
     implementation(libs.roomKtx)
+    testImplementation(libs.bundles.commonTest)
+    androidTestImplementation(libs.testAndroidCompose)
+    androidTestImplementation(libs.testAndroidCore)
+    androidTestImplementation(libs.testAndroidHilt)
+    androidTestImplementation(libs.testAndroidRunner)
 
     kapt(libs.hiltCompiler)
     ksp(libs.roomCompiler)
-    coreLibraryDesugaring(libs.desugar)
+    kaptAndroidTest(libs.testAndroidHiltCompiler)
 
-    testImplementation(libs.bundles.commonTest)
+    coreLibraryDesugaring(libs.desugar)
 }
 
 ksp {

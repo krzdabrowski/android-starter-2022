@@ -15,8 +15,6 @@ android {
         minSdk = 24
         targetSdk = 33
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
         buildConfigField("String", "SPACEX_API_URL", "\"https://api.spacexdata.com/v4/\"")
     }
 
@@ -59,6 +57,4 @@ dependencies {
     implementation(libs.retrofit)
 
     kapt(libs.hiltCompiler)
-
-    testImplementation(libs.bundles.commonTest)
 }
