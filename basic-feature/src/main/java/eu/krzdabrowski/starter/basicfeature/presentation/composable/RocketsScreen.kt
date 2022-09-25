@@ -23,30 +23,43 @@ import eu.krzdabrowski.starter.core.extensions.collectWithLifecycle
 import kotlinx.coroutines.flow.Flow
 
 @Composable
-fun RocketsScreen(
+fun RocketsRoute(
     viewModel: RocketsViewModel = hiltViewModel()
 ) {
     HandleEvents(viewModel.event)
-
-    val scaffoldState = rememberScaffoldState()
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+    RocketsScreen(
+        uiState = uiState,
+        onRefreshRockets = {
+            viewModel.acceptIntent(RefreshRockets)
+        },
+        onRocketClicked = {
+            viewModel.acceptIntent(RocketClicked(it))
+        }
+    )
+}
+
+@Composable
+internal fun RocketsScreen(
+    uiState: RocketsUiState,
+    onRefreshRockets: () -> Unit,
+    onRocketClicked: (String) -> Unit
+) {
+    val scaffoldState = rememberScaffoldState()
 
     Scaffold(
         scaffoldState = scaffoldState
     ) {
         SwipeRefresh(
             state = rememberSwipeRefreshState(uiState.isLoading),
-            onRefresh = {
-                viewModel.acceptIntent(RefreshRockets)
-            }
+            onRefresh = onRefreshRockets
         ) {
             if (uiState.rockets.isNotEmpty()) {
                 RocketsAvailableContent(
                     scaffoldState = scaffoldState,
                     uiState = uiState,
-                    onRocketClick = {
-                        viewModel.acceptIntent(RocketClicked(it))
-                    }
+                    onRocketClick = onRocketClicked
                 )
             } else {
                 RocketsNotAvailableContent(
