@@ -90,7 +90,7 @@ private fun RocketsAvailableContent(
     onRocketClick: (String) -> Unit
 ) {
     if (uiState.isError) {
-        val errorMessage = stringResource(R.string.rockets_error_fetching)
+        val errorMessage = stringResource(R.string.rockets_error_refreshing)
 
         LaunchedEffect(scaffoldState.snackbarHostState) {
             scaffoldState.snackbarHostState.showSnackbar(

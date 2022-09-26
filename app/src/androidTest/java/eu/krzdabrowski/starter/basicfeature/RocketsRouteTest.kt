@@ -32,7 +32,7 @@ class RocketsRouteTest {
     }
 
     @Test
-    fun rocketsRoute_happyPath_shouldShowAllFakeRockets() {
+    fun rocketsRoute_whenHappyPath_shouldShowAllFakeRockets() {
         testRocketsFromDomain.forEach { rocket ->
             composeTestRule
                 .onNodeWithText(rocket.name)
