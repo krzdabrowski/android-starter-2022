@@ -55,7 +55,7 @@ class RefreshRocketsUseCaseTest {
     }
 
     @Test
-    fun `should wrap result with failure if repository throws other Exception`() = runTest {
+    fun `should wrap result with failure if repository throws other Throwable`() = runTest {
         // Given
         val testException = Throwable("Test message")
         coEvery { rocketRepository.refreshRockets() } throws testException
