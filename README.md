@@ -1,6 +1,6 @@
 # **Android Kotlin starter project - 2022 edition**
 
-![Android Weekly #532 badge](https://androidweekly.net/issues/issue-532/badge)
+[![Android Weekly #532 badge](https://androidweekly.net/issues/issue-532/badge)](https://androidweekly.net/issues/issue-532)
 
 Android starter project, described precisely [in this article](https://proandroiddev.com/clean-android-multi-module-offline-first-scalable-app-in-2022-including-jetpack-compose-mvi-987ebecbecae).
 
