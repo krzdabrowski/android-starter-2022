@@ -16,7 +16,7 @@ fun NavigationHost(
     NavHost(
         navController = navController,
         startDestination = NavigationDestination.Rockets.route,
-        modifier = modifier,
+        modifier = modifier
     ) {
         factories.forEach {
             it.create(this)

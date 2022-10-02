@@ -3,12 +3,12 @@ package eu.krzdabrowski.starter.basicfeature.domain.usecase
 import eu.krzdabrowski.starter.basicfeature.domain.model.Rocket
 import eu.krzdabrowski.starter.basicfeature.domain.repository.RocketRepository
 import eu.krzdabrowski.starter.core.extensions.resultOf
-import java.io.IOException
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.retryWhen
+import java.io.IOException
 
 private const val RETRY_TIME_IN_MILLIS = 15_000L
 

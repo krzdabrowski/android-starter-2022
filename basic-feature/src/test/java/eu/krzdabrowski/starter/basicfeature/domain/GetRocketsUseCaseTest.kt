@@ -8,12 +8,12 @@ import eu.krzdabrowski.starter.basicfeature.generateTestRocketFromDomain
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
-import java.io.IOException
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
+import java.io.IOException
 import kotlin.coroutines.cancellation.CancellationException
 import kotlin.test.assertEquals
 
