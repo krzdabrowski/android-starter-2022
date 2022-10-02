@@ -4,7 +4,7 @@ androidGradle                       = "7.3.0"
 detekt                              = "1.21.0"
 junit                               = "1.8.2.1"
 ksp                                 = "1.7.10-1.0.6"
-ktLint                              = "11.0.0"
+ktLint                              = "3.12.0"
 
 # production libraries
 coil                                = "2.2.0"
@@ -47,7 +47,7 @@ kotlinKapt                          = { id = "org.jetbrains.kotlin.kapt", versio
 kotlinParcelize                     = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 kotlinSerialization                 = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp                                 = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-ktLint                              = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktLint" }
+ktLint                              = { id = "org.jmailen.kotlinter", version.ref = "ktLint" }
 
 
 [libraries]
