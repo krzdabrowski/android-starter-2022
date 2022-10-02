@@ -49,7 +49,7 @@ class RocketsViewModelTest {
     }
 
     @Test
-    fun `should show loading state with no error state first during initial rockets retrieval`() = runTest {
+    fun `should show loading state with no error state first during init rockets retrieval`() = runTest {
         // Given
         every { getRocketsUseCase() } returns emptyFlow()
         setUpRocketsViewModel()
@@ -67,7 +67,7 @@ class RocketsViewModelTest {
     }
 
     @Test
-    fun `should show fetched rockets with no loading & error states during initial rockets retrieval success`() = runTest {
+    fun `should show fetched rockets with no loading & error state during init rockets retrieval success`() = runTest {
         // Given
         val testRocketsFromDomain = listOf(generateTestRocketFromDomain())
         val testRocketsToPresentation = testRocketsFromDomain.map { it.toPresentationModel() }
@@ -93,7 +93,7 @@ class RocketsViewModelTest {
     }
 
     @Test
-    fun `should show error state with no loading state during initial rockets retrieval failure`() = runTest {
+    fun `should show error state with no loading state during init rockets retrieval failure`() = runTest {
         // Given
         every { getRocketsUseCase() } returns flowOf(
             Result.failure(IllegalStateException("Test error"))

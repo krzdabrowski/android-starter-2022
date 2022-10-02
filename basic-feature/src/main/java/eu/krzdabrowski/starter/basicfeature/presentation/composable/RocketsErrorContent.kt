@@ -15,9 +15,11 @@ import androidx.compose.ui.text.style.TextAlign
 import eu.krzdabrowski.starter.basicfeature.R
 
 @Composable
-fun RocketsErrorContent() {
+fun RocketsErrorContent(
+    modifier: Modifier = Modifier
+) {
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState()), // for swipe-to-refresh
         contentAlignment = Alignment.Center

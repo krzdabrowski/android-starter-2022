@@ -16,10 +16,11 @@ const val ROCKET_DIVIDER_TEST_TAG = "rocketDividerTestTag"
 @Composable
 fun RocketsListContent(
     rocketList: List<RocketDisplayable>,
+    modifier: Modifier = Modifier,
     onRocketClick: (String) -> Unit
 ) {
     LazyColumn(
-        modifier = Modifier
+        modifier = modifier
             .padding(
                 horizontal = dimensionResource(id = R.dimen.dimen_medium)
             )

@@ -9,9 +9,9 @@ import eu.krzdabrowski.starter.core.navigation.NavigationFactory
 
 @Composable
 fun NavigationHost(
-    modifier: Modifier = Modifier,
     navController: NavHostController,
-    factories: Set<NavigationFactory>
+    factories: Set<NavigationFactory>,
+    modifier: Modifier = Modifier
 ) {
     NavHost(
         navController = navController,

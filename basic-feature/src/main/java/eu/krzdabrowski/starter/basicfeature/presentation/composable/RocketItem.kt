@@ -19,10 +19,11 @@ import eu.krzdabrowski.starter.core.ui.Typography
 @Composable
 fun RocketItem(
     rocket: RocketDisplayable,
+    modifier: Modifier = Modifier,
     onRocketClick: () -> Unit
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .padding(
                 vertical = dimensionResource(id = R.dimen.dimen_medium)
             )
