@@ -79,6 +79,8 @@ dependencies {
     kaptAndroidTest(libs.testAndroidHiltCompiler)
 
     coreLibraryDesugaring(libs.desugar)
+
+    detektPlugins(libs.detektTwitterCompose)
 }
 
 ksp {

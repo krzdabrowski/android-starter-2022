@@ -69,4 +69,6 @@ dependencies {
     debugImplementation(libs.debugComposeManifest)
 
     kapt(libs.hiltCompiler)
+
+    detektPlugins(libs.detektTwitterCompose)
 }

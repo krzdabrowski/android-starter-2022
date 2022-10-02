@@ -1,7 +1,8 @@
 [versions]
 # plugins
 androidGradle                       = "7.3.0"
-detekt                              = "1.21.0"
+detekt                              = "1.22.0-RC1"
+detektTwitterCompose                = "0.0.17"
 junit                               = "1.8.2.1"
 ksp                                 = "1.7.10-1.0.6"
 ktLint                              = "3.12.0"
@@ -58,6 +59,7 @@ composeMaterial                     = { module = "androidx.compose.material:mate
 composeNavigation                   = { module = "androidx.navigation:navigation-compose", version.ref = "composeNavigation" }
 composeNavigationHilt               = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "composeNavigationHilt" }
 desugar                             = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar" }
+detektTwitterCompose                = { module = "com.twitter.compose.rules:detekt", version.ref = "detektTwitterCompose" }
 hilt                                = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hiltCompiler                        = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
 kotlinCoroutines                    = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinCoroutines" }

@@ -57,4 +57,6 @@ dependencies {
     implementation(libs.retrofit)
 
     kapt(libs.hiltCompiler)
+
+    detektPlugins(libs.detektTwitterCompose)
 }
