@@ -15,8 +15,8 @@
         "minor",
         "patch"
       ],
-      "groupName": "dependencies with minor & patch updates",
-      "groupSlug": "minor-and-patch-dependencies"
+      "groupName": "dependencies for minor & patch changes",
+      "groupSlug": "minor-and-patch-changes"
     }
   ]
 }
