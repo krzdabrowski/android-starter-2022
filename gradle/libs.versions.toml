@@ -8,14 +8,14 @@ ksp                                 = "1.7.10-1.0.6"
 ktLint                              = "3.12.0"
 
 # production libraries
-coil                                = "2.2.0"
+coil                                = "2.2.2"
 compose                             = "1.2.1"
 composeAccompanist                  = "0.25.1"
-composeCompiler                     = "1.3.0"
-composeNavigation                   = "2.5.1"
+composeCompiler                     = "1.3.1"
+composeNavigation                   = "2.5.2"
 composeNavigationHilt               = "1.0.0"
-desugar                             = "1.1.8"
-hilt                                = "2.43.2"
+desugar                             = "1.2.2"
+hilt                                = "2.44"
 kotlin                              = "1.7.10"
 kotlinCoroutines                    = "1.6.4"
 kotlinSerialization                 = "1.4.0"
@@ -28,9 +28,9 @@ room                                = "2.4.3"
 timber                              = "5.0.1"
 
 # test libraries
-testJunit                           = "5.9.0"
-testMockk                           = "1.12.7"
-testTurbine                         = "0.9.0"
+testJunit                           = "5.9.1"
+testMockk                           = "1.13.2"
+testTurbine                         = "0.11.0"
 
 # android test libraries
 testAndroidCore                     = "1.5.0-alpha02" # fix crash on Android 13 - https://developer.android.com/jetpack/androidx/releases/test#core_150_2
