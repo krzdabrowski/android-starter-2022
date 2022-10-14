@@ -34,7 +34,7 @@ Supports light/dark mode theming automatically.
 * Coil - for image loading
 * Version Catalog - for dependency management
 * Timber - for logging
-* JUnit5 and MockK - for unit tests
+* JUnit5, Turbine and MockK - for unit tests
 * Jetpack Compose test dependencies and Hilt - for UI tests
 * GitHub Actions - for CI/CD
 * Renovate - to update dependencies automatically
