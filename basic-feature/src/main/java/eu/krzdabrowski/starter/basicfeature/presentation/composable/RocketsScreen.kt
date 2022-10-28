@@ -1,11 +1,13 @@
 package eu.krzdabrowski.starter.basicfeature.presentation.composable
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -53,7 +55,9 @@ internal fun RocketsScreen(
     ) {
         SwipeRefresh(
             state = rememberSwipeRefreshState(uiState.isLoading),
-            onRefresh = onRefreshRockets
+            onRefresh = onRefreshRockets,
+            modifier = Modifier
+                .padding(it)
         ) {
             if (uiState.rockets.isNotEmpty()) {
                 RocketsAvailableContent(
