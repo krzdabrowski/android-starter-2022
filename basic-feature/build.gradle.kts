@@ -57,15 +57,17 @@ android {
 dependencies {
     implementation(project(":core"))
 
+    implementation(platform(libs.composeBom))
     implementation(libs.bundles.common)
+    implementation(libs.accompanistSwipeRefresh)
     implementation(libs.coil)
-    implementation(libs.composeAccompanistSwipeRefresh)
-    implementation(libs.composeNavigationHilt)
+    implementation(libs.navigationHilt)
     implementation(libs.kotlinSerialization)
     implementation(libs.retrofit)
     implementation(libs.room)
     testImplementation(libs.bundles.commonTest)
     androidTestImplementation(libs.testAndroidCompose)
+    androidTestImplementation(platform(libs.composeBom))
     debugImplementation(libs.debugComposeManifest)
 
     kapt(libs.hiltCompiler)

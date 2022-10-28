@@ -65,10 +65,12 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":basic-feature"))
 
+    implementation(platform(libs.composeBom))
     implementation(libs.bundles.common)
     implementation(libs.material)
     implementation(libs.roomKtx)
     testImplementation(libs.bundles.commonTest)
+    androidTestImplementation(platform(libs.composeBom))
     androidTestImplementation(libs.testAndroidCompose)
     androidTestImplementation(libs.testAndroidCore)
     androidTestImplementation(libs.testAndroidHilt)
