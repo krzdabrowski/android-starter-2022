@@ -49,6 +49,7 @@ android {
 }
 
 dependencies {
+    implementation(platform(libs.composeBom))
     implementation(libs.bundles.common)
     implementation(libs.kotlinSerialization)
     implementation(libs.kotlinSerializationConverter)

@@ -1,27 +1,27 @@
 [versions]
 # plugins
-androidGradle                       = "7.3.0"
-detekt                              = "1.22.0-RC1"
-detektTwitterCompose                = "0.0.18"
+androidGradle                       = "7.3.1"
+detekt                              = "1.22.0-RC2"
+detektTwitterCompose                = "0.0.22"
 junit                               = "1.8.2.1"
-ksp                                 = "1.7.20-1.0.6"
+ksp                                 = "1.7.20-1.0.7"
 ktLint                              = "3.12.0"
 
 # production libraries
+accompanist                         = "0.27.0"
 coil                                = "2.2.2"
-compose                             = "1.2.1"
-composeAccompanist                  = "0.25.1"
+composeBom                          = "2022.10.00"
 composeCompiler                     = "1.3.2"
-composeNavigation                   = "2.5.2"
-composeNavigationHilt               = "1.0.0"
 desugar                             = "1.2.2"
 hilt                                = "2.44"
 kotlin                              = "1.7.20"
 kotlinCoroutines                    = "1.6.4"
-kotlinSerialization                 = "1.4.0"
+kotlinSerialization                 = "1.4.1"
 kotlinSerializationConverter        = "0.8.0"
 lifecycle                           = "2.5.1"
-material                            = "1.6.1"
+material                            = "1.7.0"
+navigation                          = "2.5.3"
+navigationHilt                      = "1.0.0"
 okHttpLoggingInterceptor            = "4.10.0"
 retrofit                            = "2.9.0"
 room                                = "2.4.3"
@@ -30,10 +30,10 @@ timber                              = "5.0.1"
 # test libraries
 testJunit                           = "5.9.1"
 testMockk                           = "1.13.2"
-testTurbine                         = "0.11.0"
+testTurbine                         = "0.12.0"
 
 # android test libraries
-testAndroidCore                     = "1.5.0-alpha02" # fix crash on Android 13 - https://developer.android.com/jetpack/androidx/releases/test#core_150_2
+testAndroidCore                     = "1.5.0-rc01" # fix crash on Android 13 - https://developer.android.com/jetpack/androidx/releases/test#core_150_2
 testAndroidRunner                   = "1.4.0"
 
 
@@ -53,11 +53,10 @@ ktLint                              = { id = "org.jmailen.kotlinter", version.re
 
 [libraries]
 # production libraries
+accompanistSwipeRefresh             = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "accompanist" }
 coil                                = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
-composeAccompanistSwipeRefresh      = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "composeAccompanist" }
-composeMaterial                     = { module = "androidx.compose.material:material", version.ref = "compose" }
-composeNavigation                   = { module = "androidx.navigation:navigation-compose", version.ref = "composeNavigation" }
-composeNavigationHilt               = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "composeNavigationHilt" }
+composeBom                          = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+composeMaterial                     = { group = "androidx.compose.material", name = "material" }
 desugar                             = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar" }
 detektTwitterCompose                = { module = "com.twitter.compose.rules:detekt", version.ref = "detektTwitterCompose" }
 hilt                                = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
@@ -67,6 +66,8 @@ kotlinSerialization                 = { module = "org.jetbrains.kotlinx:kotlinx-
 kotlinSerializationConverter        = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "kotlinSerializationConverter" }
 lifecycleViewModel                  = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 material                            = { module = "com.google.android.material:material", version.ref = "material" }
+navigation                          = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
+navigationHilt                      = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "navigationHilt" }
 okHttpLoggingInterceptor            = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okHttpLoggingInterceptor" }
 retrofit                            = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 room                                = { module = "androidx.room:room-runtime", version.ref = "room" }
@@ -82,22 +83,22 @@ testMockk                           = { module = "io.mockk:mockk", version.ref =
 testTurbine                         = { module = "app.cash.turbine:turbine", version.ref = "testTurbine" }
 
 # android test libraries
-testAndroidCompose                  = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose" }
+testAndroidCompose                  = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 testAndroidCore                     = { module = "androidx.test:core-ktx", version.ref = "testAndroidCore" }
 testAndroidHilt                     = { module = "com.google.dagger:hilt-android-testing", version.ref = "hilt" }
 testAndroidHiltCompiler             = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
 testAndroidRunner                   = { module = "androidx.test:runner", version.ref = "testAndroidRunner" }
 
 # debug libraries
-debugComposeManifest                = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" }
+debugComposeManifest                = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 
 
 [bundles]
 common = [
     "composeMaterial",
-    "composeNavigation",
     "hilt",
     "kotlinCoroutines",
+    "navigation",
     "timber"
 ]
 

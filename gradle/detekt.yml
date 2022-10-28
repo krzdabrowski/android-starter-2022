@@ -418,8 +418,6 @@ potential-bugs:
       - 'java.util.HashSet'
       - 'java.util.LinkedHashMap'
       - 'java.util.HashMap'
-  DuplicateCaseInWhenExpression:
-    active: true
   ElseCaseInsteadOfExhaustiveWhen:
     active: false
   EqualsAlwaysReturnsTrueOrFalse:
@@ -465,15 +463,10 @@ potential-bugs:
   MissingPackageDeclaration:
     active: false
     excludes: ['**/*.kts']
-  MissingWhenCase:
-    active: true
-    allowElseExpression: true
   NullCheckOnMutableProperty:
     active: false
   NullableToStringCall:
     active: false
-  RedundantElseInWhen:
-    active: true
   UnconditionalJumpStatementInLoop:
     active: false
   UnnecessaryNotNullOperator:
@@ -546,12 +539,6 @@ style:
         value: 'kotlin.io.print'
       - reason: 'println does not allow you to configure the output stream. Use a logger instead.'
         value: 'kotlin.io.println'
-  ForbiddenPublicDataClass:
-    active: true
-    excludes: ['**']
-    ignorePackages:
-      - '*.internal'
-      - '*.internal.*'
   ForbiddenSuppress:
     active: false
     rules: []
@@ -564,12 +551,6 @@ style:
     ignoreOverridableFunction: true
     ignoreActualFunction: true
     excludedFunctions: []
-  LibraryCodeMustSpecifyReturnType:
-    active: true
-    excludes: ['**']
-  LibraryEntitiesShouldNotBePublic:
-    active: true
-    excludes: ['**']
   LoopWithTooManyJumpStatements:
     active: true
     maxJumpCount: 1
@@ -761,12 +742,21 @@ TwitterCompose:
     active: true
   ComposableNaming:
     active: true
+    # You can optionally disable the checks in this rule for regex matches against the composable name (e.g. molecule presenters)
+    # allowedComposableFunctionNames: .*Presenter,.*MoleculePresenter
   ComposableParamOrder:
+    active: true
+  PreviewNaming:
     active: true
   PreviewPublic:
     active: true
+    # You can optionally disable that only previews with @PreviewParameter are flagged
+    # previewPublicOnlyIfParams: false
   RememberMissing:
     active: true
+  UnstableCollections:
+    active: false
+    # Using Kotlinx Immutable Collections which didn't have a v1.0 release doesn't sound like a good idea
   ViewModelForwarding:
     active: true
   ViewModelInjection:
