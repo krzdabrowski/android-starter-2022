@@ -1,10 +1,10 @@
 plugins {
-    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.detekt)
     alias(libs.plugins.junit)
     alias(libs.plugins.kotlin)
-    alias(libs.plugins.kotlinKapt)
-    alias(libs.plugins.ktLint)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.ktlint)
 }
 
 android {
@@ -35,7 +35,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
 
     kotlinOptions {
@@ -49,15 +49,15 @@ android {
 }
 
 dependencies {
-    implementation(platform(libs.composeBom))
+    implementation(platform(libs.compose.bom))
     implementation(libs.bundles.common)
-    implementation(libs.kotlinSerialization)
-    implementation(libs.kotlinSerializationConverter)
-    implementation(libs.lifecycleViewModel)
-    implementation(libs.okHttpLoggingInterceptor)
+    implementation(libs.kotlin.serialization)
+    implementation(libs.kotlin.serialization.converter)
+    implementation(libs.lifecycle.viewmodel)
+    implementation(libs.okhttp.logging.interceptor)
     implementation(libs.retrofit)
 
-    kapt(libs.hiltCompiler)
+    kapt(libs.hilt.compiler)
 
-    detektPlugins(libs.detektTwitterCompose)
+    detektPlugins(libs.detekt.twitter.compose)
 }

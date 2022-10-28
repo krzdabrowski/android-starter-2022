@@ -1,12 +1,12 @@
 plugins {
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.android.application)
     alias(libs.plugins.detekt)
     alias(libs.plugins.hilt)
     alias(libs.plugins.junit)
     alias(libs.plugins.kotlin)
-    alias(libs.plugins.kotlinKapt)
+    alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.ktLint)
+    alias(libs.plugins.ktlint)
 }
 
 android {
@@ -46,7 +46,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
 
     kotlinOptions {
@@ -65,24 +65,24 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":basic-feature"))
 
-    implementation(platform(libs.composeBom))
+    implementation(platform(libs.compose.bom))
     implementation(libs.bundles.common)
     implementation(libs.material)
-    implementation(libs.roomKtx)
-    testImplementation(libs.bundles.commonTest)
-    androidTestImplementation(platform(libs.composeBom))
-    androidTestImplementation(libs.testAndroidCompose)
-    androidTestImplementation(libs.testAndroidCore)
-    androidTestImplementation(libs.testAndroidHilt)
-    androidTestImplementation(libs.testAndroidRunner)
+    implementation(libs.room.ktx)
+    testImplementation(libs.bundles.common.test)
+    androidTestImplementation(platform(libs.compose.bom))
+    androidTestImplementation(libs.test.android.compose)
+    androidTestImplementation(libs.test.android.core)
+    androidTestImplementation(libs.test.android.hilt)
+    androidTestImplementation(libs.test.android.runner)
 
-    kapt(libs.hiltCompiler)
-    ksp(libs.roomCompiler)
-    kaptAndroidTest(libs.testAndroidHiltCompiler)
+    kapt(libs.hilt.compiler)
+    ksp(libs.room.compiler)
+    kaptAndroidTest(libs.test.android.hilt.compiler)
 
     coreLibraryDesugaring(libs.desugar)
 
-    detektPlugins(libs.detektTwitterCompose)
+    detektPlugins(libs.detekt.twitter.compose)
 }
 
 ksp {
