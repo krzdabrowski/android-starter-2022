@@ -68,7 +68,6 @@ dependencies {
 
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.common)
-    implementation(libs.material)
     implementation(libs.room.ktx)
     testImplementation(libs.bundles.common.test)
     androidTestImplementation(platform(libs.compose.bom))

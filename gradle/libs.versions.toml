@@ -19,7 +19,6 @@ kotlin-coroutines                   = "1.6.4"
 kotlin-serialization                = "1.4.1"
 kotlin-serialization-converter      = "0.8.0"
 lifecycle                           = "2.5.1"
-material                            = "1.7.0"
 navigation                          = "2.5.3"
 navigation-hilt                     = "1.0.0"
 okhttp-logging-interceptor          = "4.10.0"
@@ -65,7 +64,6 @@ kotlin-coroutines                   = { module = "org.jetbrains.kotlinx:kotlinx-
 kotlin-serialization                = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlin-serialization" }
 kotlin-serialization-converter      = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "kotlin-serialization-converter" }
 lifecycle-viewmodel                 = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
-material                            = { module = "com.google.android.material:material", version.ref = "material" }
 navigation                          = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
 navigation-hilt                     = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "navigation-hilt" }
 okhttp-logging-interceptor          = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp-logging-interceptor" }
