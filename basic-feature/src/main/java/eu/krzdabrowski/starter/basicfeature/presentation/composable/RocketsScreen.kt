@@ -1,12 +1,13 @@
 package eu.krzdabrowski.starter.basicfeature.presentation.composable
 
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Scaffold
-import androidx.compose.material.ScaffoldState
-import androidx.compose.material.rememberScaffoldState
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
@@ -48,10 +49,10 @@ internal fun RocketsScreen(
     onRefreshRockets: () -> Unit,
     onRocketClicked: (String) -> Unit
 ) {
-    val scaffoldState = rememberScaffoldState()
+    val snackbarHostState = remember { SnackbarHostState() }
 
     Scaffold(
-        scaffoldState = scaffoldState
+        snackbarHost = { SnackbarHost(snackbarHostState) }
     ) {
         SwipeRefresh(
             state = rememberSwipeRefreshState(uiState.isLoading),
@@ -61,7 +62,7 @@ internal fun RocketsScreen(
         ) {
             if (uiState.rockets.isNotEmpty()) {
                 RocketsAvailableContent(
-                    scaffoldState = scaffoldState,
+                    snackbarHostState = snackbarHostState,
                     uiState = uiState,
                     onRocketClick = onRocketClicked
                 )
@@ -89,15 +90,15 @@ private fun HandleEvents(events: Flow<RocketsEvent>) {
 
 @Composable
 private fun RocketsAvailableContent(
-    scaffoldState: ScaffoldState,
+    snackbarHostState: SnackbarHostState,
     uiState: RocketsUiState,
     onRocketClick: (String) -> Unit
 ) {
     if (uiState.isError) {
         val errorMessage = stringResource(R.string.rockets_error_refreshing)
 
-        LaunchedEffect(scaffoldState.snackbarHostState) {
-            scaffoldState.snackbarHostState.showSnackbar(
+        LaunchedEffect(snackbarHostState) {
+            snackbarHostState.showSnackbar(
                 message = errorMessage
             )
         }
