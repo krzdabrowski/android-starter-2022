@@ -38,7 +38,7 @@ fun AndroidStarterTheme(
 
     if (!view.isInEditMode) {
         val currentWindow = (view.context as? Activity)?.window
-            ?: throw IllegalStateException("Not in an activity - unable to get Window reference")
+            ?: error("Not in an activity - unable to get Window reference")
 
         SideEffect {
             currentWindow.statusBarColor = colorScheme.primary.toArgb()
