@@ -25,7 +25,7 @@ Supports light/dark mode theming automatically.
 
 * Gradle modularised project by features
 * The Clean Architecture with MVI pattern in presentation layer
-* Jetpack Compose - for UI layer
+* Jetpack Compose with Material3 design - for UI layer
 * Kotlin Coroutines & Kotlin Flow - for concurrency & reactive approach
 * Kotlin Serialization converter - for JSON parsing
 * Retrofit - for networking
