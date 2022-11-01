@@ -51,7 +51,8 @@ android {
 
     kotlinOptions {
         freeCompilerArgs = listOf(
-            "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+            "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+            "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api"
         )
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
@@ -67,7 +68,6 @@ dependencies {
 
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.common)
-    implementation(libs.material)
     implementation(libs.room.ktx)
     testImplementation(libs.bundles.common.test)
     androidTestImplementation(platform(libs.compose.bom))

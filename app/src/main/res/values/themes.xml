@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.AndroidStarter" parent="Theme.MaterialComponents.DayNight">
-        <item name="android:statusBarColor">#FF00574B</item>
-    </style>
+    <style name="Theme.AndroidStarter" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>
