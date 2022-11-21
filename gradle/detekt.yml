@@ -91,6 +91,9 @@ comments:
 
 complexity:
   active: true
+  CognitiveComplexMethod:
+    active: false
+    threshold: 15
   ComplexCondition:
     active: true
     threshold: 4
@@ -100,7 +103,7 @@ complexity:
     includeStaticDeclarations: false
     includePrivateDeclarations: false
     ignoreOverloaded: false
-  ComplexMethod:
+  CyclomaticComplexMethod:
     active: true
     threshold: 15
     ignoreSingleWhenExpression: false
@@ -521,7 +524,7 @@ style:
     active: false
     includeLineWrapping: false
   ForbiddenComment:
-    active: true
+    active: false
     values:
       - 'FIXME:'
       - 'STOPSHIP:'
