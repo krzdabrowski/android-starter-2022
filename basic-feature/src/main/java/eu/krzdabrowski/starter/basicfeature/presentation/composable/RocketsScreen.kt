@@ -54,6 +54,7 @@ internal fun RocketsScreen(
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) }
     ) {
+        // TODO: migrate from accompanist to built-in pull-to-refresh when added to Material3
         SwipeRefresh(
             state = rememberSwipeRefreshState(uiState.isLoading),
             onRefresh = onRefreshRockets,
