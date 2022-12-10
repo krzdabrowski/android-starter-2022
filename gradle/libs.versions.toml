@@ -2,15 +2,15 @@
 # plugins
 android-gradle                      = "7.3.1"
 detekt                              = "1.22.0"
-detekt-twitter-compose              = "0.0.24"
+detekt-twitter-compose              = "0.0.26"
 junit                               = "1.8.2.1"
 ksp                                 = "1.7.21-1.0.8"
 ktlint                              = "3.12.0"
 
 # production libraries
-accompanist                         = "0.27.1"
+accompanist                         = "0.28.0"
 coil                                = "2.2.2"
-compose-bom                         = "2022.11.00"
+compose-bom                         = "2022.12.00"
 compose-compiler                    = "1.4.0-alpha02"
 desugar                             = "1.2.2"
 hilt                                = "2.44.2"
@@ -28,7 +28,7 @@ timber                              = "5.0.1"
 
 # test libraries
 test-junit                          = "5.9.1"
-test-mockk                          = "1.13.2"
+test-mockk                          = "1.13.3"
 test-turbine                        = "0.12.1"
 
 # android test libraries
