@@ -1,13 +1,14 @@
-package eu.krzdabrowski.starter.basicfeature
+package eu.krzdabrowski.starter.basicfeature.tests
 
 import androidx.activity.compose.setContent
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import eu.krzdabrowski.starter.MainActivity
+import eu.krzdabrowski.starter.basicfeature.data.generateTestRocketsFromDomain
 import eu.krzdabrowski.starter.basicfeature.presentation.composable.RocketsRoute
-import eu.krzdabrowski.starter.utils.getHiltTestViewModel
+import eu.krzdabrowski.starter.core.MainActivity
+import eu.krzdabrowski.starter.core.utils.getHiltTestViewModel
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -21,6 +22,8 @@ class RocketsRouteTest {
     @get:Rule(order = 1)
     val composeTestRule = createAndroidComposeRule<MainActivity>()
 
+    private val testRockets = generateTestRocketsFromDomain()
+
     @Before
     fun setUp() {
         hiltTestRule.inject()
@@ -33,7 +36,7 @@ class RocketsRouteTest {
 
     @Test
     fun rocketsRoute_whenHappyPath_shouldShowAllFakeRockets() {
-        testRocketsFromDomain.forEach { rocket ->
+        testRockets.forEach { rocket ->
             composeTestRule
                 .onNodeWithText(rocket.name)
                 .assertExists()

@@ -1,4 +1,4 @@
-package eu.krzdabrowski.starter.basicfeature
+package eu.krzdabrowski.starter.basicfeature.data
 
 import dagger.Module
 import dagger.Provides
@@ -21,7 +21,7 @@ object FakeRocketModule {
     fun provideFakeGetRocketsUseCase(): GetRocketsUseCase {
         return GetRocketsUseCase {
             flowOf(
-                Result.success(testRocketsFromDomain)
+                Result.success(generateTestRocketsFromDomain())
             )
         }
     }

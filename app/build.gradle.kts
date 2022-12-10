@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.detekt)
     alias(libs.plugins.hilt)
-    alias(libs.plugins.junit)
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.ksp)
@@ -19,8 +18,6 @@ android {
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
-
-        testInstrumentationRunner = "eu.krzdabrowski.starter.HiltTestRunner"
     }
 
     buildFeatures {
@@ -39,8 +36,6 @@ android {
     }
 
     compileOptions {
-        isCoreLibraryDesugaringEnabled = true
-
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
@@ -50,10 +45,6 @@ android {
     }
 
     kotlinOptions {
-        freeCompilerArgs = listOf(
-            "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
-            "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api"
-        )
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
@@ -66,21 +57,13 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":basic-feature"))
 
-    implementation(platform(libs.compose.bom))
-    implementation(libs.bundles.common)
+    implementation(libs.hilt)
+    implementation(libs.navigation) // needed for Room
     implementation(libs.room.ktx)
-    testImplementation(libs.bundles.common.test)
-    androidTestImplementation(platform(libs.compose.bom))
-    androidTestImplementation(libs.test.android.compose)
-    androidTestImplementation(libs.test.android.core)
-    androidTestImplementation(libs.test.android.hilt)
-    androidTestImplementation(libs.test.android.runner)
+    implementation(libs.timber)
 
     kapt(libs.hilt.compiler)
     ksp(libs.room.compiler)
-    kaptAndroidTest(libs.test.android.hilt.compiler)
-
-    coreLibraryDesugaring(libs.desugar)
 
     detektPlugins(libs.detekt.twitter.compose)
 }

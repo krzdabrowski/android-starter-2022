@@ -1,10 +1,12 @@
-package eu.krzdabrowski.starter.basicfeature
+package eu.krzdabrowski.starter.basicfeature.tests
 
 import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
+import eu.krzdabrowski.starter.basicfeature.R
+import eu.krzdabrowski.starter.basicfeature.data.generateTestRocketsFromPresentation
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsUiState
 import eu.krzdabrowski.starter.basicfeature.presentation.composable.RocketsScreen
 import org.junit.Before

@@ -1,8 +1,9 @@
-package eu.krzdabrowski.starter.basicfeature
+package eu.krzdabrowski.starter.basicfeature.tests
 
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithTag
+import eu.krzdabrowski.starter.basicfeature.data.generateTestRocketsFromPresentation
 import eu.krzdabrowski.starter.basicfeature.presentation.composable.ROCKET_DIVIDER_TEST_TAG
 import eu.krzdabrowski.starter.basicfeature.presentation.composable.RocketsListContent
 import org.junit.Before
