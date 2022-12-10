@@ -32,7 +32,6 @@ test-mockk                          = "1.13.3"
 test-turbine                        = "0.12.1"
 
 # android test libraries
-test-android-core                   = "1.5.0"
 test-android-runner                 = "1.5.1"
 
 
@@ -82,7 +81,6 @@ test-turbine                        = { module = "app.cash.turbine:turbine", ver
 
 # android test libraries
 test-android-compose                = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-test-android-core                   = { module = "androidx.test:core-ktx", version.ref = "test-android-core" }
 test-android-hilt                   = { module = "com.google.dagger:hilt-android-testing", version.ref = "hilt" }
 test-android-hilt-compiler          = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
 test-android-runner                 = { module = "androidx.test:runner", version.ref = "test-android-runner" }
@@ -92,18 +90,15 @@ debug-compose-manifest              = { group = "androidx.compose.ui", name = "u
 
 
 [bundles]
-common = [
-    "compose-material3",
-    "hilt",
-    "kotlin-coroutines",
-    "navigation",
-    "timber"
-]
-
 common-test = [
     "test-junit",
     "test-kotlin",
     "test-kotlin-coroutines",
     "test-mockk",
     "test-turbine"
+]
+common-android-test = [
+    "test-android-compose",
+    "test-android-hilt",
+    "test-android-runner"
 ]

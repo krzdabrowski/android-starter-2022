@@ -17,7 +17,7 @@ android {
         minSdk = 24
         targetSdk = 33
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "eu.krzdabrowski.starter.core.utils.HiltTestRunner"
     }
 
     buildFeatures {
@@ -32,6 +32,8 @@ android {
     }
 
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
+
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
@@ -49,6 +51,9 @@ android {
     }
 
     sourceSets {
+        getByName("androidTest") {
+            java.srcDir(project(":core").file("src/androidTest/java"))
+        }
         getByName("test") {
             java.srcDir(project(":core").file("src/test/java"))
         }
@@ -59,19 +64,25 @@ dependencies {
     implementation(project(":core"))
 
     implementation(platform(libs.compose.bom))
-    implementation(libs.bundles.common)
     implementation(libs.accompanist.swipe.refresh)
     implementation(libs.coil)
+    implementation(libs.compose.material3)
+    implementation(libs.hilt)
+    implementation(libs.kotlin.coroutines)
+    implementation(libs.navigation)
     implementation(libs.navigation.hilt)
     implementation(libs.kotlin.serialization)
     implementation(libs.retrofit)
     implementation(libs.room)
+    implementation(libs.timber)
     testImplementation(libs.bundles.common.test)
-    androidTestImplementation(libs.test.android.compose)
-    androidTestImplementation(platform(libs.compose.bom))
+    androidTestImplementation(libs.bundles.common.android.test)
     debugImplementation(libs.debug.compose.manifest)
 
     kapt(libs.hilt.compiler)
+    kaptAndroidTest(libs.test.android.hilt.compiler)
+
+    coreLibraryDesugaring(libs.desugar)
 
     detektPlugins(libs.detekt.twitter.compose)
 }

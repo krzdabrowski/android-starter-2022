@@ -1,7 +1,6 @@
-package eu.krzdabrowski.starter.navigation
+package eu.krzdabrowski.starter.core.navigation
 
 import app.cash.turbine.test
-import eu.krzdabrowski.starter.core.navigation.NavigationCommand
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.BeforeEach
@@ -11,7 +10,7 @@ import kotlin.test.assertEquals
 class NavigationManagerTest {
     private val testScope = TestScope()
 
-    private lateinit var objectUnderTest: NavigationManagerImpl
+    private lateinit var objectUnderTest: NavigationManager
 
     @BeforeEach
     fun setUp() {
@@ -91,6 +90,6 @@ class NavigationManagerTest {
     }
 
     private fun setUpNavigationManager() {
-        objectUnderTest = NavigationManagerImpl(testScope)
+        objectUnderTest = NavigationManager(testScope)
     }
 }

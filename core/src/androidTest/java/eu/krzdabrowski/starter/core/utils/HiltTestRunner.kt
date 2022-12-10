@@ -1,4 +1,4 @@
-package eu.krzdabrowski.starter
+package eu.krzdabrowski.starter.core.utils
 
 import android.app.Application
 import android.content.Context

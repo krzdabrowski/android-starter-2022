@@ -1,4 +1,4 @@
-package eu.krzdabrowski.starter
+package eu.krzdabrowski.starter.core
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -17,9 +17,9 @@ import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import eu.krzdabrowski.starter.core.extensions.collectWithLifecycle
 import eu.krzdabrowski.starter.core.navigation.NavigationFactory
+import eu.krzdabrowski.starter.core.navigation.NavigationHost
 import eu.krzdabrowski.starter.core.navigation.NavigationManager
 import eu.krzdabrowski.starter.core.ui.AndroidStarterTheme
-import eu.krzdabrowski.starter.navigation.NavigationHost
 import javax.inject.Inject
 
 @AndroidEntryPoint
