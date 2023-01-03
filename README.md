@@ -2,6 +2,8 @@
 
 [![Android Weekly #532 badge](https://androidweekly.net/issues/issue-532/badge)](https://androidweekly.net/issues/issue-532)
 
+[![Jetc.dev #147 badge](https://img.shields.io/badge/Featured%20in%20jetc.dev-Issue%20%23147-blue)](https://jetc.dev/issues/147.html)
+
 Android starter project, described precisely in [this](https://proandroiddev.com/clean-android-multi-module-offline-first-scalable-app-in-2022-including-jetpack-compose-mvi-987ebecbecae) and [this article](https://medium.com/codequest/clean-android-multi-module-offline-first-scalable-app-in-2022-part-2-including-compose-ui-e1fd0a0f410e).
 
 ### **Purpose**
