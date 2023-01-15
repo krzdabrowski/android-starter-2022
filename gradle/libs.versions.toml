@@ -1,11 +1,11 @@
 [versions]
 # plugins
-android-gradle                      = "7.3.1"
+android-gradle                      = "7.4.0"
 detekt                              = "1.22.0"
 detekt-twitter-compose              = "0.0.26"
 junit                               = "1.8.2.1"
 ksp                                 = "1.7.21-1.0.8"
-ktlint                              = "3.12.0"
+ktlint                              = "3.13.0"
 
 # production libraries
 accompanist                         = "0.28.0"
@@ -23,16 +23,16 @@ navigation                          = "2.5.3"
 navigation-hilt                     = "1.0.0"
 okhttp-logging-interceptor          = "4.10.0"
 retrofit                            = "2.9.0"
-room                                = "2.4.3"
+room                                = "2.5.0"
 timber                              = "5.0.1"
 
 # test libraries
-test-junit                          = "5.9.1"
+test-junit                          = "5.9.2"
 test-mockk                          = "1.13.3"
 test-turbine                        = "0.12.1"
 
 # android test libraries
-test-android-runner                 = "1.5.1"
+test-android-runner                 = "1.5.2"
 
 
 [plugins]
