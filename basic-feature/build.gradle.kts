@@ -17,7 +17,6 @@ android {
 
     defaultConfig {
         minSdk = 24
-        targetSdk = 33
 
         testInstrumentationRunner = "eu.krzdabrowski.starter.core.utils.HiltTestRunner"
     }
