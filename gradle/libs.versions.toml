@@ -10,7 +10,7 @@ ktlint                              = "3.13.0"
 # production libraries
 accompanist                         = "0.28.0"
 coil                                = "2.2.2"
-compose-bom                         = "2022.12.00"
+compose-bom                         = "2023.01.00"
 compose-compiler                    = "1.4.0-alpha02"
 desugar                             = "1.2.2"
 hilt                                = "2.44.2"
