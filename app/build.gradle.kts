@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.detekt)
@@ -36,6 +38,8 @@ android {
     }
 
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
+
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
@@ -64,6 +68,8 @@ dependencies {
 
     kapt(libs.hilt.compiler)
     ksp(libs.room.compiler)
+
+    coreLibraryDesugaring(libs.desugar)
 
     detektPlugins(libs.detekt.twitter.compose)
 }

@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.detekt)
@@ -14,7 +16,6 @@ android {
 
     defaultConfig {
         minSdk = 24
-        targetSdk = 33
 
         buildConfigField("String", "SPACEX_API_URL", "\"https://api.spacexdata.com/v4/\"")
     }
