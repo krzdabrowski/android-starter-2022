@@ -14,9 +14,12 @@ android {
     compileSdk = 33
     namespace = "eu.krzdabrowski.starter.core"
 
-    defaultConfig {
+    with (defaultConfig) {
         minSdk = 24
+        targetSdk = 33
+    }
 
+    defaultConfig {
         buildConfigField("String", "SPACEX_API_URL", "\"https://api.spacexdata.com/v4/\"")
     }
 
