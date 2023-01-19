@@ -15,9 +15,12 @@ android {
     compileSdk = 33
     namespace = "eu.krzdabrowski.starter.basicfeature"
 
-    defaultConfig {
+    with (defaultConfig) {
         minSdk = 24
+        targetSdk = 33
+    }
 
+    defaultConfig {
         testInstrumentationRunner = "eu.krzdabrowski.starter.core.utils.HiltTestRunner"
     }
 
