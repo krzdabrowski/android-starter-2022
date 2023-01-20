@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 include(":app")
 include(":basic-feature")
 include(":core")
