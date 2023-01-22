@@ -20,4 +20,14 @@ class NavigationManager @Inject constructor(
             navigationCommandChannel.send(command)
         }
     }
+
+    fun back() {
+        externalMainImmediateScope.launch {
+            externalMainImmediateScope.launch {
+                navigationCommandChannel.send(object : NavigationCommand {
+                    override val destination: String = NavigationDestination.Back.route
+                })
+            }
+        }
+    }
 }
