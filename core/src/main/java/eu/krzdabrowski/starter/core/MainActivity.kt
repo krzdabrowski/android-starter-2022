@@ -16,6 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import eu.krzdabrowski.starter.core.extensions.collectWithLifecycle
+import eu.krzdabrowski.starter.core.navigation.NavigationDestination
 import eu.krzdabrowski.starter.core.navigation.NavigationFactory
 import eu.krzdabrowski.starter.core.navigation.NavigationHost
 import eu.krzdabrowski.starter.core.navigation.NavigationManager
@@ -53,7 +54,10 @@ class MainActivity : ComponentActivity() {
                     .collectWithLifecycle(
                         key = navController
                     ) {
-                        navController.navigate(it.destination, it.configuration)
+                        when (it.destination) {
+                            NavigationDestination.Back.route -> navController.navigateUp()
+                            else -> navController.navigate(it.destination, it.configuration)
+                        }
                     }
             }
         }
