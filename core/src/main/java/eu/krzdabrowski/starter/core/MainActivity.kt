@@ -54,11 +54,10 @@ class MainActivity : ComponentActivity() {
                     .collectWithLifecycle(
                         key = navController
                     ) {
-                        when(it.destination) {
+                        when (it.destination) {
                             NavigationDestination.Back.route -> navController.navigateUp()
                             else -> navController.navigate(it.destination, it.configuration)
                         }
-
                     }
             }
         }
