@@ -81,6 +81,25 @@ class NavigationManagerTest {
         }
     }
 
+    @Test
+    fun `should emit navigation back command when navigating back`() = testScope.runTest {
+        // Given
+        val testNavigationBackCommand = object : NavigationCommand {
+            override val destination = NavigationDestination.Back.route
+        }
+
+        // When
+        objectUnderTest.navigateBack()
+
+        // Then
+        objectUnderTest.navigationEvent.test {
+            assertEquals(
+                expected = testNavigationBackCommand.destination,
+                actual = awaitItem().destination
+            )
+        }
+    }
+
     private fun generateTestNavigationCommands(number: Int): List<NavigationCommand> {
         return List(number) {
             object : NavigationCommand {
