@@ -1,10 +1,10 @@
 [versions]
 # plugins
-android-gradle                      = "7.4.0"
+android-gradle                      = "7.4.1"
 detekt                              = "1.22.0"
 detekt-twitter-compose              = "0.0.26"
 junit                               = "1.8.2.1"
-ksp                                 = "1.8.0-1.0.8"
+ksp                                 = "1.8.10-1.0.9"
 ktlint                              = "3.13.0"
 
 # production libraries
@@ -12,9 +12,9 @@ accompanist                         = "0.28.0"
 coil                                = "2.2.2"
 compose-bom                         = "2023.01.00"
 compose-compiler                    = "1.4.0"
-desugar                             = "2.0.0"
-hilt                                = "2.44.2"
-kotlin                              = "1.8.0"
+desugar                             = "2.0.2"
+hilt                                = "2.45"
+kotlin                              = "1.8.10"
 kotlin-coroutines                   = "1.6.4"
 kotlin-serialization                = "1.4.1"
 kotlin-serialization-converter      = "0.8.0"
@@ -28,7 +28,7 @@ timber                              = "5.0.1"
 
 # test libraries
 test-junit                          = "5.9.2"
-test-mockk                          = "1.13.3"
+test-mockk                          = "1.13.4"
 test-turbine                        = "0.12.1"
 
 # android test libraries
