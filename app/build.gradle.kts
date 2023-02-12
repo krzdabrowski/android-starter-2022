@@ -71,7 +71,7 @@ dependencies {
 
     coreLibraryDesugaring(libs.desugar)
 
-    detektPlugins(libs.detekt.twitter.compose)
+    detektPlugins(libs.detekt.compose.rules)
 }
 
 ksp {
