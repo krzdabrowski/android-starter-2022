@@ -61,7 +61,7 @@ dependencies {
     implementation(libs.kotlin.coroutines)
     implementation(libs.kotlin.serialization)
     implementation(libs.kotlin.serialization.converter)
-    implementation(libs.lifecycle.viewmodel)
+    implementation(libs.lifecycle.runtime.compose)
     implementation(libs.navigation)
     implementation(libs.okhttp.logging.interceptor)
     implementation(libs.retrofit)
