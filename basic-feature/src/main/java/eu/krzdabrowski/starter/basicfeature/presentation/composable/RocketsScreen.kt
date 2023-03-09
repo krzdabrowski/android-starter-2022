@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import eu.krzdabrowski.starter.basicfeature.R
@@ -21,7 +22,6 @@ import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent.RefreshRo
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent.RocketClicked
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsUiState
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsViewModel
-import eu.krzdabrowski.starter.core.extensions.collectAsStateWithLifecycle
 import eu.krzdabrowski.starter.core.extensions.collectWithLifecycle
 import kotlinx.coroutines.flow.Flow
 

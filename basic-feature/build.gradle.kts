@@ -73,6 +73,7 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.hilt)
     implementation(libs.kotlin.coroutines)
+    implementation(libs.lifecycle.runtime.compose)
     implementation(libs.navigation)
     implementation(libs.navigation.hilt)
     implementation(libs.kotlin.serialization)
