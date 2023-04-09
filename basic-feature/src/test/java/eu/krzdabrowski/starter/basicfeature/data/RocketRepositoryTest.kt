@@ -67,7 +67,7 @@ class RocketRepositoryTest {
     private fun setUpRocketRepository() {
         objectUnderTest = RocketRepositoryImpl(
             rocketApi,
-            rocketDao
+            rocketDao,
         )
     }
 }

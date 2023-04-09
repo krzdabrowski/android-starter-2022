@@ -22,14 +22,14 @@ object RocketModule {
     @Provides
     @Singleton
     fun provideRocketApi(
-        retrofit: Retrofit
+        retrofit: Retrofit,
     ): RocketApi {
         return retrofit.create(RocketApi::class.java)
     }
 
     @Provides
     fun provideGetRocketsUseCase(
-        rocketRepository: RocketRepository
+        rocketRepository: RocketRepository,
     ): GetRocketsUseCase {
         return GetRocketsUseCase {
             getRockets(rocketRepository)
@@ -38,7 +38,7 @@ object RocketModule {
 
     @Provides
     fun provideRefreshRocketsUseCase(
-        rocketRepository: RocketRepository
+        rocketRepository: RocketRepository,
     ): RefreshRocketsUseCase {
         return RefreshRocketsUseCase {
             refreshRockets(rocketRepository)

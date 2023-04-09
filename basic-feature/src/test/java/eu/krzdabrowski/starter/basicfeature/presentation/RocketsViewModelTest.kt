@@ -72,7 +72,7 @@ class RocketsViewModelTest {
         val testRocketsFromDomain = listOf(generateTestRocketFromDomain())
         val testRocketsToPresentation = testRocketsFromDomain.map { it.toPresentationModel() }
         every { getRocketsUseCase() } returns flowOf(
-            Result.success(testRocketsFromDomain)
+            Result.success(testRocketsFromDomain),
         )
         setUpRocketsViewModel()
 
@@ -85,7 +85,7 @@ class RocketsViewModelTest {
 
             assertEquals(
                 expected = testRocketsToPresentation,
-                actual = actualItem.rockets
+                actual = actualItem.rockets,
             )
             assertFalse(actualItem.isLoading)
             assertFalse(actualItem.isError)
@@ -96,7 +96,7 @@ class RocketsViewModelTest {
     fun `should show error state with no loading state during init rockets retrieval failure`() = runTest {
         // Given
         every { getRocketsUseCase() } returns flowOf(
-            Result.failure(IllegalStateException("Test error"))
+            Result.failure(IllegalStateException("Test error")),
         )
         setUpRocketsViewModel()
 
@@ -118,7 +118,7 @@ class RocketsViewModelTest {
         val testRocketsFromDomain = listOf(generateTestRocketFromDomain())
         val testRocketsToPresentation = testRocketsFromDomain.map { it.toPresentationModel() }
         every { getRocketsUseCase() } returns flowOf(
-            Result.success(testRocketsFromDomain)
+            Result.success(testRocketsFromDomain),
         )
         setUpRocketsViewModel()
 
@@ -132,7 +132,7 @@ class RocketsViewModelTest {
             assertTrue(actualItem.isError)
             assertEquals(
                 expected = testRocketsToPresentation,
-                actual = actualItem.rockets
+                actual = actualItem.rockets,
             )
         }
     }
@@ -151,7 +151,7 @@ class RocketsViewModelTest {
         objectUnderTest.event.test {
             assertEquals(
                 expected = OpenWebBrowserWithDetails(testUri),
-                actual = awaitItem()
+                actual = awaitItem(),
             )
         }
     }
@@ -173,13 +173,13 @@ class RocketsViewModelTest {
     }
 
     private fun setUpRocketsViewModel(
-        initialUiState: RocketsUiState = RocketsUiState()
+        initialUiState: RocketsUiState = RocketsUiState(),
     ) {
         objectUnderTest = RocketsViewModel(
             getRocketsUseCase,
             refreshRocketsUseCase,
             savedStateHandle,
-            initialUiState
+            initialUiState,
         )
     }
 }

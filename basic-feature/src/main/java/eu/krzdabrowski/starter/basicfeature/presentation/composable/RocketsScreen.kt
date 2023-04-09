@@ -27,7 +27,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Composable
 fun RocketsRoute(
-    viewModel: RocketsViewModel = hiltViewModel()
+    viewModel: RocketsViewModel = hiltViewModel(),
 ) {
     HandleEvents(viewModel.event)
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -39,7 +39,7 @@ fun RocketsRoute(
         },
         onRocketClicked = {
             viewModel.acceptIntent(RocketClicked(it))
-        }
+        },
     )
 }
 
@@ -47,29 +47,29 @@ fun RocketsRoute(
 internal fun RocketsScreen(
     uiState: RocketsUiState,
     onRefreshRockets: () -> Unit,
-    onRocketClicked: (String) -> Unit
+    onRocketClicked: (String) -> Unit,
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
 
     Scaffold(
-        snackbarHost = { SnackbarHost(snackbarHostState) }
+        snackbarHost = { SnackbarHost(snackbarHostState) },
     ) {
         // TODO: migrate from accompanist to built-in pull-to-refresh when added to Material3
         SwipeRefresh(
             state = rememberSwipeRefreshState(uiState.isLoading),
             onRefresh = onRefreshRockets,
             modifier = Modifier
-                .padding(it)
+                .padding(it),
         ) {
             if (uiState.rockets.isNotEmpty()) {
                 RocketsAvailableContent(
                     snackbarHostState = snackbarHostState,
                     uiState = uiState,
-                    onRocketClick = onRocketClicked
+                    onRocketClick = onRocketClicked,
                 )
             } else {
                 RocketsNotAvailableContent(
-                    uiState = uiState
+                    uiState = uiState,
                 )
             }
         }
@@ -93,21 +93,21 @@ private fun HandleEvents(events: Flow<RocketsEvent>) {
 private fun RocketsAvailableContent(
     snackbarHostState: SnackbarHostState,
     uiState: RocketsUiState,
-    onRocketClick: (String) -> Unit
+    onRocketClick: (String) -> Unit,
 ) {
     if (uiState.isError) {
         val errorMessage = stringResource(R.string.rockets_error_refreshing)
 
         LaunchedEffect(snackbarHostState) {
             snackbarHostState.showSnackbar(
-                message = errorMessage
+                message = errorMessage,
             )
         }
     }
 
     RocketsListContent(
         rocketList = uiState.rockets,
-        onRocketClick = { onRocketClick(it) }
+        onRocketClick = { onRocketClick(it) },
     )
 }
 

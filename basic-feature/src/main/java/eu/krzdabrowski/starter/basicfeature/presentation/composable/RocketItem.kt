@@ -20,58 +20,58 @@ import eu.krzdabrowski.starter.core.ui.Typography
 fun RocketItem(
     rocket: RocketDisplayable,
     modifier: Modifier = Modifier,
-    onRocketClick: () -> Unit
+    onRocketClick: () -> Unit,
 ) {
     Row(
         modifier = modifier
             .padding(
-                vertical = dimensionResource(id = R.dimen.dimen_medium)
+                vertical = dimensionResource(id = R.dimen.dimen_medium),
             )
             .clickable { onRocketClick() },
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(
             modifier = Modifier
                 .weight(1f),
             verticalArrangement = Arrangement.spacedBy(
-                dimensionResource(id = R.dimen.dimen_small)
-            )
+                dimensionResource(id = R.dimen.dimen_small),
+            ),
         ) {
             Text(
                 text = rocket.name,
-                style = Typography.titleMedium
+                style = Typography.titleMedium,
             )
 
             Text(
                 text = stringResource(
                     id = R.string.rocket_cost_per_launch,
-                    rocket.costPerLaunchInMillions
+                    rocket.costPerLaunchInMillions,
                 ),
-                style = Typography.bodyMedium
+                style = Typography.bodyMedium,
             )
 
             Text(
                 text = stringResource(
                     id = R.string.rocket_first_flight,
-                    rocket.firstFlightDate
+                    rocket.firstFlightDate,
                 ),
-                style = Typography.bodyMedium
+                style = Typography.bodyMedium,
             )
 
             Text(
                 text = stringResource(
                     id = R.string.rocket_height,
-                    rocket.heightInMeters
+                    rocket.heightInMeters,
                 ),
-                style = Typography.bodyMedium
+                style = Typography.bodyMedium,
             )
 
             Text(
                 text = stringResource(
                     id = R.string.rocket_weight,
-                    rocket.weightInTonnes
+                    rocket.weightInTonnes,
                 ),
-                style = Typography.bodyMedium
+                style = Typography.bodyMedium,
             )
         }
 
@@ -79,7 +79,7 @@ fun RocketItem(
             model = rocket.imageUrl,
             contentDescription = stringResource(id = R.string.rocket_image_content_description),
             modifier = Modifier
-                .weight(1f)
+                .weight(1f),
         )
     }
 }

@@ -39,7 +39,7 @@ class RefreshRocketsUseCaseTest {
         // Then
         assertEquals(
             expected = Result.success(Unit),
-            actual = result
+            actual = result,
         )
     }
 
@@ -66,7 +66,7 @@ class RefreshRocketsUseCaseTest {
 
             assertEquals(
                 expected = Result.failure(testException),
-                actual = result
+                actual = result,
             )
         }
     }

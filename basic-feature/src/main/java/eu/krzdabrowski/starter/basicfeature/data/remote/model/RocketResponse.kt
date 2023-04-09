@@ -27,17 +27,17 @@ data class RocketResponse(
     val wikiUrl: String = "",
 
     @SerialName("flickr_images")
-    val imageUrls: List<String> = emptyList()
+    val imageUrls: List<String> = emptyList(),
 ) {
     @Serializable
     data class Height(
         val meters: Double = 0.0,
-        val feet: Double = 0.0
+        val feet: Double = 0.0,
     )
 
     @Serializable
     data class Weight(
         val kg: Int = 0,
-        val lb: Int = 0
+        val lb: Int = 0,
     )
 }

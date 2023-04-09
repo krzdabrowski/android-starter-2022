@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 class RocketRepositoryImpl @Inject constructor(
     private val rocketApi: RocketApi,
-    private val rocketDao: RocketDao
+    private val rocketDao: RocketDao,
 ) : RocketRepository {
 
     override fun getRockets(): Flow<List<Rocket>> {

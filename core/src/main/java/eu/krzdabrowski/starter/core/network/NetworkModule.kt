@@ -36,7 +36,7 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideOkHttpClient(
-        @Named(INTERCEPTOR_LOGGING_NAME) loggingInterceptor: Interceptor
+        @Named(INTERCEPTOR_LOGGING_NAME) loggingInterceptor: Interceptor,
     ): OkHttpClient {
         return OkHttpClient
             .Builder()
@@ -49,7 +49,7 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideRetrofit(
-        okHttpClient: OkHttpClient
+        okHttpClient: OkHttpClient,
     ): Retrofit {
         val json = Json {
             ignoreUnknownKeys = true

@@ -28,5 +28,5 @@ data class RocketCached(
     val wikiUrl: String,
 
     @ColumnInfo(name = "image_url")
-    val imageUrl: String
+    val imageUrl: String,
 )

@@ -10,7 +10,7 @@ import javax.inject.Singleton
 
 @Singleton
 class NavigationManager @Inject constructor(
-    @MainImmediateScope private val externalMainImmediateScope: CoroutineScope
+    @MainImmediateScope private val externalMainImmediateScope: CoroutineScope,
 ) {
     private val navigationCommandChannel = Channel<NavigationCommand>(Channel.BUFFERED)
     val navigationEvent = navigationCommandChannel.receiveAsFlow()

@@ -40,7 +40,7 @@ object CoroutinesScopeModule {
     @Provides
     fun provideMainImmediateScope(
         @MainImmediateDispatcher mainImmediateDispatcher: CoroutineDispatcher,
-        exceptionHandler: CoroutineExceptionHandler
+        exceptionHandler: CoroutineExceptionHandler,
     ): CoroutineScope = CoroutineScope(SupervisorJob() + mainImmediateDispatcher + exceptionHandler)
 
     @IoScope
@@ -48,7 +48,7 @@ object CoroutinesScopeModule {
     @Provides
     fun provideIoScope(
         @IoDispatcher ioDispatcher: CoroutineDispatcher,
-        exceptionHandler: CoroutineExceptionHandler
+        exceptionHandler: CoroutineExceptionHandler,
     ): CoroutineScope = CoroutineScope(SupervisorJob() + ioDispatcher + exceptionHandler)
 
     @DefaultScope
@@ -56,6 +56,6 @@ object CoroutinesScopeModule {
     @Provides
     fun provideDefaultScope(
         @DefaultDispatcher defaultDispatcher: CoroutineDispatcher,
-        exceptionHandler: CoroutineExceptionHandler
+        exceptionHandler: CoroutineExceptionHandler,
     ): CoroutineScope = CoroutineScope(SupervisorJob() + defaultDispatcher + exceptionHandler)
 }

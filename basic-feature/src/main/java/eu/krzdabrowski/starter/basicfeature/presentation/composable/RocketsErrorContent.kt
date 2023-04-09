@@ -16,19 +16,19 @@ import eu.krzdabrowski.starter.basicfeature.R
 
 @Composable
 fun RocketsErrorContent(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Box(
         modifier = modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState()), // for swipe-to-refresh
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         Text(
             text = stringResource(id = R.string.rockets_error_fetching),
             color = Color.Red,
             textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.headlineSmall
+            style = MaterialTheme.typography.headlineSmall,
         )
     }
 }
