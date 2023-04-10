@@ -39,20 +39,20 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
 
                 Scaffold(
-                    topBar = { MainTopAppBar() }
+                    topBar = { MainTopAppBar() },
                 ) {
                     NavigationHost(
                         modifier = Modifier
                             .padding(it),
                         navController = navController,
-                        factories = navigationFactories
+                        factories = navigationFactories,
                     )
                 }
 
                 navigationManager
                     .navigationEvent
                     .collectWithLifecycle(
-                        key = navController
+                        key = navController,
                     ) {
                         when (it.destination) {
                             NavigationDestination.Back.route -> navController.navigateUp()
@@ -70,12 +70,12 @@ private fun MainTopAppBar() {
         title = {
             Text(
                 text = stringResource(id = R.string.app_name),
-                fontWeight = FontWeight.Medium
+                fontWeight = FontWeight.Medium,
             )
         },
         colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
             containerColor = MaterialTheme.colorScheme.primary,
-            titleContentColor = MaterialTheme.colorScheme.onPrimary
-        )
+            titleContentColor = MaterialTheme.colorScheme.onPrimary,
+        ),
     )
 }

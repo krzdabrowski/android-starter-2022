@@ -38,8 +38,8 @@ class RocketsScreenTest {
         setUpComposable(
             RocketsUiState(
                 rockets = testRockets,
-                isError = true
-            )
+                isError = true,
+            ),
         )
 
         composeTestRule
@@ -52,8 +52,8 @@ class RocketsScreenTest {
         setUpComposable(
             RocketsUiState(
                 rockets = testRockets,
-                isError = true
-            )
+                isError = true,
+            ),
         )
 
         composeTestRule
@@ -64,7 +64,7 @@ class RocketsScreenTest {
     @Test
     fun rocketsScreen_whenContentNotAvailableAndErrorOccurs_shouldHaveErrorContent() {
         setUpComposable(
-            RocketsUiState(isError = true)
+            RocketsUiState(isError = true),
         )
 
         composeTestRule
@@ -73,13 +73,13 @@ class RocketsScreenTest {
     }
 
     private fun setUpComposable(
-        rocketsUiState: RocketsUiState
+        rocketsUiState: RocketsUiState,
     ) {
         composeTestRule.setContent {
             RocketsScreen(
                 uiState = rocketsUiState,
                 onRefreshRockets = { },
-                onRocketClicked = { }
+                onRocketClicked = { },
             )
         }
     }

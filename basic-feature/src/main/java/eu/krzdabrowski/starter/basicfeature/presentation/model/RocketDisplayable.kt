@@ -12,5 +12,5 @@ data class RocketDisplayable(
     val heightInMeters: Int,
     val weightInTonnes: Int,
     val wikiUrl: String,
-    val imageUrl: String
+    val imageUrl: String,
 ) : Parcelable

@@ -13,7 +13,7 @@ internal fun generateTestRocketsFromPresentation() = listOf(
         heightInMeters = 20,
         weightInTonnes = 30,
         wikiUrl = "https://testrocket.com",
-        imageUrl = ""
+        imageUrl = "",
     ),
     RocketDisplayable(
         id = "2",
@@ -23,7 +23,7 @@ internal fun generateTestRocketsFromPresentation() = listOf(
         heightInMeters = 40,
         weightInTonnes = 50,
         wikiUrl = "https://testrocket.com",
-        imageUrl = ""
+        imageUrl = "",
     ),
     RocketDisplayable(
         id = "3",
@@ -33,8 +33,8 @@ internal fun generateTestRocketsFromPresentation() = listOf(
         heightInMeters = 60,
         weightInTonnes = 70,
         wikiUrl = "https://testrocket.com",
-        imageUrl = ""
-    )
+        imageUrl = "",
+    ),
 )
 
 internal fun generateTestRocketsFromDomain() = listOf(
@@ -46,7 +46,7 @@ internal fun generateTestRocketsFromDomain() = listOf(
         height = 20,
         weight = 30_000,
         wikiUrl = "https://testrocket.com",
-        imageUrl = "https://testrocket.com/1.jpg"
+        imageUrl = "https://testrocket.com/1.jpg",
     ),
     Rocket(
         id = "2",
@@ -56,7 +56,7 @@ internal fun generateTestRocketsFromDomain() = listOf(
         height = 40,
         weight = 50_000,
         wikiUrl = "https://testrocket.com",
-        imageUrl = "https://testrocket.com/2.jpg"
+        imageUrl = "https://testrocket.com/2.jpg",
     ),
     Rocket(
         id = "3",
@@ -66,6 +66,6 @@ internal fun generateTestRocketsFromDomain() = listOf(
         height = 60,
         weight = 70_000,
         wikiUrl = "https://testrocket.com",
-        imageUrl = "https://testrocket.com/3.jpg"
-    )
+        imageUrl = "https://testrocket.com/3.jpg",
+    ),
 )

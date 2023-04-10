@@ -29,7 +29,7 @@ class RocketsRouteTest {
         hiltTestRule.inject()
         composeTestRule.activity.setContent {
             RocketsRoute(
-                viewModel = composeTestRule.getHiltTestViewModel()
+                viewModel = composeTestRule.getHiltTestViewModel(),
             )
         }
     }

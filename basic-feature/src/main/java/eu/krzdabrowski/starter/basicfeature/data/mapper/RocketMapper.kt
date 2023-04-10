@@ -14,7 +14,7 @@ fun RocketResponse.toDomainModel() = Rocket(
     height = height.meters.toInt(),
     weight = weight.kg,
     wikiUrl = wikiUrl,
-    imageUrl = imageUrls.random()
+    imageUrl = imageUrls.random(),
 )
 
 fun RocketCached.toDomainModel() = Rocket(
@@ -25,7 +25,7 @@ fun RocketCached.toDomainModel() = Rocket(
     height = height,
     weight = weight,
     wikiUrl = wikiUrl,
-    imageUrl = imageUrl
+    imageUrl = imageUrl,
 )
 
 fun Rocket.toEntityModel() = RocketCached(
@@ -36,5 +36,5 @@ fun Rocket.toEntityModel() = RocketCached(
     height = height,
     weight = weight,
     wikiUrl = wikiUrl,
-    imageUrl = imageUrl
+    imageUrl = imageUrl,
 )

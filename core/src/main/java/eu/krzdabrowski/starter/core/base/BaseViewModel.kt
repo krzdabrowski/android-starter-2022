@@ -18,7 +18,7 @@ private const val SAVED_UI_STATE_KEY = "savedUiStateKey"
 
 abstract class BaseViewModel<UI_STATE : Parcelable, PARTIAL_UI_STATE, EVENT, INTENT>(
     savedStateHandle: SavedStateHandle,
-    initialState: UI_STATE
+    initialState: UI_STATE,
 ) : ViewModel() {
     private val intentFlow = MutableSharedFlow<INTENT>()
 
@@ -54,6 +54,6 @@ abstract class BaseViewModel<UI_STATE : Parcelable, PARTIAL_UI_STATE, EVENT, INT
 
     protected abstract fun reduceUiState(
         previousState: UI_STATE,
-        partialState: PARTIAL_UI_STATE
+        partialState: PARTIAL_UI_STATE,
     ): UI_STATE
 }

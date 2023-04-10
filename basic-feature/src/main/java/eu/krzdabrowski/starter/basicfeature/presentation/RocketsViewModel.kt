@@ -28,10 +28,10 @@ class RocketsViewModel @Inject constructor(
     private val getRocketsUseCase: GetRocketsUseCase,
     private val refreshRocketsUseCase: RefreshRocketsUseCase,
     savedStateHandle: SavedStateHandle,
-    rocketsInitialState: RocketsUiState
+    rocketsInitialState: RocketsUiState,
 ) : BaseViewModel<RocketsUiState, PartialState, RocketsEvent, RocketsIntent>(
     savedStateHandle,
-    rocketsInitialState
+    rocketsInitialState,
 ) {
     init {
         acceptIntent(GetRockets)
@@ -45,20 +45,20 @@ class RocketsViewModel @Inject constructor(
 
     override fun reduceUiState(
         previousState: RocketsUiState,
-        partialState: PartialState
+        partialState: PartialState,
     ): RocketsUiState = when (partialState) {
         is Loading -> previousState.copy(
             isLoading = true,
-            isError = false
+            isError = false,
         )
         is Fetched -> previousState.copy(
             isLoading = false,
             rockets = partialState.list,
-            isError = false
+            isError = false,
         )
         is Error -> previousState.copy(
             isLoading = false,
-            isError = true
+            isError = true,
         )
     }
 

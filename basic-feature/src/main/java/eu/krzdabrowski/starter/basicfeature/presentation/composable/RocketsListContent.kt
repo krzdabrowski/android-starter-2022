@@ -17,26 +17,26 @@ const val ROCKET_DIVIDER_TEST_TAG = "rocketDividerTestTag"
 fun RocketsListContent(
     rocketList: List<RocketDisplayable>,
     modifier: Modifier = Modifier,
-    onRocketClick: (String) -> Unit
+    onRocketClick: (String) -> Unit,
 ) {
     LazyColumn(
         modifier = modifier
             .padding(
-                horizontal = dimensionResource(id = R.dimen.dimen_medium)
-            )
+                horizontal = dimensionResource(id = R.dimen.dimen_medium),
+            ),
     ) {
         itemsIndexed(
             items = rocketList,
-            key = { _, rocket -> rocket.id }
+            key = { _, rocket -> rocket.id },
         ) { index, item ->
             RocketItem(
                 rocket = item,
-                onRocketClick = { onRocketClick(item.wikiUrl) }
+                onRocketClick = { onRocketClick(item.wikiUrl) },
             )
 
             if (index < rocketList.lastIndex) {
                 Divider(
-                    modifier = Modifier.testTag(ROCKET_DIVIDER_TEST_TAG)
+                    modifier = Modifier.testTag(ROCKET_DIVIDER_TEST_TAG),
                 )
             }
         }

@@ -15,7 +15,7 @@ private const val RETRY_TIME_IN_MILLIS = 15_000L
 fun interface GetRocketsUseCase : () -> Flow<Result<List<Rocket>>>
 
 fun getRockets(
-    rocketRepository: RocketRepository
+    rocketRepository: RocketRepository,
 ): Flow<Result<List<Rocket>>> = rocketRepository
     .getRockets()
     .map {

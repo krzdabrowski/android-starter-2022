@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.flowOf
 @Module
 @TestInstallIn(
     components = [SingletonComponent::class],
-    replaces = [RocketModule::class]
+    replaces = [RocketModule::class],
 )
 object FakeRocketModule {
 
@@ -21,7 +21,7 @@ object FakeRocketModule {
     fun provideFakeGetRocketsUseCase(): GetRocketsUseCase {
         return GetRocketsUseCase {
             flowOf(
-                Result.success(generateTestRocketsFromDomain())
+                Result.success(generateTestRocketsFromDomain()),
             )
         }
     }

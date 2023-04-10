@@ -7,10 +7,10 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun RocketsLoadingPlaceholder(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Spacer(
         modifier = modifier
-            .fillMaxSize()
+            .fillMaxSize(),
     )
 }

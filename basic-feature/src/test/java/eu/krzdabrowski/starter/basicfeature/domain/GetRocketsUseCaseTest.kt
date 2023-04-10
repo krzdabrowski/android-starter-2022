@@ -42,7 +42,7 @@ class GetRocketsUseCaseTest {
 
             assertEquals(
                 expected = Result.success(testRocketsFromDomain),
-                actual = result
+                actual = result,
             )
             awaitComplete()
         }
@@ -62,14 +62,14 @@ class GetRocketsUseCaseTest {
 
                 assertEquals(
                     expected = Result.failure(testException),
-                    actual = errorResult
+                    actual = errorResult,
                 )
 
                 val itemsResult = awaitItem()
 
                 assertEquals(
                     expected = Result.success(testRocketsFromDomain),
-                    actual = itemsResult
+                    actual = itemsResult,
                 )
             }
         }
@@ -99,7 +99,7 @@ class GetRocketsUseCaseTest {
 
                 assertEquals(
                     expected = Result.failure(testException),
-                    actual = result
+                    actual = result,
                 )
             }
         }

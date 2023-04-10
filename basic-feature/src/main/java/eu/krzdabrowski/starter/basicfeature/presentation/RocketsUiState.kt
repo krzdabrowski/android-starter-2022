@@ -10,7 +10,7 @@ import kotlinx.parcelize.Parcelize
 data class RocketsUiState(
     val isLoading: Boolean = false,
     val rockets: List<RocketDisplayable> = emptyList(),
-    val isError: Boolean = false
+    val isError: Boolean = false,
 ) : Parcelable {
 
     sealed class PartialState {
