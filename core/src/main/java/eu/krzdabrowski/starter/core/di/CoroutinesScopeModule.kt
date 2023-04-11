@@ -26,7 +26,7 @@ annotation class DefaultScope // CPU-related
 
 @Module
 @InstallIn(SingletonComponent::class)
-object CoroutinesScopeModule {
+internal object CoroutinesScopeModule {
 
     @Singleton
     @Provides

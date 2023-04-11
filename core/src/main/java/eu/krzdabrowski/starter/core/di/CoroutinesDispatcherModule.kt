@@ -23,7 +23,7 @@ annotation class DefaultDispatcher // CPU-related
 
 @Module
 @InstallIn(SingletonComponent::class)
-object CoroutinesDispatcherModule {
+internal object CoroutinesDispatcherModule {
 
     @MainImmediateDispatcher
     @Singleton
