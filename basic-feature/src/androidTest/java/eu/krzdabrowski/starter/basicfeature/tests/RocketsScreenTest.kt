@@ -78,8 +78,7 @@ class RocketsScreenTest {
         composeTestRule.setContent {
             RocketsScreen(
                 uiState = rocketsUiState,
-                onRefreshRockets = { },
-                onRocketClicked = { },
+                onIntent = { },
             )
         }
     }
