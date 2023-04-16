@@ -18,6 +18,7 @@ import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import eu.krzdabrowski.starter.basicfeature.R
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsEvent
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsEvent.OpenWebBrowserWithDetails
+import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent.RefreshRockets
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent.RocketClicked
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsUiState
@@ -34,20 +35,14 @@ fun RocketsRoute(
 
     RocketsScreen(
         uiState = uiState,
-        onRefreshRockets = {
-            viewModel.acceptIntent(RefreshRockets)
-        },
-        onRocketClicked = {
-            viewModel.acceptIntent(RocketClicked(it))
-        },
+        onIntent = viewModel::acceptIntent,
     )
 }
 
 @Composable
 internal fun RocketsScreen(
     uiState: RocketsUiState,
-    onRefreshRockets: () -> Unit,
-    onRocketClicked: (String) -> Unit,
+    onIntent: (RocketsIntent) -> Unit,
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
 
@@ -57,7 +52,7 @@ internal fun RocketsScreen(
         // TODO: migrate from accompanist to built-in pull-to-refresh when added to Material3
         SwipeRefresh(
             state = rememberSwipeRefreshState(uiState.isLoading),
-            onRefresh = onRefreshRockets,
+            onRefresh = { onIntent(RefreshRockets) },
             modifier = Modifier
                 .padding(it),
         ) {
@@ -65,7 +60,7 @@ internal fun RocketsScreen(
                 RocketsAvailableContent(
                     snackbarHostState = snackbarHostState,
                     uiState = uiState,
-                    onRocketClick = onRocketClicked,
+                    onRocketClick = { onIntent(RocketClicked(it)) },
                 )
             } else {
                 RocketsNotAvailableContent(
@@ -107,7 +102,7 @@ private fun RocketsAvailableContent(
 
     RocketsListContent(
         rocketList = uiState.rockets,
-        onRocketClick = { onRocketClick(it) },
+        onRocketClick = onRocketClick,
     )
 }
 

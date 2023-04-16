@@ -14,7 +14,7 @@ private const val APP_DATABASE_NAME = "app_database_name"
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DatabaseModule {
+internal object DatabaseModule {
 
     @Singleton
     @Provides

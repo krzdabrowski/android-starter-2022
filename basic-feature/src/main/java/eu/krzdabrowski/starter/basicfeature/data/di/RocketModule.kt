@@ -15,9 +15,9 @@ import eu.krzdabrowski.starter.basicfeature.domain.usecase.refreshRockets
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
-@Module(includes = [RocketModule.BindsModule::class])
+@Module
 @InstallIn(SingletonComponent::class)
-object RocketModule {
+internal object RocketModule {
 
     @Provides
     @Singleton

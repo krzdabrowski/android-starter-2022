@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.flowOf
     components = [SingletonComponent::class],
     replaces = [RocketModule::class],
 )
-object FakeRocketModule {
+internal object FakeRocketModule {
 
     @Provides
     fun provideFakeGetRocketsUseCase(): GetRocketsUseCase {

@@ -14,7 +14,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(ViewModelComponent::class)
-object RocketsViewModelModule {
+internal object RocketsViewModelModule {
 
     @Provides
     fun provideInitialRocketsUiState(): RocketsUiState = RocketsUiState()
@@ -22,7 +22,7 @@ object RocketsViewModelModule {
 
 @Module
 @InstallIn(SingletonComponent::class)
-interface RocketsSingletonModule {
+internal interface RocketsSingletonModule {
 
     @Singleton
     @Binds
