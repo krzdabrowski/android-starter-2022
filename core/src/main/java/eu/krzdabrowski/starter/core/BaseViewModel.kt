@@ -42,7 +42,7 @@ abstract class BaseViewModel<UI_STATE : Parcelable, PARTIAL_UI_STATE, EVENT, INT
                 continuousFlows(),
             )
                 .scan(uiState.value, ::reduceUiState)
-                .catch { Timber.Forest.e(it) }
+                .catch { Timber.e(it) }
                 .collect {
                     savedStateHandle[SAVED_UI_STATE_KEY] = it
                 }
