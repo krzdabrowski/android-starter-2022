@@ -1,4 +1,4 @@
-package eu.krzdabrowski.starter.core.ui
+package eu.krzdabrowski.starter.core.design
 
 import android.app.Activity
 import android.os.Build

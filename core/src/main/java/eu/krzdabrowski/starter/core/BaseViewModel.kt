@@ -1,14 +1,18 @@
-package eu.krzdabrowski.starter.core.base
+package eu.krzdabrowski.starter.core
 
 import android.os.Parcelable
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.flatMapMerge
+import kotlinx.coroutines.flow.emitAll
+import kotlinx.coroutines.flow.flatMapConcat
+import kotlinx.coroutines.flow.merge
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.scan
 import kotlinx.coroutines.launch
@@ -21,6 +25,10 @@ abstract class BaseViewModel<UI_STATE : Parcelable, PARTIAL_UI_STATE, EVENT, INT
     initialState: UI_STATE,
 ) : ViewModel() {
     private val intentFlow = MutableSharedFlow<INTENT>()
+    private val continuousPartialStateFlow = MutableSharedFlow<PARTIAL_UI_STATE>()
+
+    private val intentFlowListenerStarted = CompletableDeferred<Unit>()
+    private val continuousPartialStateFlowListenerStarted = CompletableDeferred<Unit>()
 
     val uiState = savedStateHandle.getStateFlow(SAVED_UI_STATE_KEY, initialState)
 
@@ -29,8 +37,10 @@ abstract class BaseViewModel<UI_STATE : Parcelable, PARTIAL_UI_STATE, EVENT, INT
 
     init {
         viewModelScope.launch {
-            intentFlow
-                .flatMapMerge { mapIntents(it) }
+            merge(
+                userIntents(),
+                continuousFlows(),
+            )
                 .scan(uiState.value, ::reduceUiState)
                 .catch { Timber.e(it) }
                 .collect {
@@ -39,10 +49,28 @@ abstract class BaseViewModel<UI_STATE : Parcelable, PARTIAL_UI_STATE, EVENT, INT
         }
     }
 
-    fun acceptIntent(intent: INTENT) =
+    private fun userIntents(): Flow<PARTIAL_UI_STATE> =
+        intentFlow
+            .onStart { intentFlowListenerStarted.complete(Unit) }
+            .flatMapConcat(::mapIntents)
+
+    private fun continuousFlows(): Flow<PARTIAL_UI_STATE> =
+        continuousPartialStateFlow
+            .onStart { continuousPartialStateFlowListenerStarted.complete(Unit) }
+
+    fun acceptIntent(intent: INTENT) {
         viewModelScope.launch {
+            intentFlowListenerStarted.await()
             intentFlow.emit(intent)
         }
+    }
+
+    protected fun observeContinuousChanges(changesFlow: Flow<PARTIAL_UI_STATE>) {
+        viewModelScope.launch {
+            continuousPartialStateFlowListenerStarted.await()
+            continuousPartialStateFlow.emitAll(changesFlow)
+        }
+    }
 
     protected fun publishEvent(event: EVENT) {
         viewModelScope.launch {

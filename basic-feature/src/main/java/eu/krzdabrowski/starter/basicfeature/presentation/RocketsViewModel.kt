@@ -13,10 +13,11 @@ import eu.krzdabrowski.starter.basicfeature.presentation.RocketsUiState.PartialS
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsUiState.PartialState.Fetched
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsUiState.PartialState.Loading
 import eu.krzdabrowski.starter.basicfeature.presentation.mapper.toPresentationModel
-import eu.krzdabrowski.starter.core.base.BaseViewModel
+import eu.krzdabrowski.starter.core.BaseViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import javax.inject.Inject
 
@@ -34,7 +35,7 @@ class RocketsViewModel @Inject constructor(
     rocketsInitialState,
 ) {
     init {
-        acceptIntent(GetRockets)
+        observeContinuousChanges(getRockets())
     }
 
     override fun mapIntents(intent: RocketsIntent): Flow<PartialState> = when (intent) {
@@ -62,21 +63,21 @@ class RocketsViewModel @Inject constructor(
         )
     }
 
-    private fun getRockets(): Flow<PartialState> = flow {
+    private fun getRockets(): Flow<PartialState> =
         getRocketsUseCase()
+            .map { result ->
+                result.fold(
+                    onSuccess = { rocketList ->
+                        Fetched(rocketList.map { it.toPresentationModel() })
+                    },
+                    onFailure = {
+                        Error(it)
+                    },
+                )
+            }
             .onStart {
                 emit(Loading)
             }
-            .collect { result ->
-                result
-                    .onSuccess { rocketList ->
-                        emit(Fetched(rocketList.map { it.toPresentationModel() }))
-                    }
-                    .onFailure {
-                        emit(Error(it))
-                    }
-            }
-    }
 
     private fun refreshRockets(): Flow<PartialState> = flow {
         refreshRocketsUseCase()

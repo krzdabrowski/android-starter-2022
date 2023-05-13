@@ -15,12 +15,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
-import eu.krzdabrowski.starter.core.extensions.collectWithLifecycle
+import eu.krzdabrowski.starter.core.design.AndroidStarterTheme
 import eu.krzdabrowski.starter.core.navigation.NavigationDestination
 import eu.krzdabrowski.starter.core.navigation.NavigationFactory
 import eu.krzdabrowski.starter.core.navigation.NavigationHost
 import eu.krzdabrowski.starter.core.navigation.NavigationManager
-import eu.krzdabrowski.starter.core.ui.AndroidStarterTheme
+import eu.krzdabrowski.starter.core.utils.collectWithLifecycle
 import javax.inject.Inject
 
 @AndroidEntryPoint

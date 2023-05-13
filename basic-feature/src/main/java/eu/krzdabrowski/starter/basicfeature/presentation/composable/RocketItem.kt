@@ -14,7 +14,7 @@ import androidx.compose.ui.res.stringResource
 import coil.compose.AsyncImage
 import eu.krzdabrowski.starter.basicfeature.R
 import eu.krzdabrowski.starter.basicfeature.presentation.model.RocketDisplayable
-import eu.krzdabrowski.starter.core.ui.Typography
+import eu.krzdabrowski.starter.core.design.Typography
 
 @Composable
 fun RocketItem(
