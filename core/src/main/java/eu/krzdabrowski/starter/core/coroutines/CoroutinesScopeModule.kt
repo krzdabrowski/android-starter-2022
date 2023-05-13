@@ -1,4 +1,4 @@
-package eu.krzdabrowski.starter.core.di
+package eu.krzdabrowski.starter.core.coroutines
 
 import dagger.Module
 import dagger.Provides

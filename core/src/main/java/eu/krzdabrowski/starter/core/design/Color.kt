@@ -1,4 +1,4 @@
-package eu.krzdabrowski.starter.core.ui
+package eu.krzdabrowski.starter.core.design
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,4 +1,4 @@
-package eu.krzdabrowski.starter.core.extensions
+package eu.krzdabrowski.starter.core.utils
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect

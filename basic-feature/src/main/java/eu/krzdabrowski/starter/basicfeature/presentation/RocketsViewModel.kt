@@ -13,7 +13,7 @@ import eu.krzdabrowski.starter.basicfeature.presentation.RocketsUiState.PartialS
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsUiState.PartialState.Fetched
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsUiState.PartialState.Loading
 import eu.krzdabrowski.starter.basicfeature.presentation.mapper.toPresentationModel
-import eu.krzdabrowski.starter.core.base.BaseViewModel
+import eu.krzdabrowski.starter.core.BaseViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flow

@@ -7,7 +7,7 @@ import dagger.hilt.testing.TestInstallIn
 import eu.krzdabrowski.starter.basicfeature.data.di.RocketModule
 import eu.krzdabrowski.starter.basicfeature.domain.usecase.GetRocketsUseCase
 import eu.krzdabrowski.starter.basicfeature.domain.usecase.RefreshRocketsUseCase
-import eu.krzdabrowski.starter.core.extensions.resultOf
+import eu.krzdabrowski.starter.core.utils.resultOf
 import kotlinx.coroutines.flow.flowOf
 
 @Module

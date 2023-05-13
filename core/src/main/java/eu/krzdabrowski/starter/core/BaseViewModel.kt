@@ -1,4 +1,4 @@
-package eu.krzdabrowski.starter.core.base
+package eu.krzdabrowski.starter.core
 
 import android.os.Parcelable
 import androidx.lifecycle.SavedStateHandle
@@ -32,7 +32,7 @@ abstract class BaseViewModel<UI_STATE : Parcelable, PARTIAL_UI_STATE, EVENT, INT
             intentFlow
                 .flatMapMerge { mapIntents(it) }
                 .scan(uiState.value, ::reduceUiState)
-                .catch { Timber.e(it) }
+                .catch { Timber.Forest.e(it) }
                 .collect {
                     savedStateHandle[SAVED_UI_STATE_KEY] = it
                 }
