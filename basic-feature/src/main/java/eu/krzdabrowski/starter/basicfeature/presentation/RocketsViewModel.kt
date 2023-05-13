@@ -73,7 +73,7 @@ class RocketsViewModel @Inject constructor(
                     },
                     onFailure = {
                         Error(it)
-                    }
+                    },
                 )
             }
 
