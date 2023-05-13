@@ -65,7 +65,6 @@ class RocketsViewModel @Inject constructor(
 
     private fun getRockets(): Flow<PartialState> =
         getRocketsUseCase()
-            .onStart { Loading }
             .map { result ->
                 result.fold(
                     onSuccess = { rocketList ->
@@ -75,6 +74,9 @@ class RocketsViewModel @Inject constructor(
                         Error(it)
                     },
                 )
+            }
+            .onStart {
+                emit(Loading)
             }
 
     private fun refreshRockets(): Flow<PartialState> = flow {
