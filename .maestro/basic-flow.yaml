@@ -1,0 +1,8 @@
+appId: eu.krzdabrowski.starter
+---
+- launchApp
+- assertNotVisible: "Sorry, something went wrong when fetching rockets"
+- swipe:
+    direction: "DOWN"
+- assertVisible: "Rocket image"
+- assertNotVisible: "Sorry, something went wrong when refreshing rockets"
