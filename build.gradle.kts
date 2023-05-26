@@ -19,7 +19,7 @@ allprojects {
 
     detekt {
         buildUponDefaultConfig = true
-        config = files("$rootDir/gradle/detekt.yml")
+        config.setFrom(files("$rootDir/gradle/detekt.yml"))
     }
 }
 
