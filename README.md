@@ -37,7 +37,7 @@ Supports light/dark mode theming automatically.
 * Version Catalog - for dependency management
 * Timber - for logging
 * JUnit5, Turbine and MockK - for unit tests
-* Jetpack Compose test dependencies and Hilt - for UI tests
+* Jetpack Compose test dependencies, Maestro and Hilt - for UI tests
 * GitHub Actions - for CI/CD
 * Renovate - to update dependencies automatically
 * KtLint and Detekt - for code linting
