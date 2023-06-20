@@ -6,6 +6,8 @@
 
 Android starter project, described precisely in [this](https://proandroiddev.com/clean-android-multi-module-offline-first-scalable-app-in-2022-including-jetpack-compose-mvi-987ebecbecae) and [this article](https://medium.com/codequest/clean-android-multi-module-offline-first-scalable-app-in-2022-part-2-including-compose-ui-e1fd0a0f410e).
 
+The codebase is still up-to-date in 2023 with periodically updates.
+
 ### **Purpose**
 To show good practices using Kotlin features and latest Android libraries from Jetpack in 2022.
 
