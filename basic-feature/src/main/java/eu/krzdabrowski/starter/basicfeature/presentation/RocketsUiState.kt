@@ -14,7 +14,7 @@ data class RocketsUiState(
 ) : Parcelable {
 
     sealed class PartialState {
-        object Loading : PartialState() // for simplicity: initial loading & refreshing
+        data object Loading : PartialState() // for simplicity: initial loading & refreshing
 
         data class Fetched(val list: List<RocketDisplayable>) : PartialState()
 
