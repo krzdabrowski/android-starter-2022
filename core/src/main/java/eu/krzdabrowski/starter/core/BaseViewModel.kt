@@ -4,13 +4,13 @@ import android.os.Parcelable
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import eu.krzdabrowski.starter.core.coroutines.flatMapConcurrently
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.emitAll
-import kotlinx.coroutines.flow.flatMapConcat
 import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -52,7 +52,9 @@ abstract class BaseViewModel<UI_STATE : Parcelable, PARTIAL_UI_STATE, EVENT, INT
     private fun userIntents(): Flow<PARTIAL_UI_STATE> =
         intentFlow
             .onStart { intentFlowListenerStarted.complete(Unit) }
-            .flatMapConcat(::mapIntents)
+            .flatMapConcurrently(
+                transform = ::mapIntents,
+            )
 
     private fun continuousFlows(): Flow<PARTIAL_UI_STATE> =
         continuousPartialStateFlow
