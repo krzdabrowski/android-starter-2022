@@ -29,7 +29,7 @@ timber                              = "5.0.1"
 # test libraries
 test-junit                          = "5.9.3"
 test-mockk                          = "1.13.5"
-test-turbine                        = "0.13.0"
+test-turbine                        = "1.0.0"
 
 # android test libraries
 test-android-runner                 = "1.5.2"
