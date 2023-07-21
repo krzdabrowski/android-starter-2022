@@ -3,6 +3,6 @@ package eu.krzdabrowski.starter.core.navigation
 sealed class NavigationDestination(
     val route: String,
 ) {
-    object Rockets : NavigationDestination("rocketsDestination")
-    object Back : NavigationDestination("navigationBack")
+    data object Rockets : NavigationDestination("rocketsDestination")
+    data object Back : NavigationDestination("navigationBack")
 }
