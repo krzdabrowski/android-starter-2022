@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.merge
-import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.onSubscription
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.scan
 import kotlinx.coroutines.launch
@@ -51,14 +51,14 @@ abstract class BaseViewModel<UI_STATE : Parcelable, PARTIAL_UI_STATE, EVENT, INT
 
     private fun userIntents(): Flow<PARTIAL_UI_STATE> =
         intentFlow
-            .onStart { intentFlowListenerStarted.complete(Unit) }
+            .onSubscription { intentFlowListenerStarted.complete(Unit) }
             .flatMapConcurrently(
                 transform = ::mapIntents,
             )
 
     private fun continuousFlows(): Flow<PARTIAL_UI_STATE> =
         continuousPartialStateFlow
-            .onStart { continuousPartialStateFlowListenerStarted.complete(Unit) }
+            .onSubscription { continuousPartialStateFlowListenerStarted.complete(Unit) }
 
     fun acceptIntent(intent: INTENT) {
         viewModelScope.launch {
