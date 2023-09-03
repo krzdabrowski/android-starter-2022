@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.hilt)
     alias(libs.plugins.junit)
     alias(libs.plugins.kotlin)
-    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.ksp)
     alias(libs.plugins.ktlint)
 }
 
@@ -67,8 +67,8 @@ dependencies {
     implementation(libs.timber)
     androidTestImplementation(libs.bundles.common.android.test)
 
-    kapt(libs.hilt.compiler)
-    kaptAndroidTest(libs.test.android.hilt.compiler)
+    ksp(libs.hilt.compiler)
+    kspAndroidTest(libs.test.android.hilt.compiler)
 
     detektPlugins(libs.detekt.compose.rules)
 }

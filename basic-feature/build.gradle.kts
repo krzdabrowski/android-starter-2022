@@ -3,9 +3,9 @@ plugins {
     alias(libs.plugins.detekt)
     alias(libs.plugins.junit)
     alias(libs.plugins.kotlin)
-    alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.ksp)
     alias(libs.plugins.ktlint)
 }
 
@@ -81,8 +81,8 @@ dependencies {
     androidTestImplementation(libs.bundles.common.android.test)
     debugImplementation(libs.debug.compose.manifest)
 
-    kapt(libs.hilt.compiler)
-    kaptAndroidTest(libs.test.android.hilt.compiler)
+    ksp(libs.hilt.compiler)
+    kspAndroidTest(libs.test.android.hilt.compiler)
 
     coreLibraryDesugaring(libs.desugar)
 
