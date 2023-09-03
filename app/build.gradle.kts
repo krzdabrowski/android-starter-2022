@@ -3,13 +3,12 @@ plugins {
     alias(libs.plugins.detekt)
     alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin)
-    alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.ksp)
     alias(libs.plugins.ktlint)
 }
 
 android {
-    compileSdk = 33
+    compileSdk = 34
     namespace = "eu.krzdabrowski.starter"
 
     defaultConfig {
@@ -67,7 +66,7 @@ dependencies {
     implementation(libs.room.ktx)
     implementation(libs.timber)
 
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
     ksp(libs.room.compiler)
 
     coreLibraryDesugaring(libs.desugar)
