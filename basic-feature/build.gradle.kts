@@ -10,7 +10,7 @@ plugins {
 }
 
 android {
-    compileSdk = 33
+    compileSdk = 34
     namespace = "eu.krzdabrowski.starter.basicfeature"
 
     with (defaultConfig) {
