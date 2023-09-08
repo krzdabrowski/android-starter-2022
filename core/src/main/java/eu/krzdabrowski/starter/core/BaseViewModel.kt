@@ -9,6 +9,7 @@ import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.merge
@@ -24,11 +25,11 @@ abstract class BaseViewModel<UI_STATE : Parcelable, PARTIAL_UI_STATE, EVENT, INT
     savedStateHandle: SavedStateHandle,
     initialState: UI_STATE,
 ) : ViewModel() {
-    private val intentFlow = MutableSharedFlow<INTENT>()
-    private val continuousPartialStateFlow = MutableSharedFlow<PARTIAL_UI_STATE>()
+    private val intentsFlowListenerStarted = CompletableDeferred<Unit>()
+    private val changesPartialStateFlowListenerStarted = CompletableDeferred<Unit>()
 
-    private val intentFlowListenerStarted = CompletableDeferred<Unit>()
-    private val continuousPartialStateFlowListenerStarted = CompletableDeferred<Unit>()
+    private val intentsFlow = MutableSharedFlow<INTENT>()
+    private val changesPartialStateFlow = MutableSharedFlow<PARTIAL_UI_STATE>()
 
     val uiState = savedStateHandle.getStateFlow(SAVED_UI_STATE_KEY, initialState)
 
@@ -39,7 +40,7 @@ abstract class BaseViewModel<UI_STATE : Parcelable, PARTIAL_UI_STATE, EVENT, INT
         viewModelScope.launch {
             merge(
                 userIntents(),
-                continuousFlows(),
+                nonUserChanges(),
             )
                 .scan(uiState.value, ::reduceUiState)
                 .catch { Timber.e(it) }
@@ -50,27 +51,30 @@ abstract class BaseViewModel<UI_STATE : Parcelable, PARTIAL_UI_STATE, EVENT, INT
     }
 
     private fun userIntents(): Flow<PARTIAL_UI_STATE> =
-        intentFlow
-            .onSubscription { intentFlowListenerStarted.complete(Unit) }
+        intentsFlow
+            .onSubscription { intentsFlowListenerStarted.complete(Unit) }
             .flatMapConcurrently(
                 transform = ::mapIntents,
             )
 
-    private fun continuousFlows(): Flow<PARTIAL_UI_STATE> =
-        continuousPartialStateFlow
-            .onSubscription { continuousPartialStateFlowListenerStarted.complete(Unit) }
+    private fun nonUserChanges(): Flow<PARTIAL_UI_STATE> =
+        changesPartialStateFlow
+            .onSubscription { changesPartialStateFlowListenerStarted.complete(Unit) }
 
     fun acceptIntent(intent: INTENT) {
         viewModelScope.launch {
-            intentFlowListenerStarted.await()
-            intentFlow.emit(intent)
+            intentsFlowListenerStarted.await()
+            intentsFlow.emit(intent)
         }
     }
 
-    protected fun observeContinuousChanges(changesFlow: Flow<PARTIAL_UI_STATE>) {
+    protected fun acceptChanges(vararg nonUserChangesFlows: Flow<PARTIAL_UI_STATE>) {
         viewModelScope.launch {
-            continuousPartialStateFlowListenerStarted.await()
-            continuousPartialStateFlow.emitAll(changesFlow)
+            changesPartialStateFlowListenerStarted.await()
+            changesPartialStateFlow.emitAll(
+                // to flatten Flow with queue behaviour like in userIntents() Flow but without ::mapIntents
+                nonUserChangesFlows.asFlow().flatMapConcurrently { it },
+            )
         }
     }
 

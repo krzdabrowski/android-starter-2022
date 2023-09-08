@@ -5,7 +5,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.krzdabrowski.starter.basicfeature.domain.usecase.GetRocketsUseCase
 import eu.krzdabrowski.starter.basicfeature.domain.usecase.RefreshRocketsUseCase
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsEvent.OpenWebBrowserWithDetails
-import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent.GetRockets
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent.RefreshRockets
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent.RocketClicked
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsUiState.PartialState
@@ -35,11 +34,10 @@ class RocketsViewModel @Inject constructor(
     rocketsInitialState,
 ) {
     init {
-        observeContinuousChanges(getRockets())
+        observeRockets()
     }
 
     override fun mapIntents(intent: RocketsIntent): Flow<PartialState> = when (intent) {
-        is GetRockets -> getRockets()
         is RefreshRockets -> refreshRockets()
         is RocketClicked -> rocketClicked(intent.uri)
     }
@@ -63,7 +61,7 @@ class RocketsViewModel @Inject constructor(
         )
     }
 
-    private fun getRockets(): Flow<PartialState> =
+    private fun observeRockets() = acceptChanges(
         getRocketsUseCase()
             .map { result ->
                 result.fold(
@@ -77,7 +75,8 @@ class RocketsViewModel @Inject constructor(
             }
             .onStart {
                 emit(Loading)
-            }
+            },
+    )
 
     private fun refreshRockets(): Flow<PartialState> = flow {
         refreshRocketsUseCase()
