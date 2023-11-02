@@ -795,6 +795,8 @@ Compose:
     # contentEmitters: MyComposable,MyOtherComposable
   DefaultsVisibility:
     active: true
+  ModifierClickableOrder:
+    active: true
   ModifierComposable:
     active: true
   ModifierMissing:
@@ -824,19 +826,21 @@ Compose:
     # allowedComposableFunctionNames: .*Presenter,.*MoleculePresenter
   ComposableParamOrder:
     active: true
-  PreviewNaming:
+  PreviewAnnotationNaming:
     active: true
   PreviewPublic:
     active: true
-    # You can optionally disable that only previews with @PreviewParameter are flagged
-    # previewPublicOnlyIfParams: false
   RememberMissing:
+    active: true
+  RememberContentMissing:
     active: true
   UnstableCollections:
     active: false
     # Using Kotlinx Immutable Collections which didn't have a v1.0 release doesn't sound like a good idea
   ViewModelForwarding:
     active: true
+      # You can optionally use this rule on things other than types ending in "ViewModel" or "Presenter" (which are the defaults). You can add your own via a regex here:
+    # allowedStateHolderNames: .*ViewModel,.*Presenter
   ViewModelInjection:
     active: true
     # You can optionally add your own ViewModel factories here
