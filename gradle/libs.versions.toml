@@ -1,10 +1,10 @@
 [versions]
 # plugins
-android-gradle                      = "8.1.2"
+android-gradle                      = "8.1.3"
 detekt                              = "1.23.3"
 detekt-compose-rules                = "0.3.3"
-junit                               = "1.9.3.0"
-ksp                                 = "1.9.10-1.0.13"
+junit                               = "1.10.0.0"
+ksp                                 = "1.9.20-1.0.14"
 ktlint                              = "3.16.0"
 
 # production libraries
@@ -14,7 +14,7 @@ compose-bom                         = "2023.10.01"
 compose-compiler                    = "1.5.3"
 desugar                             = "2.0.4"
 hilt                                = "2.48.1"
-kotlin                              = "1.9.10"
+kotlin                              = "1.9.20"
 kotlin-coroutines                   = "1.7.3"
 kotlin-serialization                = "1.6.0"
 kotlin-serialization-converter      = "1.0.0"
@@ -27,7 +27,7 @@ room                                = "2.6.0"
 timber                              = "5.0.1"
 
 # test libraries
-test-junit                          = "5.10.0"
+test-junit                          = "5.10.1"
 test-mockk                          = "1.13.8"
 test-turbine                        = "1.0.0"
 
