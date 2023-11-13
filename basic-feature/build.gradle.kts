@@ -35,20 +35,20 @@ android {
 
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
-
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
     }
 
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
 
+    kotlin {
+        jvmToolchain(17)
+    }
+
     kotlinOptions {
         freeCompilerArgs = listOf(
             "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api"
         )
-        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     sourceSets {

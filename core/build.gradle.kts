@@ -33,13 +33,12 @@ android {
         }
     }
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+    }
+
+    kotlin {
+        jvmToolchain(17)
     }
 
     kotlinOptions {
@@ -49,7 +48,6 @@ android {
             "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
             "-opt-in=kotlinx.serialization.ExperimentalSerializationApi"
         )
-        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 }
 
