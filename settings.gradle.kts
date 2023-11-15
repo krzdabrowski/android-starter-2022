@@ -18,3 +18,11 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
+buildCache {
+    local {
+        isEnabled = true
+        directory = File(rootDir, "build-cache")
+        removeUnusedEntriesAfterDays = 14
+    }
+}
