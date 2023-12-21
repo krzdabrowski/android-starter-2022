@@ -1,10 +1,10 @@
 [versions]
 # plugins
-android-gradle                      = "8.1.3"
-detekt                              = "1.23.3"
-detekt-compose-rules                = "0.3.3"
+android-gradle                      = "8.2.0"
+detekt                              = "1.23.4"
+detekt-compose-rules                = "0.3.8"
 junit                               = "1.10.0.0"
-ksp                                 = "1.9.20-1.0.14"
+ksp                                 = "1.9.21-1.0.16"
 ktlint                              = "3.16.0"
 
 # production libraries
@@ -13,17 +13,17 @@ coil                                = "2.5.0"
 compose-bom                         = "2023.10.01"
 compose-compiler                    = "1.5.4"
 desugar                             = "2.0.4"
-hilt                                = "2.48.1"
-kotlin                              = "1.9.20"
+hilt                                = "2.50"
+kotlin                              = "1.9.22"
 kotlin-coroutines                   = "1.7.3"
-kotlin-serialization                = "1.6.0"
+kotlin-serialization                = "1.6.2"
 kotlin-serialization-converter      = "1.0.0"
 lifecycle                           = "2.6.2"
-navigation                          = "2.7.5"
+navigation                          = "2.7.6"
 navigation-hilt                     = "1.1.0"
 okhttp-logging-interceptor          = "4.12.0"
 retrofit                            = "2.9.0"
-room                                = "2.6.0"
+room                                = "2.6.1"
 timber                              = "5.0.1"
 
 # test libraries
