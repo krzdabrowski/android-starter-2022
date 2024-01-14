@@ -8,7 +8,6 @@ ksp                                 = "1.9.22-1.0.16"
 ktlint                              = "3.16.0"
 
 # production libraries
-accompanist                         = "0.32.0"
 coil                                = "2.5.0"
 compose-bom                         = "2023.10.01"
 compose-compiler                    = "1.5.8"
@@ -51,7 +50,6 @@ ktlint                              = { id = "org.jmailen.kotlinter", version.re
 
 [libraries]
 # production libraries
-accompanist-swipe-refresh           = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "accompanist" }
 coil                                = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 compose-bom                         = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
 compose-material3                   = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }

@@ -68,7 +68,7 @@ class RocketsViewModelTest {
     }
 
     @Test
-    fun `should show loading state with no error state first during rockets refresh`() = runTest {
+    fun `should show loading state with no error state during rockets refresh`() = runTest {
         // Given
         every { getRocketsUseCase() } returns emptyFlow()
         setUpRocketsViewModel()
@@ -79,7 +79,6 @@ class RocketsViewModelTest {
         // Then
         objectUnderTest.uiState.test {
             val actualItem = awaitItem()
-            println(actualItem)
 
             assertTrue(actualItem.isLoading)
             assertFalse(actualItem.isError)
