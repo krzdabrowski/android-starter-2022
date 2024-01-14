@@ -34,9 +34,7 @@ class RocketsViewModelTest {
     private lateinit var getRocketsUseCase: GetRocketsUseCase
 
     // there is some issue with mocking functional interface with kotlin.Result(Unit)
-    private val refreshRocketsUseCase: RefreshRocketsUseCase = RefreshRocketsUseCase {
-        Result.failure(IllegalStateException("Test error"))
-    }
+    private lateinit var refreshRocketsUseCase: RefreshRocketsUseCase
 
     @SpyK
     private var savedStateHandle = SavedStateHandle()
@@ -46,6 +44,9 @@ class RocketsViewModelTest {
     @BeforeEach
     fun setUp() {
         MockKAnnotations.init(this)
+        refreshRocketsUseCase = RefreshRocketsUseCase {
+            Result.success(Unit)
+        }
     }
 
     @Test
@@ -60,6 +61,25 @@ class RocketsViewModelTest {
         // Then
         objectUnderTest.uiState.test {
             val actualItem = awaitItem()
+
+            assertTrue(actualItem.isLoading)
+            assertFalse(actualItem.isError)
+        }
+    }
+
+    @Test
+    fun `should show loading state with no error state first during rockets refresh`() = runTest {
+        // Given
+        every { getRocketsUseCase() } returns emptyFlow()
+        setUpRocketsViewModel()
+
+        // When
+        objectUnderTest.acceptIntent(RefreshRockets)
+
+        // Then
+        objectUnderTest.uiState.test {
+            val actualItem = awaitItem()
+            println(actualItem)
 
             assertTrue(actualItem.isLoading)
             assertFalse(actualItem.isError)
@@ -120,6 +140,9 @@ class RocketsViewModelTest {
         every { getRocketsUseCase() } returns flowOf(
             Result.success(testRocketsFromDomain),
         )
+        refreshRocketsUseCase = RefreshRocketsUseCase {
+            Result.failure(IllegalStateException("Test error"))
+        }
         setUpRocketsViewModel()
 
         // When
