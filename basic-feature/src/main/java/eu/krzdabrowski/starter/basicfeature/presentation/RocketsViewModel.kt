@@ -78,11 +78,13 @@ class RocketsViewModel @Inject constructor(
             },
     )
 
-    private fun refreshRockets(): Flow<PartialState> = flow {
+    private fun refreshRockets(): Flow<PartialState> = flow<PartialState> {
         refreshRocketsUseCase()
             .onFailure {
                 emit(Error(it))
             }
+    }.onStart {
+        emit(Loading)
     }
 
     private fun rocketClicked(uri: String): Flow<PartialState> {
