@@ -1,17 +1,17 @@
 [versions]
 # plugins
-android-gradle                      = "8.2.1"
-detekt                              = "1.23.4"
-detekt-compose-rules                = "0.3.9"
+android-gradle                      = "8.2.2"
+detekt                              = "1.23.5"
+detekt-compose-rules                = "0.3.11"
 junit                               = "1.10.0.0"
-ksp                                 = "1.9.22-1.0.16"
+ksp                                 = "1.9.22-1.0.17"
 ktlint                              = "3.16.0"
 
 # production libraries
 coil                                = "2.5.0"
 compose-bom                         = "2023.10.01"
 compose-compiler                    = "1.5.8"
-compose-material3                   = "1.2.0-beta02"
+compose-material3                   = "1.2.0-rc01"
 desugar                             = "2.0.4"
 hilt                                = "2.50"
 kotlin                              = "1.9.22"
@@ -27,7 +27,7 @@ room                                = "2.6.1"
 timber                              = "5.0.1"
 
 # test libraries
-test-junit                          = "5.10.1"
+test-junit                          = "5.10.2"
 test-mockk                          = "1.13.9"
 test-turbine                        = "1.0.0"
 
