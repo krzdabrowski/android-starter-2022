@@ -10,8 +10,7 @@ ktlint                              = "3.16.0"
 # production libraries
 coil                                = "2.5.0"
 compose-bom                         = "2024.02.00"
-compose-compiler                    = "1.5.8"
-compose-material3                   = "1.2.0"
+compose-compiler                    = "1.5.9"
 desugar                             = "2.0.4"
 hilt                                = "2.50"
 kotlin                              = "1.9.22"
@@ -52,7 +51,7 @@ ktlint                              = { id = "org.jmailen.kotlinter", version.re
 # production libraries
 coil                                = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 compose-bom                         = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
-compose-material3                   = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
+compose-material3                   = { group = "androidx.compose.material3", name = "material3" }
 desugar                             = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar" }
 detekt-compose-rules                = { module = "io.nlopez.compose.rules:detekt", version.ref = "detekt-compose-rules" }
 hilt                                = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
