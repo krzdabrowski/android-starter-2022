@@ -14,7 +14,7 @@ android {
     namespace = "eu.krzdabrowski.starter.basicfeature"
 
     with (defaultConfig) {
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
     }
 
