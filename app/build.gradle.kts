@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.baseline.profile)
     alias(libs.plugins.detekt)
     alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin)
@@ -54,6 +55,11 @@ android {
     }
 }
 
+baselineProfile {
+    automaticGenerationDuringBuild = true
+    dexLayoutOptimization = true
+}
+
 dependencies {
     implementation(project(":core"))
     implementation(project(":basic-feature"))
@@ -62,6 +68,9 @@ dependencies {
     implementation(libs.navigation) // needed for Room
     implementation(libs.room.ktx)
     implementation(libs.timber)
+
+    implementation(libs.test.android.profile.installer)
+    baselineProfile(project(":baseline-profiles"))
 
     ksp(libs.hilt.compiler)
     ksp(libs.room.compiler)
