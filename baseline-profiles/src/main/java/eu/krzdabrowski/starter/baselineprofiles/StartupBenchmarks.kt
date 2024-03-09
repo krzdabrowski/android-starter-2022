@@ -29,7 +29,8 @@ import org.junit.runner.RunWith
  * emulator doesn't represent real world performance and shares system resources with its host.
  *
  * For more information, see the [Macrobenchmark documentation](https://d.android.com/macrobenchmark#create-macrobenchmark)
- * and the [instrumentation arguments documentation](https://d.android.com/topic/performance/benchmarking/macrobenchmark-instrumentation-args).
+ * and the
+ * [instrumentation args documentation](https://d.android.com/topic/performance/benchmarking/macrobenchmark-instrumentation-args)
  **/
 @RunWith(AndroidJUnit4::class)
 class StartupBenchmarks {
@@ -49,7 +50,7 @@ class StartupBenchmarks {
         // The application id for the running build variant is read from the instrumentation arguments.
         rule.measureRepeated(
             packageName = InstrumentationRegistry.getArguments().getString("targetAppId")
-                ?: throw Exception("targetAppId not passed as instrumentation runner arg"),
+                ?: throw IllegalArgumentException("targetAppId not passed as instrumentation runner arg"),
             metrics = listOf(StartupTimingMetric()),
             compilationMode = compilationMode,
             startupMode = StartupMode.COLD,
@@ -68,7 +69,7 @@ class StartupBenchmarks {
                 // Check the UiAutomator documentation for more information on how to
                 // interact with the app.
                 // https://d.android.com/training/testing/other-components/ui-automator
-            }
+            },
         )
     }
 }

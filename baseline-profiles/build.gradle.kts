@@ -3,7 +3,9 @@
 plugins {
     alias(libs.plugins.android.test)
     alias(libs.plugins.baseline.profile)
+    alias(libs.plugins.detekt)
     alias(libs.plugins.kotlin)
+    alias(libs.plugins.ktlint)
 }
 
 android {
@@ -42,4 +44,6 @@ baselineProfile {
 dependencies {
     implementation(libs.test.android.benchmark.macro)
     implementation(libs.test.android.junit)
+
+    detektPlugins(libs.detekt.compose.rules)
 }
