@@ -43,9 +43,9 @@ jobs:
       - name: Run Compose UI tests
         uses: ReactiveCircus/android-emulator-runner@v2
         with:
-          api-level: 24
+          api-level: 26
           disable-animations: false
-          script: ./gradlew connectedCheck --stacktrace
+          script: ./gradlew basic-feature:connectedCheck --stacktrace
 
       - name: Run Maestro UI tests
         uses: mobile-dev-inc/action-maestro-cloud@v1
