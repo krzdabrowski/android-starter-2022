@@ -14,7 +14,7 @@ android {
     namespace = "eu.krzdabrowski.starter.basicfeature"
 
     with (defaultConfig) {
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
     }
 
@@ -31,10 +31,6 @@ android {
             isMinifyEnabled = false
             consumerProguardFiles("proguard-rules.pro")
         }
-    }
-
-    compileOptions {
-        isCoreLibraryDesugaringEnabled = true
     }
 
     composeOptions {
@@ -82,8 +78,6 @@ dependencies {
 
     ksp(libs.hilt.compiler)
     kspAndroidTest(libs.test.android.hilt.compiler)
-
-    coreLibraryDesugaring(libs.desugar)
 
     detektPlugins(libs.detekt.compose.rules)
 }

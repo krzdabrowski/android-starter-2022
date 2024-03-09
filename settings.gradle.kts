@@ -1,6 +1,7 @@
 @file:Suppress("UnstableApiUsage")
 
 include(":app")
+include(":baseline-profiles")
 include(":basic-feature")
 include(":core")
 
