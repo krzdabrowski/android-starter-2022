@@ -12,7 +12,6 @@ coil                                = "2.5.0"
 compose-bom                         = "2024.02.00"
 compose-compiler                    = "1.5.9"
 compose-material3                   = "1.2.1"
-desugar                             = "2.0.4"
 hilt                                = "2.50"
 kotlin                              = "1.9.22"
 kotlin-coroutines                   = "1.7.3"
@@ -59,7 +58,6 @@ ktlint                              = { id = "org.jmailen.kotlinter", version.re
 coil                                = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 compose-bom                         = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
 compose-material3                   = { group = "androidx.compose.material3", name = "material3", version.ref = "compose-material3" }
-desugar                             = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "desugar" }
 detekt-compose-rules                = { group = "io.nlopez.compose.rules", name = "detekt", version.ref = "detekt-compose-rules" }
 hilt                                = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler                       = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }

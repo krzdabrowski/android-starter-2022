@@ -33,10 +33,6 @@ android {
         }
     }
 
-    compileOptions {
-        isCoreLibraryDesugaringEnabled = true
-    }
-
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
@@ -82,8 +78,6 @@ dependencies {
 
     ksp(libs.hilt.compiler)
     kspAndroidTest(libs.test.android.hilt.compiler)
-
-    coreLibraryDesugaring(libs.desugar)
 
     detektPlugins(libs.detekt.compose.rules)
 }
