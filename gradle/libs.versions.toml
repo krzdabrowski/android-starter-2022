@@ -2,24 +2,24 @@
 # plugins
 android-gradle                      = "8.3.0"
 detekt                              = "1.23.5"
-detekt-compose-rules                = "0.3.11"
+detekt-compose-rules                = "0.3.12"
 junit                               = "1.10.0.0"
 ksp                                 = "1.9.22-1.0.17"
 ktlint                              = "3.16.0"
 
 # production libraries
-coil                                = "2.5.0"
-compose-bom                         = "2024.02.00"
-compose-compiler                    = "1.5.9"
+coil                                = "2.6.0"
+compose-bom                         = "2024.02.02"
+compose-compiler                    = "1.5.10"
 compose-material3                   = "1.2.1"
-hilt                                = "2.50"
+hilt                                = "2.51"
 kotlin                              = "1.9.22"
-kotlin-coroutines                   = "1.7.3"
-kotlin-serialization                = "1.6.2"
+kotlin-coroutines                   = "1.8.0"
+kotlin-serialization                = "1.6.3"
 kotlin-serialization-converter      = "1.0.0"
 lifecycle                           = "2.7.0"
 navigation                          = "2.7.7"
-navigation-hilt                     = "1.1.0"
+navigation-hilt                     = "1.2.0"
 okhttp-logging-interceptor          = "4.12.0"
 retrofit                            = "2.9.0"
 room                                = "2.6.1"
@@ -27,8 +27,8 @@ timber                              = "5.0.1"
 
 # test libraries
 test-junit                          = "5.10.2"
-test-mockk                          = "1.13.9"
-test-turbine                        = "1.0.0"
+test-mockk                          = "1.13.10"
+test-turbine                        = "1.1.0"
 
 # android test libraries
 test-android-baseline-profile       = "1.2.3"
