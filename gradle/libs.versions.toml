@@ -10,13 +10,12 @@ ktlint                              = "3.16.0"
 # production libraries
 coil                                = "2.6.0"
 compose-bom                         = "2024.03.00"
-compose-compiler                    = "1.5.10"
+compose-compiler                    = "1.5.11"
 compose-material3                   = "1.2.1"
 hilt                                = "2.51"
 kotlin                              = "1.9.23"
 kotlin-coroutines                   = "1.8.0"
 kotlin-serialization                = "1.6.3"
-kotlin-serialization-converter      = "1.0.0"
 lifecycle                           = "2.7.0"
 navigation                          = "2.7.7"
 navigation-hilt                     = "1.2.0"
@@ -63,7 +62,7 @@ hilt                                = { group = "com.google.dagger", name = "hil
 hilt-compiler                       = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
 kotlin-coroutines                   = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlin-coroutines" }
 kotlin-serialization                = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlin-serialization" }
-kotlin-serialization-converter      = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "kotlin-serialization-converter" }
+kotlin-serialization-converter      = { group = "com.squareup.retrofit2", name = "converter-kotlinx-serialization", version.ref = "retrofit" }
 lifecycle-runtime-compose           = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle" }
 navigation                          = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
 navigation-hilt                     = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "navigation-hilt" }
