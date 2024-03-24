@@ -5,7 +5,7 @@ detekt                              = "1.23.5"
 detekt-compose-rules                = "0.3.12"
 junit                               = "1.10.0.0"
 ksp                                 = "1.9.23-1.0.19"
-ktlint                              = "3.16.0"
+ktlint                              = "4.3.0"
 
 # production libraries
 coil                                = "2.6.0"
