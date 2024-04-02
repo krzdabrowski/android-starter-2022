@@ -34,7 +34,7 @@ import kotlinx.coroutines.flow.Flow
 fun RocketsRoute(
     viewModel: RocketsViewModel = hiltViewModel(),
 ) {
-    HandleEvents(viewModel.event)
+    HandleEvents(viewModel.getEvents())
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     RocketsScreen(

@@ -1,4 +1,4 @@
-package eu.krzdabrowski.starter.core
+package eu.krzdabrowski.starter.core.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -15,6 +15,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
+import eu.krzdabrowski.starter.core.R
 import eu.krzdabrowski.starter.core.design.AndroidStarterTheme
 import eu.krzdabrowski.starter.core.navigation.NavigationDestination
 import eu.krzdabrowski.starter.core.navigation.NavigationFactory

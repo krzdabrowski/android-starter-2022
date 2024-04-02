@@ -170,7 +170,7 @@ class RocketsViewModelTest {
         objectUnderTest.acceptIntent(RocketClicked(testUri))
 
         // Then
-        objectUnderTest.event.test {
+        objectUnderTest.getEvents().test {
             assertEquals(
                 expected = OpenWebBrowserWithDetails(testUri),
                 actual = awaitItem(),
@@ -189,7 +189,7 @@ class RocketsViewModelTest {
         objectUnderTest.acceptIntent(RocketClicked(testUri))
 
         // Then
-        objectUnderTest.event.test {
+        objectUnderTest.getEvents().test {
             expectNoEvents()
         }
     }
