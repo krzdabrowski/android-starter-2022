@@ -12,9 +12,8 @@ import eu.krzdabrowski.starter.basicfeature.presentation.RocketsUiState.PartialS
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsUiState.PartialState.Fetched
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsUiState.PartialState.Loading
 import eu.krzdabrowski.starter.basicfeature.presentation.mapper.toPresentationModel
-import eu.krzdabrowski.starter.core.BaseViewModel
+import eu.krzdabrowski.starter.core.presentation.mvi.BaseViewModel
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
@@ -87,11 +86,9 @@ class RocketsViewModel @Inject constructor(
         emit(Loading)
     }
 
-    private fun rocketClicked(uri: String): Flow<PartialState> {
+    private fun rocketClicked(uri: String): Flow<PartialState> = flow {
         if (uri.startsWith(HTTP_PREFIX) || uri.startsWith(HTTPS_PREFIX)) {
-            publishEvent(OpenWebBrowserWithDetails(uri))
+            setEvent(OpenWebBrowserWithDetails(uri))
         }
-
-        return emptyFlow()
     }
 }

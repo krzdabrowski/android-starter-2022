@@ -7,7 +7,7 @@ import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import eu.krzdabrowski.starter.basicfeature.data.generateTestRocketsFromDomain
 import eu.krzdabrowski.starter.basicfeature.presentation.composable.RocketsRoute
-import eu.krzdabrowski.starter.core.MainActivity
+import eu.krzdabrowski.starter.core.presentation.MainActivity
 import eu.krzdabrowski.starter.core.utils.getHiltTestViewModel
 import org.junit.Before
 import org.junit.Rule
