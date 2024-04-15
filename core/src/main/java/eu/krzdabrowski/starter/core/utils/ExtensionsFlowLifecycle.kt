@@ -24,7 +24,7 @@ inline fun <reified T> Flow<T>.collectWithLifecycle(
         )
     }
 
-    LaunchedEffect(key) {
+    LaunchedEffect(key, action) {
         lifecycleAwareFlow.collect { action(it) }
     }
 }
