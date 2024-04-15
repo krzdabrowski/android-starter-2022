@@ -93,7 +93,7 @@ private fun HandlePullToRefresh(
     onIntent: (RocketsIntent) -> Unit,
 ) {
     if (pullState.isRefreshing) {
-        LaunchedEffect(true) {
+        LaunchedEffect(onIntent) {
             onIntent(RefreshRockets)
         }
     }
