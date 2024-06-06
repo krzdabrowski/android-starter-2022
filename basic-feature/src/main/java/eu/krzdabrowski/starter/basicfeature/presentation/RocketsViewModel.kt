@@ -1,10 +1,11 @@
 package eu.krzdabrowski.starter.basicfeature.presentation
 
+import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.krzdabrowski.starter.basicfeature.domain.usecase.GetRocketsUseCase
 import eu.krzdabrowski.starter.basicfeature.domain.usecase.RefreshRocketsUseCase
-import eu.krzdabrowski.starter.basicfeature.presentation.RocketsEvent.OpenWebBrowserWithDetails
+import eu.krzdabrowski.starter.basicfeature.presentation.RocketsEvent.OpenRocketDetails
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent.RefreshRockets
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent.RocketClicked
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsUiState.PartialState
@@ -38,7 +39,7 @@ class RocketsViewModel @Inject constructor(
 
     override fun mapIntents(intent: RocketsIntent): Flow<PartialState> = when (intent) {
         is RefreshRockets -> refreshRockets()
-        is RocketClicked -> rocketClicked(intent.uri)
+        is RocketClicked -> rocketClicked(intent.rocketIndex)
     }
 
     override fun reduceUiState(
@@ -49,15 +50,21 @@ class RocketsViewModel @Inject constructor(
             isLoading = true,
             isError = false,
         )
+
         is Fetched -> previousState.copy(
             isLoading = false,
             rockets = partialState.list,
             isError = false,
         )
-        is Error -> previousState.copy(
-            isLoading = false,
-            isError = true,
-        )
+
+        is Error -> {
+
+            Log.e("error", partialState.throwable.localizedMessage)
+            previousState.copy(
+                isLoading = false,
+                isError = true,
+            )
+        }
     }
 
     private fun observeRockets() = acceptChanges(
@@ -86,9 +93,8 @@ class RocketsViewModel @Inject constructor(
         emit(Loading)
     }
 
-    private fun rocketClicked(uri: String): Flow<PartialState> = flow {
-        if (uri.startsWith(HTTP_PREFIX) || uri.startsWith(HTTPS_PREFIX)) {
-            setEvent(OpenWebBrowserWithDetails(uri))
-        }
+    private fun rocketClicked(rocketIndex: Int): Flow<PartialState> = flow {
+        val rocketItem = uiState.value.rockets[rocketIndex]
+        setEvent(OpenRocketDetails(rocketItem))
     }
 }

@@ -3,8 +3,9 @@ package eu.krzdabrowski.starter.basicfeature.data.mapper
 import eu.krzdabrowski.starter.basicfeature.data.local.model.RocketCached
 import eu.krzdabrowski.starter.basicfeature.data.remote.model.RocketResponse
 import eu.krzdabrowski.starter.basicfeature.domain.model.Rocket
+import eu.krzdabrowski.starter.basicfeature.utils.getDateFormatted
+import eu.krzdabrowski.starter.basicfeature.utils.toLocalDate
 import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 
 fun RocketResponse.toDomainModel() = Rocket(
     id = id,
@@ -14,6 +15,7 @@ fun RocketResponse.toDomainModel() = Rocket(
     height = height.meters.toInt(),
     weight = weight.kg,
     wikiUrl = wikiUrl,
+    country = country,
     imageUrl = imageUrls.random(),
 )
 
@@ -21,10 +23,11 @@ fun RocketCached.toDomainModel() = Rocket(
     id = id,
     name = name,
     costPerLaunch = costPerLaunch,
-    firstFlight = LocalDate.parse(firstFlightDate),
+    firstFlight = firstFlightDate.toLocalDate(),
     height = height,
     weight = weight,
     wikiUrl = wikiUrl,
+    country = country,
     imageUrl = imageUrl,
 )
 
@@ -32,9 +35,10 @@ fun Rocket.toEntityModel() = RocketCached(
     id = id,
     name = name,
     costPerLaunch = costPerLaunch,
-    firstFlightDate = firstFlight.format(DateTimeFormatter.ISO_LOCAL_DATE),
+    firstFlightDate = firstFlight.getDateFormatted(),
     height = height,
     weight = weight,
     wikiUrl = wikiUrl,
+    country = country,
     imageUrl = imageUrl,
 )

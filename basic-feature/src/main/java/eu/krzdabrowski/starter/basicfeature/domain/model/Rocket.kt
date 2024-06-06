@@ -10,5 +10,6 @@ data class Rocket(
     val height: Int,
     val weight: Int,
     val wikiUrl: String,
+    val country: String,
     val imageUrl: String,
 )

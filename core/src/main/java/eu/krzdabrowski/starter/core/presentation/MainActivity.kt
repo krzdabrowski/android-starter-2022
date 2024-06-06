@@ -38,28 +38,22 @@ class MainActivity : ComponentActivity() {
         setContent {
             AndroidStarterTheme {
                 val navController = rememberNavController()
-
                 Scaffold(
                     topBar = { MainTopAppBar() },
                 ) {
                     NavigationHost(
-                        modifier = Modifier
-                            .padding(it),
+                        modifier = Modifier.padding(it),
                         navController = navController,
                         factories = navigationFactories,
                     )
                 }
 
-                navigationManager
-                    .navigationEvent
-                    .collectWithLifecycle(
-                        key = navController,
-                    ) {
-                        when (it.destination) {
-                            NavigationDestination.Back.route -> navController.navigateUp()
-                            else -> navController.navigate(it.destination, it.configuration)
-                        }
+                navigationManager.navigationEvent.collectWithLifecycle(key = navController) {
+                    when (it.destination) {
+                        NavigationDestination.Back.route -> navController.navigateUp()
+                        else -> navController.navigate(it.destination, it.configuration)
                     }
+                }
             }
         }
     }

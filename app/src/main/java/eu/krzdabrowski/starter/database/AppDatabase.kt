@@ -10,6 +10,7 @@ private const val DATABASE_VERSION = 1
 @Database(
     entities = [RocketCached::class],
     version = DATABASE_VERSION,
+    exportSchema = true
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun rocketDao(): RocketDao

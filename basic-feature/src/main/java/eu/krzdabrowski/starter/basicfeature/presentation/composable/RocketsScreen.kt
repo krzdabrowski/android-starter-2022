@@ -27,6 +27,7 @@ import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent.RefreshRo
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent.RocketClicked
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsUiState
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsViewModel
+import eu.krzdabrowski.starter.basicfeature.presentation.model.RocketDisplayable
 import eu.krzdabrowski.starter.core.utils.collectWithLifecycle
 import kotlinx.coroutines.flow.Flow
 
@@ -114,6 +115,10 @@ private fun HandleEvents(events: Flow<RocketsEvent>) {
             is OpenWebBrowserWithDetails -> {
                 uriHandler.openUri(it.uri)
             }
+
+            is RocketsEvent.OpenRocketDetails -> {
+
+            }
         }
     }
 }
@@ -122,7 +127,7 @@ private fun HandleEvents(events: Flow<RocketsEvent>) {
 private fun RocketsAvailableContent(
     snackbarHostState: SnackbarHostState,
     uiState: RocketsUiState,
-    onRocketClick: (String) -> Unit,
+    onRocketClick: (Int) -> Unit,
 ) {
     if (uiState.isError) {
         val errorMessage = stringResource(R.string.rockets_error_refreshing)

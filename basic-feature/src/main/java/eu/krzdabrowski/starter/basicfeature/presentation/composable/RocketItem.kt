@@ -60,6 +60,14 @@ fun RocketItem(
 
             Text(
                 text = stringResource(
+                    id = R.string.rocket_country,
+                    rocket.country,
+                ),
+                style = Typography.bodyMedium,
+            )
+
+            Text(
+                text = stringResource(
                     id = R.string.rocket_height,
                     rocket.heightInMeters,
                 ),

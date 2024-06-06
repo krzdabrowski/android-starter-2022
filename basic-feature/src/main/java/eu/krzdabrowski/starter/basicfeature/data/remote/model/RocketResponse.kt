@@ -26,6 +26,9 @@ data class RocketResponse(
     @SerialName("wikipedia")
     val wikiUrl: String = "",
 
+    @SerialName("country")
+    val country: String = "",
+
     @SerialName("flickr_images")
     val imageUrls: List<String> = emptyList(),
 ) {

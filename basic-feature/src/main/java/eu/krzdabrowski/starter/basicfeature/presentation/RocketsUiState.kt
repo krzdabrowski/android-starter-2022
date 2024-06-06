@@ -19,5 +19,7 @@ data class RocketsUiState(
         data class Fetched(val list: List<RocketDisplayable>) : PartialState()
 
         data class Error(val throwable: Throwable) : PartialState()
+
+
     }
 }
