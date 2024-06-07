@@ -1,4 +1,4 @@
-package eu.krzdabrowski.starter.basicfeature.presentation.composable
+package eu.krzdabrowski.starter.basicfeature.presentation.composable.rockets
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -15,25 +15,21 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
-import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.krzdabrowski.starter.basicfeature.R
-import eu.krzdabrowski.starter.basicfeature.presentation.RocketsEvent
-import eu.krzdabrowski.starter.basicfeature.presentation.RocketsEvent.OpenWebBrowserWithDetails
-import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent
-import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent.RefreshRockets
-import eu.krzdabrowski.starter.basicfeature.presentation.RocketsIntent.RocketClicked
-import eu.krzdabrowski.starter.basicfeature.presentation.RocketsUiState
-import eu.krzdabrowski.starter.basicfeature.presentation.RocketsViewModel
-import eu.krzdabrowski.starter.basicfeature.presentation.model.RocketDisplayable
+import eu.krzdabrowski.starter.basicfeature.presentation.composable.rockets.RocketsIntent.RefreshRockets
+import eu.krzdabrowski.starter.basicfeature.presentation.composable.rockets.RocketsIntent.RocketClicked
+import eu.krzdabrowski.starter.basicfeature.presentation.composable.rockets.components.RocketsErrorContent
+import eu.krzdabrowski.starter.basicfeature.presentation.composable.rockets.components.RocketsListContent
+import eu.krzdabrowski.starter.basicfeature.presentation.composable.rockets.components.RocketsLoadingPlaceholder
 import eu.krzdabrowski.starter.core.utils.collectWithLifecycle
 import kotlinx.coroutines.flow.Flow
 
 @Composable
 fun RocketsRoute(
-    viewModel: RocketsViewModel = hiltViewModel(),
+    viewModel: RocketsViewModel = hiltViewModel()
 ) {
     HandleEvents(viewModel.getEvents())
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -42,6 +38,15 @@ fun RocketsRoute(
         uiState = uiState,
         onIntent = viewModel::acceptIntent,
     )
+}
+
+@Composable
+private fun HandleEvents(events: Flow<RocketsEvent>) {
+    events.collectWithLifecycle {
+        when (it) {
+            else -> {}
+        }
+    }
 }
 
 @Composable
@@ -102,23 +107,6 @@ private fun HandlePullToRefresh(
     if (uiState.isLoading.not()) {
         LaunchedEffect(true) {
             pullState.endRefresh()
-        }
-    }
-}
-
-@Composable
-private fun HandleEvents(events: Flow<RocketsEvent>) {
-    val uriHandler = LocalUriHandler.current
-
-    events.collectWithLifecycle {
-        when (it) {
-            is OpenWebBrowserWithDetails -> {
-                uriHandler.openUri(it.uri)
-            }
-
-            is RocketsEvent.OpenRocketDetails -> {
-
-            }
         }
     }
 }

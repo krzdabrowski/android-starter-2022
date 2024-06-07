@@ -6,7 +6,7 @@ import androidx.compose.ui.test.onNodeWithText
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import eu.krzdabrowski.starter.basicfeature.data.generateTestRocketsFromDomain
-import eu.krzdabrowski.starter.basicfeature.presentation.composable.RocketsRoute
+import eu.krzdabrowski.starter.basicfeature.presentation.composable.rockets.RocketsRoute
 import eu.krzdabrowski.starter.core.presentation.MainActivity
 import eu.krzdabrowski.starter.core.utils.getHiltTestViewModel
 import org.junit.Before

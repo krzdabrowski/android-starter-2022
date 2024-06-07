@@ -1,4 +1,4 @@
-package eu.krzdabrowski.starter.basicfeature.presentation
+package eu.krzdabrowski.starter.basicfeature.presentation.composable.rockets
 
 import android.os.Parcelable
 import androidx.compose.runtime.Immutable
@@ -19,7 +19,5 @@ data class RocketsUiState(
         data class Fetched(val list: List<RocketDisplayable>) : PartialState()
 
         data class Error(val throwable: Throwable) : PartialState()
-
-
     }
 }

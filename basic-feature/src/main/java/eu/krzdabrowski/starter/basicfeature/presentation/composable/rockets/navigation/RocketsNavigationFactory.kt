@@ -1,8 +1,8 @@
-package eu.krzdabrowski.starter.basicfeature.presentation
+package eu.krzdabrowski.starter.basicfeature.presentation.composable.rockets.navigation
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import eu.krzdabrowski.starter.basicfeature.presentation.composable.RocketsRoute
+import eu.krzdabrowski.starter.basicfeature.presentation.composable.rockets.RocketsRoute
 import eu.krzdabrowski.starter.core.navigation.NavigationDestination.Rockets
 import eu.krzdabrowski.starter.core.navigation.NavigationFactory
 import javax.inject.Inject

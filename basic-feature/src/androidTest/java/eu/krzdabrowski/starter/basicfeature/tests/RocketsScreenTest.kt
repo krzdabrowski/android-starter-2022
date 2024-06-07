@@ -7,8 +7,8 @@ import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import eu.krzdabrowski.starter.basicfeature.R
 import eu.krzdabrowski.starter.basicfeature.data.generateTestRocketsFromPresentation
-import eu.krzdabrowski.starter.basicfeature.presentation.RocketsUiState
-import eu.krzdabrowski.starter.basicfeature.presentation.composable.RocketsScreen
+import eu.krzdabrowski.starter.basicfeature.presentation.composable.rockets.RocketsUiState
+import eu.krzdabrowski.starter.basicfeature.presentation.composable.rockets.RocketsScreen
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test

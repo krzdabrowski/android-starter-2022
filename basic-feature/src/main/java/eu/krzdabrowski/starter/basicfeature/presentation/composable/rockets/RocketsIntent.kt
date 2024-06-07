@@ -1,4 +1,4 @@
-package eu.krzdabrowski.starter.basicfeature.presentation
+package eu.krzdabrowski.starter.basicfeature.presentation.composable.rockets
 
 sealed class RocketsIntent {
     data object RefreshRockets : RocketsIntent()
