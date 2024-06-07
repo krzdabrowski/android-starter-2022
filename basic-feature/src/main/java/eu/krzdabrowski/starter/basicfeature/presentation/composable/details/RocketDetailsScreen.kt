@@ -5,6 +5,7 @@ import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.krzdabrowski.starter.basicfeature.presentation.composable.details.components.RocketDetailsContent
+import eu.krzdabrowski.starter.basicfeature.presentation.composable.rockets.components.RocketsErrorContent
 
 @Composable
 fun RocketDetailsScreen(
@@ -20,7 +21,7 @@ fun RocketDetailsScreen(
     }
 
     if (uiState.showError) {
-
+        RocketsErrorContent()
     }
 
 }
