@@ -5,8 +5,6 @@ import eu.krzdabrowski.starter.core.utils.resultOf
 
 fun interface RefreshRocketsUseCase : suspend () -> Result<Unit>
 
-suspend fun refreshRockets(
-    rocketRepository: RocketRepository,
-): Result<Unit> = resultOf {
+suspend fun refreshRockets(rocketRepository: RocketRepository): Result<Unit> = resultOf {
     rocketRepository.refreshRockets()
 }

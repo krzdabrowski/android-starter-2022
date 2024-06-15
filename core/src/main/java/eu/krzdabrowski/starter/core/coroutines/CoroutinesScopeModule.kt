@@ -30,10 +30,9 @@ internal object CoroutinesScopeModule {
 
     @Singleton
     @Provides
-    fun provideCoroutineExceptionHandler(): CoroutineExceptionHandler =
-        CoroutineExceptionHandler { _, throwable ->
-            Timber.e(throwable)
-        }
+    fun provideCoroutineExceptionHandler(): CoroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
+        Timber.e(throwable)
+    }
 
     @MainImmediateScope
     @Singleton

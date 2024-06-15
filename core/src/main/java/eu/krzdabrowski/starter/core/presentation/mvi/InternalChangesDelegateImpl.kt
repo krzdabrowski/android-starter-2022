@@ -13,9 +13,8 @@ class InternalChangesDelegateImpl<PARTIAL_UI_STATE> : InternalChangesDelegate<PA
     private val internalChangesPartialStateFlowListenerStarted = CompletableDeferred<Unit>()
     private val internalChangesPartialStateFlow = MutableSharedFlow<PARTIAL_UI_STATE>()
 
-    override fun getInternalChanges(): Flow<PARTIAL_UI_STATE> =
-        internalChangesPartialStateFlow
-            .onSubscription { internalChangesPartialStateFlowListenerStarted.complete(Unit) }
+    override fun getInternalChanges(): Flow<PARTIAL_UI_STATE> = internalChangesPartialStateFlow
+        .onSubscription { internalChangesPartialStateFlowListenerStarted.complete(Unit) }
 
     override suspend fun setInternalChanges(vararg internalChangesFlows: Flow<PARTIAL_UI_STATE>) {
         internalChangesPartialStateFlowListenerStarted.await()

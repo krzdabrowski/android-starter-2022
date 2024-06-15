@@ -29,9 +29,10 @@ class RocketsViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     rocketsInitialState: RocketsUiState,
 ) : BaseViewModel<RocketsUiState, PartialState, RocketsEvent, RocketsIntent>(
-    savedStateHandle,
-    rocketsInitialState,
-) {
+        savedStateHandle = savedStateHandle,
+        initialState = rocketsInitialState,
+    ) {
+
     init {
         observeRockets()
     }

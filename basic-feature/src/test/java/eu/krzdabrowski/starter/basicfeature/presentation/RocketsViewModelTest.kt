@@ -194,9 +194,7 @@ class RocketsViewModelTest {
         }
     }
 
-    private fun setUpRocketsViewModel(
-        initialUiState: RocketsUiState = RocketsUiState(),
-    ) {
+    private fun setUpRocketsViewModel(initialUiState: RocketsUiState = RocketsUiState()) {
         objectUnderTest = RocketsViewModel(
             getRocketsUseCase,
             refreshRocketsUseCase,
