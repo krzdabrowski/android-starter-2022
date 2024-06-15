@@ -10,12 +10,12 @@ ktlint                              = "3.16.0"
 # production libraries
 coil                                = "2.6.0"
 compose-bom                         = "2024.06.00"
-compose-compiler                    = "1.5.11"
+compose-compiler                    = "1.5.14"
 compose-material3                   = "1.2.1"
 hilt                                = "2.51.1"
 kotlin                              = "1.9.24"
 kotlin-coroutines                   = "1.8.1"
-kotlin-serialization                = "1.7.0"
+kotlin-serialization                = "1.6.3"
 lifecycle                           = "2.8.2"
 navigation                          = "2.7.7"
 navigation-hilt                     = "1.2.0"
@@ -84,7 +84,6 @@ test-turbine                        = { group = "app.cash.turbine", name = "turb
 test-android-benchmark-macro        = { group = "androidx.benchmark", name = "benchmark-macro-junit4", version.ref = "test-android-baseline-profile" }
 test-android-compose                = { group = "androidx.compose.ui", name = "ui-test-junit4", version.ref = "test-android-compose-ui-test" }
 test-android-hilt                   = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
-test-android-hilt-compiler          = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
 test-android-junit                  = { group = "androidx.test.ext", name = "junit", version.ref = "test-android-junit" } # for @RunWith(AndroidJUnit4::class)
 test-android-profile-installer      = { group = "androidx.profileinstaller", name = "profileinstaller", version.ref = "test-android-profile-installer" } # for consuming baseline-prof.txt
 test-android-runner                 = { group = "androidx.test", name = "runner", version.ref = "test-android-runner" }
