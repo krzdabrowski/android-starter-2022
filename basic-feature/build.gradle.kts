@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.detekt)
     alias(libs.plugins.junit)
     alias(libs.plugins.kotlin)
+    alias(libs.plugins.kotlin.compose.compiler)
     alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
@@ -31,10 +32,6 @@ android {
             isMinifyEnabled = false
             consumerProguardFiles("proguard-rules.pro")
         }
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
 
     kotlin {

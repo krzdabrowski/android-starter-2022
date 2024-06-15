@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.detekt)
     alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin)
+    alias(libs.plugins.kotlin.compose.compiler)
     alias(libs.plugins.ksp)
     alias(libs.plugins.ktlint)
 }
@@ -36,10 +37,6 @@ android {
             // TODO: for development purposes, remember to create a release signing config when releasing proper app
             signingConfig = signingConfigs.getByName("debug")
         }
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
 
     kotlin {
