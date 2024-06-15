@@ -63,10 +63,11 @@ dependencies {
     implementation(libs.okhttp.logging.interceptor)
     implementation(libs.retrofit)
     implementation(libs.timber)
+    testImplementation(libs.bundles.common.test)
     androidTestImplementation(libs.bundles.common.android.test)
 
     ksp(libs.hilt.compiler)
-    kspAndroidTest(libs.test.android.hilt.compiler)
+    kspAndroidTest(libs.hilt.compiler)
 
     detektPlugins(libs.detekt.compose.rules)
 }
