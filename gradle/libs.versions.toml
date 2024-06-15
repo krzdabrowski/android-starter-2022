@@ -4,7 +4,7 @@ android-gradle                      = "8.5.0"
 detekt                              = "1.23.6"
 detekt-compose-rules                = "0.4.4"
 junit                               = "1.10.0.0"
-ksp                                 = "1.9.24-1.0.20"
+ksp                                 = "2.0.0-1.0.22"
 ktlint                              = "3.16.0"
 
 # production libraries
