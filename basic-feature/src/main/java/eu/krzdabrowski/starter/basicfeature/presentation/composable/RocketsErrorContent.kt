@@ -15,9 +15,7 @@ import androidx.compose.ui.text.style.TextAlign
 import eu.krzdabrowski.starter.basicfeature.R
 
 @Composable
-fun RocketsErrorContent(
-    modifier: Modifier = Modifier,
-) {
+fun RocketsErrorContent(modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
             .fillMaxSize()

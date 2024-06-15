@@ -21,25 +21,19 @@ internal object RocketModule {
 
     @Provides
     @Singleton
-    fun provideRocketApi(
-        retrofit: Retrofit,
-    ): RocketApi {
+    fun provideRocketApi(retrofit: Retrofit): RocketApi {
         return retrofit.create(RocketApi::class.java)
     }
 
     @Provides
-    fun provideGetRocketsUseCase(
-        rocketRepository: RocketRepository,
-    ): GetRocketsUseCase {
+    fun provideGetRocketsUseCase(rocketRepository: RocketRepository): GetRocketsUseCase {
         return GetRocketsUseCase {
             getRockets(rocketRepository)
         }
     }
 
     @Provides
-    fun provideRefreshRocketsUseCase(
-        rocketRepository: RocketRepository,
-    ): RefreshRocketsUseCase {
+    fun provideRefreshRocketsUseCase(rocketRepository: RocketRepository): RefreshRocketsUseCase {
         return RefreshRocketsUseCase {
             refreshRockets(rocketRepository)
         }

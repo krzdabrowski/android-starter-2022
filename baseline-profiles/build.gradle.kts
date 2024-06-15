@@ -44,6 +44,4 @@ baselineProfile {
 dependencies {
     implementation(libs.test.android.benchmark.macro)
     implementation(libs.test.android.junit)
-
-    detektPlugins(libs.detekt.compose.rules)
 }

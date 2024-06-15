@@ -1,0 +1,65 @@
+# https://editorconfig.org
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+max_line_length = 130
+
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+
+[*.{java,kt,kts,scala,rs,xml,kt.spec,kts.spec}]
+indent_size = 4
+
+
+[*.{kt,kts}]
+# Don't allow any wildcard imports
+ij_kotlin_packages_to_use_import_on_demand = unset
+
+# Prevent wildcard imports
+ij_kotlin_name_count_to_use_star_import = 99
+ij_kotlin_name_count_to_use_star_import_for_members = 99
+
+ktlint_code_style = ktlint_official
+ktlint_standard = enabled
+
+
+# Ignore identifiers enclosed in backticks
+ktlint_ignore_back_ticked_identifier = true
+
+# Ignore "Expected newline after last annotation" error
+# example: @Inject constructor()
+ktlint_standard_annotation = disabled
+
+# Ignore "Function name should start with a lowercase letter (except factory methods) and use camel case" error
+# that usually occurs when working with Compose UI
+ktlint_standard_function-naming = disabled
+
+# Ignore "A multiline expression should start on a new line" error
+# example: when declaring `runTest` in the same line as test name
+ktlint_standard_multiline-expression-wrapping = disabled
+
+# Ignore "No empty first line in class body" error
+ktlint_standard_no-empty-first-line-in-class-body = disabled
+
+# Ignore "No blank line before" error
+ktlint_standard_no-blank-line-in-list = disabled
+
+# Set signature body expression wrapping to default (even if default, it is required for multiline-expression-wrapping)
+ktlint_function_signature_body_expression_wrapping = default
+
+
+[*.md]
+trim_trailing_whitespace = false
+max_line_length = unset
+
+[gradle/verification-metadata.xml]
+indent_size = 3
+
+
+[*.yml]
+ij_yaml_spaces_within_brackets = false

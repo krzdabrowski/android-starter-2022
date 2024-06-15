@@ -31,9 +31,7 @@ import eu.krzdabrowski.starter.core.utils.collectWithLifecycle
 import kotlinx.coroutines.flow.Flow
 
 @Composable
-fun RocketsRoute(
-    viewModel: RocketsViewModel = hiltViewModel(),
-) {
+fun RocketsRoute(viewModel: RocketsViewModel = hiltViewModel()) {
     HandleEvents(viewModel.getEvents())
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 

@@ -70,8 +70,6 @@ dependencies {
 
     ksp(libs.hilt.compiler)
     ksp(libs.room.compiler)
-
-    detektPlugins(libs.detekt.compose.rules)
 }
 
 ksp {

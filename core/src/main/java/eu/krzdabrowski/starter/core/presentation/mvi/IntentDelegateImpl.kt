@@ -11,9 +11,7 @@ class IntentDelegateImpl<INTENT, PARTIAL_UI_STATE> : IntentDelegate<INTENT, PART
     private val intentsFlowListenerStarted = CompletableDeferred<Unit>()
     private val intentsFlow = MutableSharedFlow<INTENT>()
 
-    override fun getIntents(
-        mapOperation: (INTENT) -> Flow<PARTIAL_UI_STATE>,
-    ): Flow<PARTIAL_UI_STATE> = intentsFlow
+    override fun getIntents(mapOperation: (INTENT) -> Flow<PARTIAL_UI_STATE>): Flow<PARTIAL_UI_STATE> = intentsFlow
         .onSubscription { intentsFlowListenerStarted.complete(Unit) }
         .flatMapConcurrently(
             transform = mapOperation,

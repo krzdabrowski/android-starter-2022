@@ -72,9 +72,7 @@ class RocketsScreenTest {
             .assertExists()
     }
 
-    private fun setUpComposable(
-        rocketsUiState: RocketsUiState,
-    ) {
+    private fun setUpComposable(rocketsUiState: RocketsUiState) {
         composeTestRule.setContent {
             RocketsScreen(
                 uiState = rocketsUiState,

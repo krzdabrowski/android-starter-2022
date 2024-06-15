@@ -48,9 +48,7 @@ internal object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(
-        okHttpClient: OkHttpClient,
-    ): Retrofit {
+    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         val json = Json {
             ignoreUnknownKeys = true
         }
