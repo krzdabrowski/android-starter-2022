@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.hilt)
     alias(libs.plugins.junit)
     alias(libs.plugins.kotlin)
+    alias(libs.plugins.kotlin.compose.compiler)
     alias(libs.plugins.ksp)
     alias(libs.plugins.ktlint)
 }
@@ -33,21 +34,21 @@ android {
         }
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+    composeCompiler {
+        enableStrongSkippingMode = true
     }
 
     kotlin {
         jvmToolchain(17)
-    }
 
-    kotlinOptions {
-        freeCompilerArgs = listOf(
-            "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
-            "-opt-in=kotlinx.coroutines.FlowPreview",
-            "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
-            "-opt-in=kotlinx.serialization.ExperimentalSerializationApi"
-        )
+        compilerOptions {
+            freeCompilerArgs.addAll(
+                "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
+                "-opt-in=kotlinx.coroutines.FlowPreview",
+                "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+                "-opt-in=kotlinx.serialization.ExperimentalSerializationApi"
+            )
+        }
     }
 }
 

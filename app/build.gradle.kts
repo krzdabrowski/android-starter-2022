@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.detekt)
     alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin)
+    alias(libs.plugins.kotlin.compose.compiler)
     alias(libs.plugins.ksp)
     alias(libs.plugins.ktlint)
 }
@@ -38,8 +39,8 @@ android {
         }
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+    composeCompiler {
+        enableStrongSkippingMode = true
     }
 
     kotlin {

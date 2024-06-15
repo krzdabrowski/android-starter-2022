@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.detekt)
     alias(libs.plugins.junit)
     alias(libs.plugins.kotlin)
+    alias(libs.plugins.kotlin.compose.compiler)
     alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
@@ -33,18 +34,18 @@ android {
         }
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+    composeCompiler {
+        enableStrongSkippingMode = true
     }
 
     kotlin {
         jvmToolchain(17)
-    }
 
-    kotlinOptions {
-        freeCompilerArgs = listOf(
-            "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api"
-        )
+        compilerOptions {
+            freeCompilerArgs.addAll(
+                "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api"
+            )
+        }
     }
 
     sourceSets {
