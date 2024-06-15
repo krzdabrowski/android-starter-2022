@@ -4,7 +4,7 @@ android-gradle                      = "8.5.0"
 detekt                              = "1.23.6"
 detekt-compose-rules                = "0.4.4"
 junit                               = "1.10.0.0"
-ksp                                 = "1.9.24-1.0.20"
+ksp                                 = "2.0.0-1.0.22"
 ktlint                              = "3.16.0"
 
 # production libraries
@@ -15,7 +15,7 @@ compose-material3                   = "1.2.1"
 hilt                                = "2.51.1"
 kotlin                              = "2.0.0"
 kotlin-coroutines                   = "1.8.1"
-kotlin-serialization                = "1.6.3"
+kotlin-serialization                = "1.7.0"
 lifecycle                           = "2.7.0" # update to 2.8.x when it fixes the crash on release version that happens on 2.8.2
 navigation                          = "2.7.7"
 navigation-hilt                     = "1.2.0"
