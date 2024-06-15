@@ -24,3 +24,9 @@ allprojects {
         config.setFrom(files("$rootDir/gradle/detekt.yml"))
     }
 }
+
+buildscript {
+    dependencies {
+        classpath(libs.compose.rules)
+    }
+}

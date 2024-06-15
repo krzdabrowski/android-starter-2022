@@ -79,6 +79,4 @@ dependencies {
 
     ksp(libs.hilt.compiler)
     kspAndroidTest(libs.hilt.compiler)
-
-    detektPlugins(libs.detekt.compose.rules)
 }
