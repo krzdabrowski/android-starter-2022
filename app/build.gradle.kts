@@ -39,6 +39,10 @@ android {
         }
     }
 
+    composeCompiler {
+        enableStrongSkippingMode = true
+    }
+
     kotlin {
         jvmToolchain(17)
     }
