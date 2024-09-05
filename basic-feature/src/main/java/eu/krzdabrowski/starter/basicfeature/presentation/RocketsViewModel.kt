@@ -13,6 +13,7 @@ import eu.krzdabrowski.starter.basicfeature.presentation.RocketsUiState.PartialS
 import eu.krzdabrowski.starter.basicfeature.presentation.RocketsUiState.PartialState.Loading
 import eu.krzdabrowski.starter.basicfeature.presentation.mapper.toPresentationModel
 import eu.krzdabrowski.starter.core.presentation.mvi.BaseViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
@@ -21,6 +22,8 @@ import javax.inject.Inject
 
 private const val HTTP_PREFIX = "http"
 private const val HTTPS_PREFIX = "https"
+
+private const val ROCKETS_REFRESH_FAILURE_INDICATOR_DURATION_IN_MILLIS = 500L // to make refresh indicator visible for a while
 
 @HiltViewModel
 class RocketsViewModel @Inject constructor(
@@ -81,6 +84,7 @@ class RocketsViewModel @Inject constructor(
     private fun refreshRockets(): Flow<PartialState> = flow<PartialState> {
         refreshRocketsUseCase()
             .onFailure {
+                delay(ROCKETS_REFRESH_FAILURE_INDICATOR_DURATION_IN_MILLIS)
                 emit(Error(it))
             }
     }.onStart {

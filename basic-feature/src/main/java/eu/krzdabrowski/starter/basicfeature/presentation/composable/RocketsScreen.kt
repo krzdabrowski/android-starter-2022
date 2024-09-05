@@ -1,20 +1,15 @@
 package eu.krzdabrowski.starter.basicfeature.presentation.composable
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.pulltorefresh.PullToRefreshContainer
-import androidx.compose.material3.pulltorefresh.PullToRefreshState
-import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -47,21 +42,14 @@ internal fun RocketsScreen(
     onIntent: (RocketsIntent) -> Unit,
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
-    val pullToRefreshState = rememberPullToRefreshState()
-
-    HandlePullToRefresh(
-        pullState = pullToRefreshState,
-        uiState = uiState,
-        onIntent = onIntent,
-    )
 
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { paddingValues ->
-        Box(
-            modifier = Modifier
-                .padding(paddingValues)
-                .nestedScroll(pullToRefreshState.nestedScrollConnection),
+        PullToRefreshBox(
+            modifier = Modifier.padding(paddingValues),
+            isRefreshing = uiState.isLoading,
+            onRefresh = { onIntent(RefreshRockets) },
         ) {
             if (uiState.rockets.isNotEmpty()) {
                 RocketsAvailableContent(
@@ -74,31 +62,6 @@ internal fun RocketsScreen(
                     uiState = uiState,
                 )
             }
-
-            PullToRefreshContainer(
-                state = pullToRefreshState,
-                modifier = Modifier
-                    .align(Alignment.TopCenter),
-            )
-        }
-    }
-}
-
-@Composable
-private fun HandlePullToRefresh(
-    pullState: PullToRefreshState,
-    uiState: RocketsUiState,
-    onIntent: (RocketsIntent) -> Unit,
-) {
-    if (pullState.isRefreshing) {
-        LaunchedEffect(onIntent) {
-            onIntent(RefreshRockets)
-        }
-    }
-
-    if (uiState.isLoading.not()) {
-        LaunchedEffect(true) {
-            pullState.endRefresh()
         }
     }
 }
