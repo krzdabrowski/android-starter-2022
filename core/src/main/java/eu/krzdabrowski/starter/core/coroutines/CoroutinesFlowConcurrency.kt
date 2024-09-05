@@ -118,7 +118,8 @@ internal fun <T, R> Flow<T>.flatMapConcurrently(
                         semaphore.release()
                     }
                 }
-                exceptionWasThrownEarlier.invokeOnCompletion { thrown -> // should never be null
+                exceptionWasThrownEarlier.invokeOnCompletion { thrown ->
+                    // should never be null
                     // don't nest CancellationExceptions arbitrarily deep
                     evalTransform.cancel(thrown!!.asCancellation())
 

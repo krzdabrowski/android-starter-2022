@@ -100,11 +100,9 @@ class NavigationManagerTest {
         }
     }
 
-    private fun generateTestNavigationCommands(number: Int): List<NavigationCommand> {
-        return List(number) {
-            object : NavigationCommand {
-                override val destination = "testDestination$it"
-            }
+    private fun generateTestNavigationCommands(number: Int): List<NavigationCommand> = List(number) {
+        object : NavigationCommand {
+            override val destination = "testDestination$it"
         }
     }
 

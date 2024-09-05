@@ -149,6 +149,8 @@ class RocketsViewModelTest {
 
         // Then
         objectUnderTest.uiState.test {
+            skipItems(1) // Loading-Refreshing state
+
             val actualItem = awaitItem()
 
             assertTrue(actualItem.isError)

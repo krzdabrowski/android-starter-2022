@@ -18,18 +18,14 @@ import kotlinx.coroutines.flow.flowOf
 internal object FakeRocketModule {
 
     @Provides
-    fun provideFakeGetRocketsUseCase(): GetRocketsUseCase {
-        return GetRocketsUseCase {
-            flowOf(
-                Result.success(generateTestRocketsFromDomain()),
-            )
-        }
+    fun provideFakeGetRocketsUseCase(): GetRocketsUseCase = GetRocketsUseCase {
+        flowOf(
+            Result.success(generateTestRocketsFromDomain()),
+        )
     }
 
     @Provides
-    fun provideNoopRefreshRocketsUseCase(): RefreshRocketsUseCase {
-        return RefreshRocketsUseCase {
-            resultOf { }
-        }
+    fun provideNoopRefreshRocketsUseCase(): RefreshRocketsUseCase = RefreshRocketsUseCase {
+        resultOf { }
     }
 }

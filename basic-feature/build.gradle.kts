@@ -34,16 +34,13 @@ android {
         }
     }
 
-    composeCompiler {
-        enableStrongSkippingMode = true
-    }
-
     kotlin {
         jvmToolchain(17)
 
         compilerOptions {
             freeCompilerArgs.addAll(
-                "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api"
+                "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
+                "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
             )
         }
     }
