@@ -3,7 +3,7 @@
 android-gradle                      = "8.6.0"
 detekt                              = "1.23.6"
 junit                               = "1.11.0.0"
-ksp                                 = "2.0.20-1.0.24"
+ksp                                 = "2.0.20-1.0.25"
 ktlint                              = "4.4.1"
 
 # production libraries
@@ -16,7 +16,7 @@ kotlin                              = "2.0.20"
 kotlin-coroutines                   = "1.8.1"
 kotlin-serialization                = "1.7.2"
 lifecycle                           = "2.8.5"
-navigation                          = "2.7.7"
+navigation                          = "2.8.0"
 navigation-hilt                     = "1.2.0"
 okhttp-logging-interceptor          = "4.12.0"
 retrofit                            = "2.11.0"
