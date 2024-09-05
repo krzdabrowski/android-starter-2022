@@ -11,14 +11,12 @@ import kotlinx.coroutines.TimeoutCancellationException
  *
  * Cancellation exceptions need to be rethrown. See https://github.com/Kotlin/kotlinx.coroutines/issues/1814.
  */
-inline fun <R> resultOf(block: () -> R): Result<R> {
-    return try {
-        Result.success(block())
-    } catch (t: TimeoutCancellationException) {
-        Result.failure(t)
-    } catch (c: CancellationException) {
-        throw c
-    } catch (e: Exception) {
-        Result.failure(e)
-    }
+inline fun <R> resultOf(block: () -> R): Result<R> = try {
+    Result.success(block())
+} catch (t: TimeoutCancellationException) {
+    Result.failure(t)
+} catch (c: CancellationException) {
+    throw c
+} catch (e: Exception) {
+    Result.failure(e)
 }

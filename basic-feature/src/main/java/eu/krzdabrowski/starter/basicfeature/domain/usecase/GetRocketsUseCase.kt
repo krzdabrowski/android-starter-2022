@@ -28,6 +28,7 @@ fun getRockets(rocketRepository: RocketRepository): Flow<Result<List<Rocket>>> =
             false
         }
     }
-    .catch { // for other than IOException but it will stop collecting Flow
+    .catch {
+        // for other than IOException but it will stop collecting Flow
         emit(Result.failure(it)) // also catch does re-throw CancellationException
     }

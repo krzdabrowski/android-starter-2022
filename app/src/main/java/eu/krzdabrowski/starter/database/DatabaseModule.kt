@@ -20,17 +20,13 @@ internal object DatabaseModule {
     @Provides
     fun provideAppDatabase(
         @ApplicationContext context: Context,
-    ): AppDatabase {
-        return Room.databaseBuilder(
-            context,
-            AppDatabase::class.java,
-            APP_DATABASE_NAME,
-        ).build()
-    }
+    ): AppDatabase = Room.databaseBuilder(
+        context,
+        AppDatabase::class.java,
+        APP_DATABASE_NAME,
+    ).build()
 
     @Singleton
     @Provides
-    fun provideRocketDao(database: AppDatabase): RocketDao {
-        return database.rocketDao()
-    }
+    fun provideRocketDao(database: AppDatabase): RocketDao = database.rocketDao()
 }

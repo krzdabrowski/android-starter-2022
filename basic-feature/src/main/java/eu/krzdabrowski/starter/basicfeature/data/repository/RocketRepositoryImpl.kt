@@ -16,18 +16,15 @@ class RocketRepositoryImpl @Inject constructor(
     private val rocketDao: RocketDao,
 ) : RocketRepository {
 
-    override fun getRockets(): Flow<List<Rocket>> {
-        return rocketDao
-            .getRockets()
-            .map { rocketsCached ->
-                rocketsCached.map { it.toDomainModel() }
+    override fun getRockets(): Flow<List<Rocket>> = rocketDao.getRockets()
+        .map { rocketsCached ->
+            rocketsCached.map { it.toDomainModel() }
+        }
+        .onEach { rockets ->
+            if (rockets.isEmpty()) {
+                refreshRockets()
             }
-            .onEach { rockets ->
-                if (rockets.isEmpty()) {
-                    refreshRockets()
-                }
-            }
-    }
+        }
 
     override suspend fun refreshRockets() {
         rocketApi

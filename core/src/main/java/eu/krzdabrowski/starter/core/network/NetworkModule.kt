@@ -23,28 +23,24 @@ internal object NetworkModule {
 
     @Provides
     @Named(INTERCEPTOR_LOGGING_NAME)
-    fun provideHttpLoggingInterceptor(): Interceptor {
-        return if (BuildConfig.DEBUG) {
-            HttpLoggingInterceptor().apply {
-                level = HttpLoggingInterceptor.Level.BODY
-            }
-        } else {
-            noOpInterceptor()
+    fun provideHttpLoggingInterceptor(): Interceptor = if (BuildConfig.DEBUG) {
+        HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
         }
+    } else {
+        noOpInterceptor()
     }
 
     @Provides
     @Singleton
     fun provideOkHttpClient(
         @Named(INTERCEPTOR_LOGGING_NAME) loggingInterceptor: Interceptor,
-    ): OkHttpClient {
-        return OkHttpClient
-            .Builder()
-            .apply {
-                addNetworkInterceptor(loggingInterceptor)
-            }
-            .build()
-    }
+    ): OkHttpClient = OkHttpClient
+        .Builder()
+        .apply {
+            addNetworkInterceptor(loggingInterceptor)
+        }
+        .build()
 
     @Provides
     @Singleton
@@ -62,9 +58,7 @@ internal object NetworkModule {
             .build()
     }
 
-    private fun noOpInterceptor(): Interceptor {
-        return Interceptor { chain ->
-            chain.proceed(chain.request())
-        }
+    private fun noOpInterceptor(): Interceptor = Interceptor { chain ->
+        chain.proceed(chain.request())
     }
 }
