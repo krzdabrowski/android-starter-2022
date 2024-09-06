@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.junit)
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kotlin.compose.compiler)
+    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.ktlint)
 }

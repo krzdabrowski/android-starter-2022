@@ -55,27 +55,27 @@ class NavigationManagerTest {
         // Then
         objectUnderTest.navigationEvent.test {
             assertEquals(
-                expected = "testDestination0",
+                expected = NavigationDestination.Rockets,
                 actual = awaitItem().destination,
             )
 
             assertEquals(
-                expected = "testDestination1",
+                expected = NavigationDestination.Back,
                 actual = awaitItem().destination,
             )
 
             assertEquals(
-                expected = "testDestination2",
+                expected = NavigationDestination.Rockets,
                 actual = awaitItem().destination,
             )
 
             assertEquals(
-                expected = "testDestination3",
+                expected = NavigationDestination.Back,
                 actual = awaitItem().destination,
             )
 
             assertEquals(
-                expected = "testDestination4",
+                expected = NavigationDestination.Rockets,
                 actual = awaitItem().destination,
             )
         }
@@ -85,7 +85,7 @@ class NavigationManagerTest {
     fun `should emit navigation back command when navigating back`() = testScope.runTest {
         // Given
         val testNavigationBackCommand = object : NavigationCommand {
-            override val destination = NavigationDestination.Back.route
+            override val destination = NavigationDestination.Back
         }
 
         // When
@@ -101,8 +101,14 @@ class NavigationManagerTest {
     }
 
     private fun generateTestNavigationCommands(number: Int): List<NavigationCommand> = List(number) {
-        object : NavigationCommand {
-            override val destination = "testDestination$it"
+        if (it % 2 == 0) {
+            object : NavigationCommand {
+                override val destination = NavigationDestination.Rockets
+            }
+        } else {
+            object : NavigationCommand {
+                override val destination = NavigationDestination.Back
+            }
         }
     }
 

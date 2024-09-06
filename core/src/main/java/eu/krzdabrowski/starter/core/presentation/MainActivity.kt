@@ -56,7 +56,7 @@ class MainActivity : ComponentActivity() {
                         key = navController,
                     ) {
                         when (it.destination) {
-                            NavigationDestination.Back.route -> navController.navigateUp()
+                            NavigationDestination.Back -> navController.navigateUp()
                             else -> navController.navigate(it.destination, it.configuration)
                         }
                     }

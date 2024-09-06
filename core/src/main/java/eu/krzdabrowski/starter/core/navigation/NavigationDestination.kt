@@ -1,9 +1,11 @@
 package eu.krzdabrowski.starter.core.navigation
 
-sealed class NavigationDestination(
-    val route: String,
-) {
-    data object Rockets : NavigationDestination("rocketsDestination")
+import kotlinx.serialization.Serializable
 
-    data object Back : NavigationDestination("navigationBack")
+sealed class NavigationDestination {
+    @Serializable
+    data object Rockets : NavigationDestination()
+
+    @Serializable
+    data object Back : NavigationDestination()
 }
