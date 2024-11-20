@@ -1,22 +1,22 @@
 [versions]
 # plugins
-android-gradle                      = "8.6.0"
-detekt                              = "1.23.6"
-junit                               = "1.11.0.0"
-ksp                                 = "2.0.20-1.0.25"
-ktlint                              = "4.4.1"
+android-gradle                      = "8.7.2"
+detekt                              = "1.23.7"
+junit                               = "1.11.2.0"
+ksp                                 = "2.0.21-1.0.28"
+ktlint                              = "4.5.0"
 
 # production libraries
 coil                                = "2.7.0"
-compose-bom                         = "2024.09.00"
-compose-rules                       = "0.4.11"
-compose-material3                   = "1.3.0"
+compose-bom                         = "2024.11.00"
+compose-rules                       = "0.4.19"
+compose-material3                   = "1.3.1"
 hilt                                = "2.52"
-kotlin                              = "2.0.20"
-kotlin-coroutines                   = "1.8.1"
-kotlin-serialization                = "1.7.2"
-lifecycle                           = "2.8.5"
-navigation                          = "2.8.0"
+kotlin                              = "2.0.21"
+kotlin-coroutines                   = "1.9.0"
+kotlin-serialization                = "1.7.3"
+lifecycle                           = "2.8.7"
+navigation                          = "2.8.4"
 navigation-hilt                     = "1.2.0"
 okhttp-logging-interceptor          = "4.12.0"
 retrofit                            = "2.11.0"
@@ -24,15 +24,15 @@ room                                = "2.6.1"
 timber                              = "5.0.1"
 
 # test libraries
-test-junit                          = "5.11.0"
-test-mockk                          = "1.13.12"
-test-turbine                        = "1.1.0"
+test-junit                          = "5.11.3"
+test-mockk                          = "1.13.13"
+test-turbine                        = "1.2.0"
 
 # android test libraries
-test-android-baseline-profile       = "1.3.0"
-test-android-compose-ui-test        = "1.7.0"
+test-android-baseline-profile       = "1.3.3"
+test-android-compose-ui-test        = "1.7.5"
 test-android-junit                  = "1.2.1"
-test-android-profile-installer      = "1.3.1"
+test-android-profile-installer      = "1.4.1"
 test-android-runner                 = "1.6.2"
 
 
