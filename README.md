@@ -42,5 +42,4 @@ Supports light/dark mode theming automatically.
 * JUnit5, Turbine and MockK - for unit tests
 * Jetpack Compose test dependencies, Maestro and Hilt - for UI tests
 * GitHub Actions - for CI/CD
-* Renovate - to update dependencies automatically
 * KtLint and Detekt - for code linting
