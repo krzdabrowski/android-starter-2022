@@ -19,8 +19,8 @@ import eu.krzdabrowski.starter.core.design.Typography
 @Composable
 fun RocketItem(
     rocket: RocketDisplayable,
-    modifier: Modifier = Modifier,
     onRocketClick: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     Row(
         modifier = modifier

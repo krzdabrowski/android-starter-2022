@@ -16,8 +16,8 @@ const val ROCKET_DIVIDER_TEST_TAG = "rocketDividerTestTag"
 @Composable
 fun RocketsListContent(
     rocketList: List<RocketDisplayable>,
-    modifier: Modifier = Modifier,
     onRocketClick: (String) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     LazyColumn(
         modifier = modifier
